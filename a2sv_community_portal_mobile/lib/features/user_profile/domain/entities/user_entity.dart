@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
 class UserEntity extends Equatable {
@@ -9,7 +10,7 @@ class UserEntity extends Equatable {
   final String phoneNumber;
   final String university;
   final String department;
-  final int graduationYear;
+  final int? graduationYear;
   final String favoriteLanguage;
   final String password;
   final String cv;
@@ -31,7 +32,7 @@ class UserEntity extends Equatable {
     this.phoneNumber = '',
     this.university = '',
     this.department = '',
-    this.graduationYear = -1,
+    this.graduationYear,
     this.favoriteLanguage = '',
     this.cv = '',
     this.shortBio = '',
