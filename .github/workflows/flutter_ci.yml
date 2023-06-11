@@ -20,17 +20,17 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd cicd
+          cd a2sv_community_portal_mobile
           flutter pub get
 
       - name: Analyze code
         run: |
-          cd cicd
+          cd a2sv_community_portal_mobile
           flutter analyze
 
       - name: Run tests
         run: |
-          cd cicd
+          cd a2sv_community_portal_mobile
           flutter test
 
   build_appbundle:
@@ -48,15 +48,15 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd cicd
+          cd a2sv_community_portal_mobile
           flutter pub get
 
       - name: Clean build artifacts
         run: |
-          cd cicd
+          cd a2sv_community_portal_mobile
           flutter clean
 
       - name: Build app bundle
         run: |
-          cd cicd
+          cd a2sv_community_portal_mobile
           flutter build appbundle
