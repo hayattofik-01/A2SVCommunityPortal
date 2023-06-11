@@ -19,21 +19,19 @@ void main() {
   });
 
   const tUser = UserEntity(
-    id: '123',
-    name: 'Test User',
-    email: 'test@test.com',
-    telegramUsername: 'testuser',
-    codeForces: 'testuser',
-    password: 'password123'
-  );
+      id: '123',
+      name: 'Test User',
+      email: 'test@test.com',
+      telegramUsername: 'testuser',
+      codeForces: 'testuser',
+      password: 'password123');
   const tEditedUser = UserEntity(
-    id: '123',
-    name: 'Edited Test User',
-    email: 'edited@test.com',
-    telegramUsername: 'editedtestuser',
-    codeForces: 'editedtestuser',
-    password: 'password123'
-  );
+      id: '123',
+      name: 'Edited Test User',
+      email: 'edited@test.com',
+      telegramUsername: 'editedtestuser',
+      codeForces: 'editedtestuser',
+      password: 'password123');
 
   test(
     'should edit the user profile when the repository call is successful',
@@ -54,11 +52,11 @@ void main() {
     () async {
       // arrange
       when(mockUserRepository.editUserProfile(any))
-          .thenAnswer((_) async => Left(ServerFailure("Server Failure")));
+          .thenAnswer((_) async => const Left(ServerFailure("Server Failure")));
       // act
       final result = await usecase(tUser);
       // assert
-      expect(result, Left(ServerFailure("Server Failure")));
+      expect(result, const Left(ServerFailure("Server Failure")));
       verify(mockUserRepository.editUserProfile(tUser));
       verifyNoMoreInteractions(mockUserRepository);
     },
