@@ -45,11 +45,11 @@ void main() {
     () async {
       // arrange
       when(mockUserRepository.getUser(id))
-          .thenAnswer((_) async => Left(ServerFailure("Server Failure")));
+          .thenAnswer((_) async => const Left(ServerFailure("Server Failure")));
       // act
       final result = await usecase(id);
       // assert
-      expect(result, Left(ServerFailure("Server Failure")));
+      expect(result, const Left(ServerFailure("Server Failure")));
       verify(mockUserRepository.getUser(id));
       verifyNoMoreInteractions(mockUserRepository);
     },

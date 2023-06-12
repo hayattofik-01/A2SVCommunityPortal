@@ -19,27 +19,27 @@ void main() {
   });
 
   test('should login user successfully', () async {
-    final loginParams = LoginParams(email: 'email', password: 'password');
-    final login = Login(token: 'token');
+    const loginParams = LoginParams(email: 'email', password: 'password');
+    const login = Login(token: 'token');
 
-    when(useCase(loginParams)).thenAnswer((_) async => Right(login));
+    when(useCase(loginParams)).thenAnswer((_) async => const Right(login));
 
     final result = await useCase(loginParams);
 
     verify(mockRepository.loginUser(loginParams.email, loginParams.password));
-    expect(result, Right(login));
+    expect(result, const Right(login));
   });
 
   test('should fail to login user', () async {
-    final loginParams = LoginParams(email: 'email', password: 'password');
-    final failure = InputFailure('Failed to login');
+    const loginParams = LoginParams(email: 'email', password: 'password');
+    const  failure = InputFailure('Failed to login');
 
-   when(useCase(loginParams)).thenAnswer((_) async => Left(failure));
+   when(useCase(loginParams)).thenAnswer((_) async => const Left(failure));
     
 
     final result = await useCase(loginParams);
 
     verify(mockRepository.loginUser(loginParams.email, loginParams.password));
-    expect(result, Left(failure));
+    expect(result, const Left(failure));
   });
 }

@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
 
 import '../../../../core/errors/failures.dart';
 import '../../../../core/usecases/usecase.dart';
@@ -22,7 +21,7 @@ class LoginParams extends Equatable {
   final String email;
   final String password;
 
-  LoginParams({required this.email, required this.password}) : super();
+  const LoginParams({required this.email, required this.password}) : super();
 
   @override
   List<Object?> get props => [email, password];
