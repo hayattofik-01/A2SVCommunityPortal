@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../../core/errors/exception.dart';
+import '../../../../core/errors/exceptions.dart';
 import '../../../../core/utils/constants.dart';
 import '../../domain/entities/login.dart';
 import '../model/login_model.dart';

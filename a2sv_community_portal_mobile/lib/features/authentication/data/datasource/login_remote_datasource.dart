@@ -1,9 +1,7 @@
 import 'dart:convert';
 
+import 'package:a2sv_community_portal_mobile/core/errors/exceptions.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
-
-import '../../../../core/errors/exception.dart';
-import '../../../../core/errors/failures.dart';
 import '../../domain/entities/login.dart';
 import '../model/login_model.dart';
 import 'package:http/http.dart' as http;
@@ -25,7 +23,7 @@ final baseUrl = 'https://mocki.io/v1/a1c63369-aaee-437c-a86a-ee544f50268a';
       'password': password,
     }));
     if (response.statusCode == 401){
-      throw LoginFailed(LOGIN_FAILED);
+      throw LoginFailedException(LOGIN_FAILED);
     }
     if (response.statusCode != 200) {
       throw ServerException(SERVER_FALIURE);
