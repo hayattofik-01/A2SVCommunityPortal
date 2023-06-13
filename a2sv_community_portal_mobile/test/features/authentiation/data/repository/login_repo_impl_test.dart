@@ -1,6 +1,5 @@
 import 'dart:developer';
-
-import 'package:a2sv_community_portal_mobile/core/errors/exception.dart';
+import 'package:a2sv_community_portal_mobile/core/errors/exceptions.dart';
 import 'package:a2sv_community_portal_mobile/core/errors/failures.dart';
 import 'package:a2sv_community_portal_mobile/core/network/network_info.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
