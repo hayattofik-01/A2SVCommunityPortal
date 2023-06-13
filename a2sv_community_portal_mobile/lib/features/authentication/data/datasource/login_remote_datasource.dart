@@ -23,10 +23,10 @@ final baseUrl = 'https://mocki.io/v1/a1c63369-aaee-437c-a86a-ee544f50268a';
       'password': password,
     }));
     if (response.statusCode == 401){
-      throw LoginFailedException(LOGIN_FAILED);
+      throw LoginFailedException(loginFailed);
     }
     if (response.statusCode != 200) {
-      throw ServerException(SERVER_FALIURE);
+      throw ServerException(serverFaliure);
     }
     return LoginModel.fromJson(jsonDecode(response.body));
   }

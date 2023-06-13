@@ -90,7 +90,7 @@ void main() {
         () async {
       //arrange
       when(mockRemoteDataSource.loginUser(tEmail, tPassword))
-          .thenThrow(ServerException(SERVER_FALIURE));
+          .thenThrow(ServerException(serverFaliure));
 
       //act
       final result = await repository.loginUser(tEmail, tPassword);
@@ -98,7 +98,7 @@ void main() {
       //assert
       verify(mockRemoteDataSource.loginUser(tEmail, tPassword));
       verifyZeroInteractions(mockLocalDataSource);
-      expect(result, equals(Left(ServerFailure(SERVER_FALIURE))));
+      expect(result, equals(Left(ServerFailure(serverFaliure))));
     });
   });
 
@@ -117,7 +117,7 @@ void main() {
 
       //assert
       verifyZeroInteractions(mockRemoteDataSource);
-      expect(result, equals(Left(NoConnectionFailure(NO_CONNECTION_ERROR))));
+      expect(result, equals(Left(NoConnectionFailure(noConnectionError))));
     });
   });
 }

@@ -17,14 +17,14 @@ class LoginLocalDataSourceImpl extends LoginLocalDataSource {
 
   @override
   Future<void> cacheToken(Login login) {
-    return sharedPreferences.setString(CACHED_TOKEN, jsonEncode(login));
+    return sharedPreferences.setString(cachedToken, jsonEncode(login));
   }
 
   @override
   Future<LoginModel> getLastToken() {
-    String? jsonStr = sharedPreferences.getString(CACHED_TOKEN);
+    String? jsonStr = sharedPreferences.getString(cachedToken);
     if (jsonStr == null) {
-      throw CacheException(CACHE_EXCEPTION);
+      throw CacheException(cacheException);
     }
     return Future.value(LoginModel.fromJson(jsonDecode(jsonStr)));
   }
