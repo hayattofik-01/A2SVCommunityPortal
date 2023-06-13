@@ -4,4 +4,4 @@ const String  cacheException= 'Login data not found';
 const String noConnectionError = 'Connection not Stable ';
 const String serverFaliure= 'Something went wrong';
 const String loginFailed = "Invalid username or passworld";
-const String UNKNOWN = "Unknown Error occured";
+const String unknown = "Unknown Error occured";
