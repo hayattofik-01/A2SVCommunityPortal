@@ -1,22 +1,11 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:a2sv_community_portal_mobile/core/errors/exceptions.dart';
-import 'package:a2sv_community_portal_mobile/core/errors/failures.dart';
-import 'package:a2sv_community_portal_mobile/core/network/network_info.dart';
-import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
-import 'package:a2sv_community_portal_mobile/features/authentication/data/datasource/login_local_datasource.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/data/datasource/login_remote_datasource.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/data/model/login_model.dart';
-import 'package:a2sv_community_portal_mobile/features/authentication/data/repository/login_repo_impl.dart';
-import 'package:a2sv_community_portal_mobile/features/authentication/domain/entities/login.dart';
-import 'package:dartz/dartz.dart';
-import 'package:http/http.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import '../../../../fixtures/fixture_reader.dart';
-import '../repository/login_repo_impl_test.mocks.dart';
 import 'package:http/http.dart' as http;
 
 import 'login_remote_datasource_test.mocks.dart';
