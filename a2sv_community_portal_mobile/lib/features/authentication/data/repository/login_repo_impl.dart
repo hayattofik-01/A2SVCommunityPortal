@@ -30,7 +30,7 @@ class LoginRepositoryImpl implements LoginRepository {
         return const Left(ServerFailure(serverFaliure));
       }
     } else {
-      return Left(NoConnectionFailure(noConnectionError));
+      return const Left(NoConnectionFailure(noConnectionError));
     }
   }
 
