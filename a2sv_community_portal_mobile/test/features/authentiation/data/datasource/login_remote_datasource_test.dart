@@ -23,9 +23,9 @@ void main() {
   });
 
   group('loginUser', () {
-    final String tEmail = 'test@test.com';
-    final String tPassword = 'test';
-    final LoginModel tLoginModel = LoginModel(token: '1234');
+    const String tEmail = 'test@test.com';
+    const String tPassword = 'test';
+    const LoginModel tLoginModel = LoginModel(token: '1234');
 
     test('should return the User object if the status code is 200',
         () async {

@@ -27,7 +27,7 @@ class LoginRepositoryImpl implements LoginRepository {
         localDataSource.cacheToken(remoteData);
         return Right(remoteData);
       } on ServerException {
-        return Left(ServerFailure(serverFaliure));
+        return const Left(ServerFailure(serverFaliure));
       }
     } else {
       return Left(NoConnectionFailure(noConnectionError));
@@ -40,7 +40,7 @@ class LoginRepositoryImpl implements LoginRepository {
       final localData = await localDataSource.getLastToken();
       return Right(localData);
     } on CacheException {
-      return Left(CacheFailure(cacheException));
+      return const Left(CacheFailure(cacheException));
     }
   }
 }

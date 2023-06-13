@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:a2sv_community_portal_mobile/core/errors/exceptions.dart';
 import 'package:a2sv_community_portal_mobile/core/errors/failures.dart';
 import 'package:a2sv_community_portal_mobile/core/network/network_info.dart';
@@ -17,10 +16,10 @@ import 'login_repo_impl_test.mocks.dart';
 
 @GenerateMocks([LoginRemoteDataSource, NetworkInfo, LoginLocalDataSource])
 void main() {
-  final String tEmail = "test@test.com";
-  final String tPassword = "test";
-  final LoginModel tLoginModel = LoginModel(token: "1234");
-  final Login tLogin = tLoginModel;
+  const  String tEmail = "test@test.com";
+  const  String tPassword = "test";
+  const  LoginModel tLoginModel = LoginModel(token: "1234");
+  const  Login tLogin = tLoginModel;
   late LoginRepositoryImpl repository;
     late MockLoginRemoteDataSource mockRemoteDataSource;
     late MockLoginLocalDataSource mockLocalDataSource;
@@ -63,13 +62,14 @@ void main() {
       //arrange
       when(mockRemoteDataSource.loginUser(tEmail, tPassword))
           .thenAnswer((_) async => tLoginModel);
+          
 
       //act
       final result = await repository.loginUser(tEmail, tPassword);
 
       //assert
       verify(mockRemoteDataSource.loginUser(tEmail, tPassword));
-      expect(result, equals(Right(tLogin)));
+      expect(result, equals(const Right(tLogin)));
     });
 
     test('should cache the token locally when the remote call is successfull',
@@ -98,7 +98,7 @@ void main() {
       //assert
       verify(mockRemoteDataSource.loginUser(tEmail, tPassword));
       verifyZeroInteractions(mockLocalDataSource);
-      expect(result, equals(Left(ServerFailure(serverFaliure))));
+      expect(result, equals(const Left(ServerFailure(serverFaliure))));
     });
   });
 

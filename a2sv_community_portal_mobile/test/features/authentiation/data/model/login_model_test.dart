@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../../../fixtures/fixture_reader.dart';
 
 void main() {
-  final tLoginModel = LoginModel(
+  const  tLoginModel = LoginModel(
      token: "1234");
 
   test("Should be a subclass of Login Entity", () async {
