@@ -21,3 +21,9 @@ class InputException implements Exception {
 
   InputException(this.message);
 }
+
+class LoginFailedException implements Exception {
+  final String message;
+
+  LoginFailedException(this.message);
+}

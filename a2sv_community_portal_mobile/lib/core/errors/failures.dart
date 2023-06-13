@@ -22,3 +22,16 @@ class CacheFailure extends Failure {
 
   CacheFailure(this.message);
 }
+class NoConnectionFailure implements Failure {
+  final String message;
+
+  NoConnectionFailure(this.message);
+  
+  @override
+  // TODO: implement props
+  List<Object> get props => throw UnimplementedError();
+  
+  @override
+  // TODO: implement stringify
+  bool? get stringify => throw UnimplementedError();
+}
