@@ -27,7 +27,7 @@ void main() {
       password: 'password123');
 
   test(
-    'should edit the user profile when the repository call is successful',
+    'should get the user profile when the repository call is successful',
     () async {
       // arrange
       when(mockUserRepository.getUser(id))
