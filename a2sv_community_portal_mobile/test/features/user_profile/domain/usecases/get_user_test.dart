@@ -1,4 +1,5 @@
 import 'package:a2sv_community_portal_mobile/core/errors/failures.dart';
+import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/domain/entities/user_entity.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/domain/repositories/user_repository.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/domain/usecases/get_user.dart';
@@ -45,11 +46,11 @@ void main() {
     () async {
       // arrange
       when(mockUserRepository.getUser(id))
-          .thenAnswer((_) async => const Left(ServerFailure("Server Failure")));
+          .thenAnswer((_) async => const Left(ServerFailure(serverFaliure)));
       // act
       final result = await usecase(id);
       // assert
-      expect(result, const Left(ServerFailure("Server Failure")));
+      expect(result, const Left(ServerFailure(serverFaliure)));
       verify(mockUserRepository.getUser(id));
       verifyNoMoreInteractions(mockUserRepository);
     },

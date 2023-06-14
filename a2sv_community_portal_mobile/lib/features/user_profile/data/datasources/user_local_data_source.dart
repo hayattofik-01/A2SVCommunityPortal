@@ -24,7 +24,7 @@ class UserLocalDataSourceImpl implements UserLocalDataSource {
       final user = UserModel.fromJson(json);
       return Future.value(user);
     } else {
-      throw CacheException('Local Cache Failure');
+      throw CacheException(cacheException);
     }
   }
 

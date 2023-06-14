@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
 import 'package:dartz/dartz.dart';
 
 import '../../../../core/errors/exceptions.dart';
@@ -27,10 +28,10 @@ class UserRepositoryImpl implements UserRepository {
         localDataSource.cacheUser(remoteUser);
         return Right(remoteUser);
       } on ServerException {
-        return const Left(ServerFailure("Internal Server Failure"));
+        return const Left(ServerFailure(serverFaliure));
       }
     } else {
-      return const Left(CacheFailure("Cache Failure"));
+      return const Left(CacheFailure(cacheException));
     }
   }
 
@@ -42,14 +43,14 @@ class UserRepositoryImpl implements UserRepository {
         localDataSource.cacheUser(remoteUser);
         return Right(remoteUser);
       } on ServerException {
-        return const Left(ServerFailure("Internal Server Failure"));
+        return const Left(ServerFailure(serverFaliure));
       }
     } else {
       try {
         final localUser = await localDataSource.getUser();
         return Right(localUser);
       } on CacheException {
-        return const Left(CacheFailure("Local cache Failure"));
+        return const Left(CacheFailure(cacheException));
       }
     }
   }

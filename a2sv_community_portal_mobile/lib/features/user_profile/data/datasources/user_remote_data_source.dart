@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
+
 import '../../../../core/errors/exceptions.dart';
 import '../../domain/entities/user_entity.dart';
 import '../models/user_model.dart';
@@ -28,7 +30,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
     if (response.statusCode == 200) {
       return UserModel.fromJson(json.decode(response.body));
     } else {
-      throw ServerException("Request Unsuccesful");
+      throw ServerException(serverFaliure);
     }
   }
 
@@ -41,7 +43,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
     if (response.statusCode == 200) {
       return UserModel.fromJson(json.decode(response.body));
     } else {
-      throw ServerException("Request Unsuccesful");
+      throw ServerException(serverFaliure);
     }
   }
 }

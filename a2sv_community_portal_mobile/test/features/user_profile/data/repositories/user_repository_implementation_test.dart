@@ -1,6 +1,7 @@
 import 'package:a2sv_community_portal_mobile/core/errors/exceptions.dart';
 import 'package:a2sv_community_portal_mobile/core/errors/failures.dart';
 import 'package:a2sv_community_portal_mobile/core/network/network_info.dart';
+import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/data/datasources/user_local_data_source.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/data/datasources/user_remote_data_source.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/data/models/user_model.dart';
@@ -77,15 +78,12 @@ void main() {
         'should return Server Failure if the call for the remote is not successful',
         () async {
           when(mockRemoteDataSource.editUserProfile(tUserModel))
-              .thenThrow(ServerException('Internal Server Failure'));
+              .thenThrow(ServerException(serverFaliure));
 
           final result = await repository.editUserProfile(tUserModel);
           verify(mockRemoteDataSource.editUserProfile(tUserModel));
           verifyZeroInteractions(mockLocalDataSource);
-          expect(
-            result,
-            equals(const Left(ServerFailure('Internal Server Failure')))
-          );
+          expect(result, equals(const Left(ServerFailure(serverFaliure))));
         },
       );
     });
@@ -100,7 +98,7 @@ void main() {
           final result = await repository.editUserProfile(tUserModel);
           verifyZeroInteractions(mockRemoteDataSource);
           verifyZeroInteractions(mockLocalDataSource);
-          expect(result, equals(const Left(CacheFailure("Cache Failure"))));
+          expect(result, equals(const Left(CacheFailure(cacheException))));
         },
       );
     });
@@ -109,7 +107,8 @@ void main() {
   group('getUser', () {
     test('should check if the device is online', () async {
       when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
-      when(mockRemoteDataSource.getUser(any)).thenAnswer((_) async => tUserModel);
+      when(mockRemoteDataSource.getUser(any))
+          .thenAnswer((_) async => tUserModel);
       await repository.getUser(tUserId);
       verify(mockRemoteDataSource.getUser(any)).called(1);
     });
@@ -121,7 +120,8 @@ void main() {
       test(
         'should return remote data when the call to remote data source is successful',
         () async {
-          when(mockRemoteDataSource.getUser(any)).thenAnswer((_) async => tUserModel);
+          when(mockRemoteDataSource.getUser(any))
+              .thenAnswer((_) async => tUserModel);
           final result = await repository.getUser(tUserId);
           verify(mockRemoteDataSource.getUser(any));
           expect(result, equals(const Right(tUserModel)));
@@ -130,7 +130,8 @@ void main() {
       test(
         'should cache the data locally when the call to remote data is successful',
         () async {
-          when(mockRemoteDataSource.getUser(any)).thenAnswer((_) async => tUserModel);
+          when(mockRemoteDataSource.getUser(any))
+              .thenAnswer((_) async => tUserModel);
           await repository.getUser(tUserId);
           verify(mockRemoteDataSource.getUser(any));
           verify(mockLocalDataSource.cacheUser(tUserModel));
@@ -141,15 +142,12 @@ void main() {
         'should retufn server Failure when the call to the remove data is not successful',
         () async {
           when(mockRemoteDataSource.getUser(any))
-              .thenThrow(ServerException('Internal Server Failure'));
+              .thenThrow(ServerException(serverFaliure));
 
           final result = await repository.getUser(tUserId);
           verify(mockRemoteDataSource.getUser(any));
           verifyZeroInteractions(mockLocalDataSource);
-          expect(
-            result,
-            equals(const Left(ServerFailure('Internal Server Failure')))
-          );
+          expect(result, equals(const Left(ServerFailure(serverFaliure))));
         },
       );
     });
@@ -161,7 +159,8 @@ void main() {
       test(
         'should return last locally cached data when the cached data is present',
         () async {
-          when(mockLocalDataSource.getUser()).thenAnswer((_) async => tUserModel);
+          when(mockLocalDataSource.getUser())
+              .thenAnswer((_) async => tUserModel);
           final result = await repository.getUser(tUserId);
           verifyZeroInteractions(mockRemoteDataSource);
           verify(mockLocalDataSource.getUser());
@@ -172,11 +171,12 @@ void main() {
       test(
         'should return CacheFailure when there is no cached data present',
         () async {
-          when(mockLocalDataSource.getUser()).thenThrow(CacheException('Local cache Failure'));
+          when(mockLocalDataSource.getUser())
+              .thenThrow(CacheException(cacheException));
           final result = await repository.getUser(tUserId);
           verifyZeroInteractions(mockRemoteDataSource);
           verify(mockLocalDataSource.getUser());
-          expect(result, equals(const Left(CacheFailure("Local cache Failure"))));
+          expect(result, equals(const Left(CacheFailure(cacheException))));
         },
       );
     });
