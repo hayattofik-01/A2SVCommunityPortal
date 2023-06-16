@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       children: <Widget>[
         _emailField(),
-      PasswordField(title: "Password"),
+      const PasswordField(title: "Password"),
       ],
     );
   }
@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
     return InkWell(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) =>  SignUpPage()));
+            context, MaterialPageRoute(builder: (context) =>  const SignUpPage()));
       },
       child: Container(
         margin: EdgeInsets.symmetric(vertical:UIConverter.getComponentWidth(context, 20)),

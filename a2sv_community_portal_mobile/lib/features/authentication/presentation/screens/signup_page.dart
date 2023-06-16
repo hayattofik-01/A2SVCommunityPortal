@@ -118,8 +118,8 @@ _loginAccountLabel(),
         _entryField("Phone Number", Icons.phone),
         _entryField("CodeForces Handle", Icons.bar_chart_outlined),
         _entryField("Telegram Handle", Icons.telegram),
-        PasswordField(title: "Password"),
-        PasswordField(title: "Confirm Password")
+        const PasswordField(title: "Password"),
+        const PasswordField(title: "Confirm Password")
 
       ],
     );
