@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/password_field.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/media_query.dart';
@@ -117,7 +118,8 @@ _loginAccountLabel(),
         _entryField("Phone Number", Icons.phone),
         _entryField("CodeForces Handle", Icons.bar_chart_outlined),
         _entryField("Telegram Handle", Icons.telegram),
-      
+        PasswordField(title: "Password"),
+        PasswordField(title: "Confirm Password")
 
       ],
     );

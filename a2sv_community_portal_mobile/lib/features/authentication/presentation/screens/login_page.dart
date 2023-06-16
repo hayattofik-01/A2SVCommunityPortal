@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
     return Column(
       children: <Widget>[
         _emailField(),
-        const PasswordField(),
+      PasswordField(title: "Password"),
       ],
     );
   }
