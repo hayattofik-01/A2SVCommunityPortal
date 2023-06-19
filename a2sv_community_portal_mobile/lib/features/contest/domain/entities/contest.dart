@@ -6,7 +6,7 @@ class Contest extends Equatable {
   final DateTime date;
   final String link;
 
-  Contest({
+  const Contest({
     required this.title,
     required this.description,
     required this.date,
