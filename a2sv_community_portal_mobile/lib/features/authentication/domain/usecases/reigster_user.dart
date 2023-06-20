@@ -1,7 +1,5 @@
 import 'package:a2sv_community_portal_mobile/features/user_profile/data/models/user_model.dart';
-import 'package:a2sv_community_portal_mobile/features/user_profile/domain/entities/user_entity.dart';
 import 'package:dartz/dartz.dart';
-import 'package:equatable/equatable.dart';
 
 import '../../../../core/errors/failures.dart';
 import '../../../../core/usecases/usecase.dart';
