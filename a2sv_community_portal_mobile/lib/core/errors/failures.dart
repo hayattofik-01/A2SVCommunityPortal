@@ -22,10 +22,10 @@ class CacheFailure extends Failure {
 
   const CacheFailure(this.message);
 }
-class NoConnectionFailure implements Failure {
+class NoConnectionFailure extends Failure {
   final String message;
 
-  NoConnectionFailure(this.message);
+  const NoConnectionFailure(this.message);
   
   @override
   List<Object> get props => throw UnimplementedError();

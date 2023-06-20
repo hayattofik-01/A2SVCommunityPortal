@@ -28,4 +28,7 @@ class UIConverter {
   static double getComponentWidth(BuildContext context, double width) {
     return scaleFactorWidth(context) * width;
   }
+   static double textSize(BuildContext context,double size){
+    return MediaQuery.of(context).textScaleFactor * size;
+  }
 }
