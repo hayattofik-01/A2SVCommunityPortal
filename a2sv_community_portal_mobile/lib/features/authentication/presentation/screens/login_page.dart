@@ -1,7 +1,8 @@
-import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/signup_page.dart';
+
+import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/account_question.dart';
+import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/email_field.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/submit_button.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/media_query.dart';
 import '../widget/bezier_container.dart';
 import '../widget/password_field.dart';
@@ -20,78 +21,25 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
 
-  Widget _emailField() {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: UIConverter.getComponentHeight(context, 10)),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-      
-          SizedBox(
-            height: UIConverter.getComponentHeight(context, 10),
-          ),
-          const TextField(
-              
-              decoration: InputDecoration(
-                  border: InputBorder.none,
-                  fillColor:inputColor,
-                  filled: true, prefixIcon: Icon(Icons.email),
-                labelText: 'Email',))
-                  ,
-        ],
-      ),
-    );
-  }
+  
   
   Widget _emailPasswordWidget() {
 
     return Column(
-      children: <Widget>[
-        _emailField(),
-      const PasswordField(title: "Password"),
+      children: const <Widget>[
+        EmailField(),
+      PasswordField(title: "Password"),
       ],
     );
   }
   
-  Widget _createAccountLabel() {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) =>  const SignUpPage()));
-      },
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical:UIConverter.getComponentWidth(context, 20)),
-       
-        child: Row(
-         
-          children: <Widget>[
-            Text(
-              'Don\'t have an account ?',
-              style: TextStyle(fontFamily: 'Poppins',fontSize: UIConverter.textSize(context, 18), fontWeight: FontWeight.w400,color: grey),
-            ),
-            SizedBox(
-              width:UIConverter.getComponentWidth(context, 10),
-            ),
-            Text(
-              'signup',
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                  color:blue,
-                  fontSize: UIConverter.textSize(context, 18),
-                  fontWeight: FontWeight.w600),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
+  
   Widget _title() {
     return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 Text("Login", style: TextStyle(fontFamily: 'Urbanist',fontSize: UIConverter.textSize(context, 35), fontWeight: FontWeight.w600),),
-_createAccountLabel(),
+const AccountQuestion(question: 'Don\'t have an account ?', action: 'Sign up'),
     ],);
   }
 
