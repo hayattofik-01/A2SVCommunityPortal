@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/media_query.dart';
-import '../screens/signup_page.dart';
 
 class AccountQuestion extends StatelessWidget {
 final String question;
 final String action;
-  const AccountQuestion({super.key, required this.question,required this.action});
+final dynamic page;
+  const AccountQuestion({super.key, required this.question,required this.action,required this.page});
   
   @override
   Widget build(BuildContext context) {
@@ -27,7 +27,7 @@ final String action;
             InkWell(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) =>  const SignUpPage()));
+            context, MaterialPageRoute(builder: (context) =>  page));
       },
             child: Text(
             action,

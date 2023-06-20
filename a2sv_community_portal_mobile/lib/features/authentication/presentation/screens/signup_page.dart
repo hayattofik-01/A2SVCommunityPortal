@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/login_page.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/account_question.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/entry_field.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/password_field.dart';
@@ -41,7 +42,7 @@ class _SignUpPageState extends State<SignUpPage> {
               fontWeight: FontWeight.w700),
         ),
         const AccountQuestion(
-            question: 'Already have an account ?', action: 'Login'),
+            question: 'Already have an account ?', action: 'Login',page: LoginPage(),),
       ],
     );
   }

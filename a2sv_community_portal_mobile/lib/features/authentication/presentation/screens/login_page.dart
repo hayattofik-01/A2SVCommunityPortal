@@ -1,4 +1,5 @@
 
+import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/signup_page.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/account_question.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/email_field.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/submit_button.dart';
@@ -39,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
     crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 Text("Login", style: TextStyle(fontFamily: 'Urbanist',fontSize: UIConverter.textSize(context, 35), fontWeight: FontWeight.w600),),
-const AccountQuestion(question: 'Don\'t have an account ?', action: 'Sign up'),
+const AccountQuestion(question: 'Don\'t have an account ?', action: 'Sign up',page:SignUpPage()),
     ],);
   }
 
