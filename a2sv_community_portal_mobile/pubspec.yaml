@@ -43,6 +43,7 @@ dependencies:
   internet_connection_checker: ^1.0.0+1
   google_fonts: ^4.0.4
   bloc: ^8.1.2
+  get_it: ^7.6.0
 
 dev_dependencies:
   flutter_test:
@@ -84,11 +85,34 @@ flutter:
   fonts:
     - family: Poppins
       fonts:
+        - asset: assets/fonts/Poppins/Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins/Poppins-Bold.ttf
+        - asset: assets/fonts/Poppins/Poppins-Light.ttf
+          weight: 200
+        - asset: assets/fonts/Poppins/Poppins-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Poppins/Poppins-SemiBold.ttf
+          weight: 700
+        - asset: assets/fonts/Poppins/Poppins-ExtraLight.ttf
+          weight: 100
+        - asset: assets/fonts/Poppins/Poppins-ExtraBold.ttf
+          weight : 900
         
-
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
+    - family: Urbanist
+      fonts:
+        - asset: assets/fonts/Urbanist/Urbanist-Regular.ttf
+        - asset: assets/fonts/Urbanist/Urbanist-Bold.ttf
+        - asset: assets/fonts/Urbanist/Urbanist-Light.ttf
+          weight: 700
+        - asset: assets/fonts/Urbanist/Urbanist-Medium.ttf
+        - asset: assets/fonts/Urbanist/Urbanist-SemiBold.ttf
+          weight: 900
+        - asset: assets/fonts/Urbanist/Urbanist-ExtraLightItalic.ttf
+        - asset: assets/fonts/Urbanist/Urbanist-VariableFont_wght.ttf
+          weight: 700
+        - asset: assets/fonts/Urbanist/Urbanist-SemiBold.ttf
+          weight: 800
+  #
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
