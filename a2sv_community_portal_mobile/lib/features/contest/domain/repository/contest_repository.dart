@@ -3,6 +3,8 @@ import '../entities/contest.dart';
 import '../../../../core/errors/failures.dart';
 
 abstract class ContestRepository {
+
+  Future<Either<Failure,List<Contest>>> getContests();
   Future<Either<Failure,List<Contest>>> getUpcomingContests();
   Future<Either<Failure,List<Contest>>> getPastContests();
 }
