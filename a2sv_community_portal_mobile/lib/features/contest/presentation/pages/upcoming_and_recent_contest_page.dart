@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-class contestPage extends StatefulWidget {
-  const contestPage({super.key});
-  
-  @override
-  State<contestPage> createState() => _contestPageeState();
-}
-
-class _contestPageeState extends State<contestPage> {
+import '../widgets/list_tile.dart';
+import '../widgets/upper_bar.dart';
+class contestPage extends StatelessWidget {
   final List<Map<String, String>> _contests = [
     {
       "title": "OnBoarding Contest #2 Div-1 ",
