@@ -4,10 +4,10 @@ import 'package:equatable/equatable.dart';
 import '../../../../core/errors/failures.dart';
 import '../../../../core/usecases/usecase.dart';
 import '../entities/login.dart';
-import '../repositories/login_repository.dart';
+import '../repositories/auth_repository.dart';
 
 class LoginUser implements UseCase<Login, LoginParams> {
-  final LoginRepository repository;
+  final AuthRepository repository;
 
   LoginUser({required this.repository});
 
