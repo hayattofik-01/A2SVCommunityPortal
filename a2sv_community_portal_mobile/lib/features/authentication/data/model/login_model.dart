@@ -2,6 +2,7 @@ import '../../domain/entities/login.dart';
 
 
 class LoginModel extends Login {
+ 
   const LoginModel({required String token}) : super(token: token);
 
    Map<String, dynamic> toJson() {
