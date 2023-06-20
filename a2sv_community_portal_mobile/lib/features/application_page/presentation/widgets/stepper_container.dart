@@ -23,8 +23,8 @@ class StepperBox extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.only(left: (18 / 450) * screenWidth),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            SizedBox(height: 4),
             Align(
               alignment: Alignment.topLeft,
               child: CircularStepper(
@@ -33,9 +33,9 @@ class StepperBox extends StatelessWidget {
               ),
             ),
             SizedBox(width: (56 / 428) * screenWidth),
-            Expanded(
-              child: Padding(
-                padding: EdgeInsets.only(left: (15 / 428) * screenWidth),
+            Align(
+              alignment: Alignment.topRight,
+              child: Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -45,17 +45,22 @@ class StepperBox extends StatelessWidget {
                         fontFamily: 'Inter',
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.w700,
-                        fontSize: (24.0 / 428) * screenWidth,
+                        fontSize: (24 / 1002) * screenHeight,
+                        height: 1.21,
+                        color: Colors.black,
                       ),
                     ),
                     SizedBox(height: (8 / 428) * screenWidth),
                     Text(
                       'Next: $nextStep',
                       style: TextStyle(
-                        fontFamily: 'Inter',
+                        fontFamily: 'Poppins',
                         fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w400,
-                        fontSize: (16.0 / 428) * screenWidth,
+                        fontWeight: FontWeight.w500,
+                        fontSize: (16 / 1002) * screenHeight,
+                        height: 1.5, // equivalent to line-height: 24px
+                        color: Color.fromRGBO(
+                            0, 0, 0, 0.326), // equivalent to blackAlpha/300
                       ),
                     ),
                   ],

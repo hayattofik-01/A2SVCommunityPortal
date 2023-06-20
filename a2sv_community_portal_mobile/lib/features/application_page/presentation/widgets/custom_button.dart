@@ -16,12 +16,13 @@ class CustomButton extends StatelessWidget {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return GestureDetector(
+      onTap: onTap,
       child: Container(
-        width: (100 / 375) * screenWidth,
-        height: (100 / 1002) * screenHeight,
+        width: (124 / 428) * screenWidth,
+        height: (48 / 1002) * screenHeight,
         decoration: BoxDecoration(
           color: Color(0xFF3182CE),
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(6),
         ),
         child: Center(
           child: Text(
@@ -30,7 +31,8 @@ class CustomButton extends StatelessWidget {
               fontFamily: 'Urbanist',
               fontStyle: FontStyle.normal,
               fontWeight: FontWeight.w600,
-              fontSize: (10 / 375) * screenWidth,
+              color: Colors.white,
+              fontSize: (25 / 1002) * screenHeight,
               height: 1.2, // equivalent to line-height: 24px
               letterSpacing: 0.02,
             ),

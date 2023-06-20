@@ -26,7 +26,7 @@ class Home extends StatelessWidget {
                 fontSize: (23 / 1002) * screenHeight,
                 height: 17.0 / 14.0, // line height in Flutter
                 letterSpacing: 0.02,
-                color: Color(0xFFA8A8A8),
+                color: const Color(0xFFA8A8A8),
               ),
             ),
             Text(
@@ -38,11 +38,11 @@ class Home extends StatelessWidget {
                   fontSize: (40 / 1002) * screenHeight,
                   height: 1.2, // equivalent to line-height: 24px
                   letterSpacing: 0.02,
-                  color: Color.fromARGB(255, 0, 0, 0)),
+                  color: const Color.fromARGB(255, 0, 0, 0)),
             )
           ],
         ),
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         actions: [
           Theme(
             data: ThemeData(
@@ -52,7 +52,7 @@ class Home extends StatelessWidget {
               ),
             ),
             child: IconButton(
-              icon: Icon(Icons.notifications),
+              icon: const Icon(Icons.notifications),
               onPressed: () {
                 // Handle notification icon press
               },
@@ -62,8 +62,8 @@ class Home extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 17, bottom: 17.0),
+          const Padding(
+            padding: EdgeInsets.only(top: 17, bottom: 17.0),
             child: StepperBox(
               text: '1 of 4',
               percentage: 0.20,
@@ -111,7 +111,7 @@ class Home extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 15.0),
+            padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
             child: Container(
               height: (48 / 1002) * screenHeight,
               child: Align(

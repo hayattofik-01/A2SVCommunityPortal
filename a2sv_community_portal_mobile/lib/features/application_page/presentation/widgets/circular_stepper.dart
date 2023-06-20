@@ -28,7 +28,7 @@ class CircularStepper extends StatelessWidget {
           fontSize: max((16 / 1002) * screenHeight, (16 / 428) * screenWidth),
         ),
       ),
-      progressColor: Colors.green,
+      progressColor: Color(0xFF3182CE),
       circularStrokeCap: CircularStrokeCap.round,
     );
   }
