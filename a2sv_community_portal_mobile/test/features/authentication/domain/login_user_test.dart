@@ -1,20 +1,19 @@
 import 'package:a2sv_community_portal_mobile/core/errors/failures.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/domain/entities/login.dart';
-import 'package:a2sv_community_portal_mobile/features/authentication/domain/repositories/login_repository.dart';
+import 'package:a2sv_community_portal_mobile/features/authentication/domain/repositories/auth_repository.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/domain/usecases/login_user.dart';
 import 'package:dartz/dartz.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'login_user_test.mocks.dart';
-@GenerateMocks([LoginRepository])
+import 'register_user_test.mocks.dart';
+@GenerateMocks([AuthRepository])
 void main() {
-  late MockLoginRepository mockRepository;
+  late MockAuthRepository mockRepository;
   late LoginUser useCase;
 
   setUp(() {
-    mockRepository = MockLoginRepository();
+    mockRepository = MockAuthRepository();
     useCase = LoginUser(repository: mockRepository);
   });
 
