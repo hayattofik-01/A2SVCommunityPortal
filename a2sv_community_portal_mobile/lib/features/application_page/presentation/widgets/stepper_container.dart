@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/circular_stepper.dart';
 import 'package:flutter/material.dart';
 
@@ -19,63 +20,64 @@ class StepperBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
-    return Container(
-      child: Padding(
-        padding: EdgeInsets.only(
-            left: (18 / 450) * screenWidth, right: (18 / 450) * screenWidth),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Align(
-              alignment: Alignment.topLeft,
-              child: CircularStepper(
-                text: text,
-                percentage: percentage,
-              ),
+    return Padding(
+      padding: EdgeInsets.only(
+          left: UIConverter.getComponentWidth(context, 18),
+          right: UIConverter.getComponentWidth(context, 18)),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Align(
+            alignment: Alignment.topLeft,
+            child: CircularStepper(
+              text: text,
+              percentage: percentage,
             ),
-            SizedBox(width: (56 / 428) * screenWidth),
-            Expanded(
-              child: Column(
-                children: [
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Text(
-                      currentStep,
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w700,
-                        fontSize: max((24 / 1002) * screenHeight,
-                            (24 / 428) * screenWidth),
-                        height: 1.21,
-                        color: Colors.black,
+          ),
+          SizedBox(width: UIConverter.getComponentWidth(context, 56)),
+          Expanded(
+            child: Column(
+              children: [
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Text(
+                    currentStep,
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w700,
+                      fontSize: max(
+                        UIConverter.getComponentHeight(context, 24),
+                        UIConverter.getComponentWidth(context, 24),
                       ),
+                      height: 1.21,
+                      color: Colors.black,
                     ),
                   ),
-                  SizedBox(height: (8 / 428) * screenWidth),
-                  Align(
-                    alignment: Alignment.topRight,
-                    child: Text(
-                      'Next: $nextStep',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w500,
-                        fontSize: max((16 / 1002) * screenHeight,
-                            (16 / 428) * screenWidth),
-                        height: 1.5, // equivalent to line-height: 24px
-                        color: Color.fromRGBO(
-                            0, 0, 0, 0.326), // equivalent to blackAlpha/300
+                ),
+                SizedBox(height: UIConverter.getComponentHeight(context, 8)),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Text(
+                    'Next: $nextStep',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontStyle: FontStyle.normal,
+                      fontWeight: FontWeight.w500,
+                      fontSize: max(
+                        UIConverter.getComponentHeight(context, 16),
+                        UIConverter.getComponentWidth(context, 16),
                       ),
+                      height: 1.5, // equivalent to line-height: 24px
+                      color: const Color.fromRGBO(
+                          0, 0, 0, 0.326), // equivalent to blackAlpha/300
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

@@ -1,3 +1,5 @@
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
+import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -12,16 +14,16 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
 
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: screenWidth > 700 ? 124 : (124 / 428) * screenWidth,
-        height: (48 / 1002) * screenHeight,
+        width: UIConverter.getDeviceWidth(context) > 700
+            ? 124
+            : UIConverter.getComponentWidth(context, 124),
+        height: UIConverter.getComponentHeight(context, 48),
         decoration: BoxDecoration(
-          color: Color(0xFF3182CE),
+          color: primary,
           borderRadius: BorderRadius.circular(6),
         ),
         child: Center(
@@ -31,8 +33,8 @@ class CustomButton extends StatelessWidget {
               fontFamily: 'Urbanist',
               fontStyle: FontStyle.normal,
               fontWeight: FontWeight.w600,
-              color: Colors.white,
-              fontSize: (18 / 1002) * screenHeight,
+              color: whiteColor,
+              fontSize: UIConverter.getComponentHeight(context, 18),
               height: 1.2, // equivalent to line-height: 24px
               letterSpacing: 0.02,
             ),

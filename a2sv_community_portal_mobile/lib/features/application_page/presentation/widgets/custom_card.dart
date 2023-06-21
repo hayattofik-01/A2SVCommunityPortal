@@ -1,5 +1,4 @@
-import 'dart:math';
-
+import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
@@ -16,19 +15,20 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
-    double horPadding = (15 / 428) * screenWidth;
+    double horPadding = UIConverter.getComponentHeight(context, 15);
     return Container(
-      width: screenWidth >= 600 ? (200 / 428) * screenWidth : null,
+      width: UIConverter.getDeviceWidth(context) >= 600
+          ? UIConverter.getComponentWidth(context, 150)
+          : null,
       margin: EdgeInsets.only(
-          left: (27 / 418) * screenWidth,
-          top: (41 / 1002) * screenHeight,
-          right: (27 / 418) * screenWidth),
+        left: UIConverter.getComponentWidth(context, 27),
+        top: UIConverter.getComponentHeight(context, 41),
+        right: UIConverter.getComponentWidth(context, 27),
+      ),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: Color.fromRGBO(0, 0, 0, 0.06),
             blurRadius: 2,
@@ -50,17 +50,17 @@ class CustomCard extends StatelessWidget {
             Row(
               children: [
                 done
-                    ? Icon(
+                    ? const Icon(
                         Icons.check_circle,
                         color: Color(0xFF3182CE),
                       )
-                    : Icon(
+                    : const Icon(
                         Icons.radio_button_unchecked_rounded,
                         color: Color(0xFF3182CE),
                       ),
                 Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -72,7 +72,7 @@ class CustomCard extends StatelessWidget {
               padding: const EdgeInsets.only(top: 8.0),
               child: Text(
                 description,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14,
                   color: Color.fromRGBO(0, 0, 0, 0.326),
                 ),

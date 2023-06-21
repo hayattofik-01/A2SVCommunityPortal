@@ -1,7 +1,9 @@
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/custom_button.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/custom_card.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/stepper_container.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/upper_bar.dart';
+import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -9,10 +11,9 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: UpperBar(),
+      appBar: const UpperBar(),
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           const Padding(
@@ -28,7 +29,7 @@ class Home extends StatelessWidget {
             child: Center(
               child: SingleChildScrollView(
                   child: Column(
-                children: [
+                children: const [
                   CustomCard(
                     title: 'subStepName',
                     description:
@@ -72,7 +73,7 @@ class Home extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
             child: Container(
-              height: (48 / 1002) * screenHeight,
+              height: UIConverter.getComponentHeight(context, 48),
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: Row(
@@ -82,7 +83,8 @@ class Home extends StatelessWidget {
                       label: 'Previous',
                       onTap: () {},
                     ),
-                    SizedBox(width: (100 / 428) * screenWidth),
+                    SizedBox(
+                        width: UIConverter.getComponentWidth(context, 100)),
                     CustomButton(label: 'Next', onTap: () {})
                   ],
                 ),

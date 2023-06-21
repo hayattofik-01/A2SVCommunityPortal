@@ -1,9 +1,11 @@
+import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:flutter/material.dart';
 
 class UpperBar extends StatelessWidget implements PreferredSizeWidget {
+  const UpperBar({super.key});
+
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
     return AppBar(
       elevation: 0,
       backgroundColor: Colors.white,
@@ -37,8 +39,8 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
                   color: Color.fromRGBO(235, 248, 255, 1),
                 ),
                 padding: const EdgeInsets.all(5),
-                height: (50 / 1002) * screenHeight,
-                width: (50 / 428) * MediaQuery.of(context).size.width,
+                height: UIConverter.getComponentHeight(context, 50),
+                width: UIConverter.getComponentWidth(context, 50),
                 margin: const EdgeInsets.only(top: 5),
                 child: const Icon(
                   Icons.notifications,
@@ -47,8 +49,8 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
               Container(
-                width: (11 / 428) * MediaQuery.of(context).size.width,
-                height: (11 / 1002) * screenHeight,
+                width: UIConverter.getComponentWidth(context, 11),
+                height: UIConverter.getComponentHeight(context, 11),
                 margin: const EdgeInsets.only(left: 33, top: 2),
                 decoration: const BoxDecoration(
                   color: Color.fromRGBO(49, 130, 206, 1),
