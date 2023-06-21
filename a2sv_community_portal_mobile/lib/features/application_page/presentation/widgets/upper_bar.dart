@@ -2,7 +2,8 @@ import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:flutter/material.dart';
 
 class UpperBar extends StatelessWidget implements PreferredSizeWidget {
-  const UpperBar({super.key});
+  const UpperBar({Key? key})
+      : super(key: key); // Add Key parameter and use const with constructor
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
                   style: TextStyle(
                       fontSize: 14, color: Color.fromRGBO(168, 168, 168, 1)),
                 ),
-                SizedBox(height: 4.0), // Adds spacing between the texts
+                SizedBox(height: 4.0), // Use const with SizedBox constructor
                 Text(
                   'Joe Doe',
                   style: TextStyle(
@@ -36,7 +37,8 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: Color.fromRGBO(235, 248, 255, 1),
+                  color: const Color.fromRGBO(
+                      235, 248, 255, 1), // Use const with Color constructor
                 ),
                 padding: const EdgeInsets.all(5),
                 height: UIConverter.getComponentHeight(context, 50),
@@ -53,7 +55,8 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
                 height: UIConverter.getComponentHeight(context, 11),
                 margin: const EdgeInsets.only(left: 33, top: 2),
                 decoration: const BoxDecoration(
-                  color: Color.fromRGBO(49, 130, 206, 1),
+                  color: Color.fromRGBO(
+                      49, 130, 206, 1), // Use const with Color constructor
                   shape: BoxShape.circle,
                 ),
               ),
@@ -65,5 +68,6 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize =>
+      const Size.fromHeight(kToolbarHeight); // Use const with Size constructor
 }

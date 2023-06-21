@@ -1,10 +1,10 @@
-import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
+import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/custom_button.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/custom_card.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/stepper_container.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/upper_bar.dart';
-import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:flutter/material.dart';
+// Remove this unused import
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -28,51 +28,52 @@ class Home extends StatelessWidget {
           Expanded(
             child: Center(
               child: SingleChildScrollView(
-                  child: Column(
-                children: const [
-                  CustomCard(
-                    title: 'subStepName',
-                    description:
-                        'Lorem ipsum dolor sit alflkafl alflakfkl aflflka aflfkasf kaflka amet consectetur. ',
-                    done: false,
-                  ),
-                  CustomCard(
-                    title: 'subStepName',
-                    description:
-                        'Lorem ipsum dolor sit alflkafl alflakfkl aflflka aflfkasf kaflka amet consectetur. ',
-                    done: true,
-                  ),
-                  CustomCard(
-                    title: 'subStepName',
-                    description:
-                        'Lorem ipsum dolor sit alflkafl alflakfkl aflflka aflfkasf kaflka amet consectetur. ',
-                    done: true,
-                  ),
-                  CustomCard(
-                    title: 'subStepName',
-                    description:
-                        'Lorem ipsum dolor sit alflkafl alflakfkl aflflka aflfkasf kaflka amet consectetur. ',
-                    done: true,
-                  ),
-                  CustomCard(
-                    title: 'subStepName',
-                    description:
-                        'Lorem ipsum dolor sit alflkafl alflakfkl aflflka aflfkasf kaflka amet consectetur. ',
-                    done: true,
-                  ),
-                  CustomCard(
-                    title: 'subStepName',
-                    description:
-                        'Lorem ipsum dolor sit alflkafl alflakfkl aflflka aflfkasf kaflka amet consectetur. ',
-                    done: true,
-                  ),
-                ],
-              )),
+                child: Column(
+                  children: const [
+                    CustomCard(
+                      title: 'subStepName',
+                      description:
+                          'Lorem ipsum dolor sit alflkafl alflakfkl aflflka aflfkasf kaflka amet consectetur. ',
+                      done: false,
+                    ),
+                    CustomCard(
+                      title: 'subStepName',
+                      description:
+                          'Lorem ipsum dolor sit alflkafl alflakfkl aflflka aflfkasf kaflka amet consectetur. ',
+                      done: true,
+                    ),
+                    CustomCard(
+                      title: 'subStepName',
+                      description:
+                          'Lorem ipsum dolor sit alflkafl alflakfkl aflflka aflfkasf kaflka amet consectetur. ',
+                      done: true,
+                    ),
+                    CustomCard(
+                      title: 'subStepName',
+                      description:
+                          'Lorem ipsum dolor sit alflkafl alflakfkl aflflka aflfkasf kaflka amet consectetur. ',
+                      done: true,
+                    ),
+                    CustomCard(
+                      title: 'subStepName',
+                      description:
+                          'Lorem ipsum dolor sit alflkafl alflakfkl aflflka aflfkasf kaflka amet consectetur. ',
+                      done: true,
+                    ),
+                    CustomCard(
+                      title: 'subStepName',
+                      description:
+                          'Lorem ipsum dolor sit alflkafl alflakfkl aflflka aflfkasf kaflka amet consectetur. ',
+                      done: true,
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 15.0, bottom: 15.0),
-            child: Container(
+            child: SizedBox(
               height: UIConverter.getComponentHeight(context, 48),
               child: Align(
                 alignment: Alignment.bottomCenter,
