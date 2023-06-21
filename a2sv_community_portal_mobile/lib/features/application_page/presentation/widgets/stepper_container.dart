@@ -23,7 +23,8 @@ class StepperBox extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
       child: Padding(
-        padding: EdgeInsets.only(left: (18 / 450) * screenWidth),
+        padding: EdgeInsets.only(
+            left: (18 / 450) * screenWidth, right: (18 / 450) * screenWidth),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -35,13 +36,12 @@ class StepperBox extends StatelessWidget {
               ),
             ),
             SizedBox(width: (56 / 428) * screenWidth),
-            Align(
-              alignment: Alignment.topRight,
-              child: Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
+            Expanded(
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Text(
                       currentStep,
                       style: TextStyle(
                         fontFamily: 'Inter',
@@ -53,8 +53,11 @@ class StepperBox extends StatelessWidget {
                         color: Colors.black,
                       ),
                     ),
-                    SizedBox(height: (8 / 428) * screenWidth),
-                    Text(
+                  ),
+                  SizedBox(height: (8 / 428) * screenWidth),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Text(
                       'Next: $nextStep',
                       style: TextStyle(
                         fontFamily: 'Poppins',
@@ -67,8 +70,8 @@ class StepperBox extends StatelessWidget {
                             0, 0, 0, 0.326), // equivalent to blackAlpha/300
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],

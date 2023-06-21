@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class CustomCard extends StatelessWidget {
@@ -16,10 +18,13 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+    double horPadding = (15 / 428) * screenWidth;
     return Container(
-      width: (374 / 428) * screenWidth,
-      height: (123 / 1002) * screenHeight,
-      margin: EdgeInsets.only(left: 27, top: 41, right: 27),
+      width: screenWidth >= 600 ? (200 / 428) * screenWidth : null,
+      margin: EdgeInsets.only(
+          left: (27 / 418) * screenWidth,
+          top: (41 / 1002) * screenHeight,
+          right: (27 / 418) * screenWidth),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8),
@@ -36,21 +41,23 @@ class CustomCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
+      child: Padding(
+        padding: EdgeInsets.all(horPadding),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
               children: [
                 done
                     ? Icon(
                         Icons.check_circle,
                         color: Color(0xFF3182CE),
                       )
-                    : Icon(Icons.radio_button_unchecked_rounded),
+                    : Icon(
+                        Icons.radio_button_unchecked_rounded,
+                        color: Color(0xFF3182CE),
+                      ),
                 Text(
                   title,
                   style: TextStyle(
@@ -61,19 +68,18 @@ class CustomCard extends StatelessWidget {
                 )
               ],
             ),
-          ),
-          SizedBox(height: 8),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
-            child: Text(
-              description,
-              style: TextStyle(
-                fontSize: 14,
-                color: Color.fromRGBO(0, 0, 0, 0.326),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
+              child: Text(
+                description,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Color.fromRGBO(0, 0, 0, 0.326),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -32,7 +32,7 @@ class CustomButton extends StatelessWidget {
               fontStyle: FontStyle.normal,
               fontWeight: FontWeight.w600,
               color: Colors.white,
-              fontSize: (25 / 1002) * screenHeight,
+              fontSize: (18 / 1002) * screenHeight,
               height: 1.2, // equivalent to line-height: 24px
               letterSpacing: 0.02,
             ),
