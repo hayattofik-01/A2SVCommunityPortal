@@ -14,9 +14,11 @@ class CustomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-      width: 374,
-      height: 123,
+      width: (374 / 428) * screenWidth,
+      height: (123 / 1002) * screenHeight,
       margin: EdgeInsets.only(left: 27, top: 41, right: 27),
       decoration: BoxDecoration(
         color: Colors.white,

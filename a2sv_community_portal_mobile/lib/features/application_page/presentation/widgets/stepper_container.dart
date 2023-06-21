@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/circular_stepper.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +47,8 @@ class StepperBox extends StatelessWidget {
                         fontFamily: 'Inter',
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.w700,
-                        fontSize: (24 / 1002) * screenHeight,
+                        fontSize: max((24 / 1002) * screenHeight,
+                            (24 / 428) * screenWidth),
                         height: 1.21,
                         color: Colors.black,
                       ),
@@ -57,7 +60,8 @@ class StepperBox extends StatelessWidget {
                         fontFamily: 'Poppins',
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.w500,
-                        fontSize: (16 / 1002) * screenHeight,
+                        fontSize: max((16 / 1002) * screenHeight,
+                            (16 / 428) * screenWidth),
                         height: 1.5, // equivalent to line-height: 24px
                         color: Color.fromRGBO(
                             0, 0, 0, 0.326), // equivalent to blackAlpha/300
