@@ -50,6 +50,7 @@ dependencies:
   flag: ^6.0.0
   flutter_circle_flags_svg: ^1.0.4
   flutter_svg: ^1.1.6
+  bloc: ^8.1.2
 
 dev_dependencies:
   flutter_test:
