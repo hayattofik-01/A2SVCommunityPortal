@@ -6,6 +6,7 @@ const Color blackColor = Colors.black;
 const Color blue = Colors.blue;
 const Color inputColor = Color(0xfff3f3f4);
 const Color grey = Color(0xff4A5568);
+const Color greyTextColor = Color.fromRGBO(168, 168, 168, 1);
 const Color primary = Color(0xFF3182CE);
 const Color boxShadowPrimary = Color.fromRGBO(0, 0, 0, 0.326);
 const Color boxShadowSecondary = Color.fromRGBO(0, 0, 0, 0.1);
