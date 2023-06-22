@@ -1,8 +1,9 @@
 import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
+import 'package:a2sv_community_portal_mobile/core/utils/widgets/bottom_bar.dart';
+import 'package:a2sv_community_portal_mobile/core/utils/widgets/upper_bar.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/custom_button.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/custom_card.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/stepper_container.dart';
-import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/upper_bar.dart';
 import 'package:flutter/material.dart';
 // Remove this unused import
 
@@ -94,6 +95,7 @@ class Home extends StatelessWidget {
           ),
         ],
       ),
+      bottomNavigationBar: const MainBottomNavigationBar(),
     );
   }
 }
