@@ -7,4 +7,4 @@ abstract class UpcomingContestsEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class FetchUpcomingContests extends UpcomingContestsEvent {}
+class FetchUpcomingContestsEvent extends UpcomingContestsEvent {}

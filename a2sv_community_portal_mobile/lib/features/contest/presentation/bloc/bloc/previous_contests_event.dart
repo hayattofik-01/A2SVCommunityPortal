@@ -7,4 +7,4 @@ abstract class PreviousContestsEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class FetchPreviousContests extends PreviousContestsEvent {}
+class FetchPreviousContestsEvent extends PreviousContestsEvent {}

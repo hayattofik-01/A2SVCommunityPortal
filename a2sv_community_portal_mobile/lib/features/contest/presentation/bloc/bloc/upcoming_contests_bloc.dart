@@ -12,7 +12,7 @@ class UpcomingContestsBloc
   UpcomingContestsBloc({required this.getUpcomingContests})
       : super(UpcomingContestsInitial()) {
     on<UpcomingContestsEvent>((event, emit) async {
-      if (event is FetchUpcomingContests) {
+      if (event is FetchUpcomingContestsEvent) {
         emit(UpcomingContestsLoading());
 
         final response = await getUpcomingContests();

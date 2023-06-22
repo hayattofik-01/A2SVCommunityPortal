@@ -13,7 +13,7 @@ class PreviousContestsBloc
   PreviousContestsBloc({required this.getPreviousContests})
       : super(PreviousContestsInitial()) {
     on<PreviousContestsEvent>((event, emit) async {
-      if (event is FetchPreviousContests) {
+      if (event is FetchPreviousContestsEvent) {
         emit(PreviousContestsLoading());
 
         final response = await getPreviousContests();
