@@ -10,7 +10,7 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 0,
-      backgroundColor: Colors.white,
+      backgroundColor: whiteColor,
       title: Row(
         children: [
           Expanded(
@@ -19,15 +19,14 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
               children: const [
                 Text(
                   'Welcome',
-                  style: TextStyle(
-                      fontSize: 14, color: Color.fromRGBO(168, 168, 168, 1)),
+                  style: TextStyle(fontSize: 14, color: whiteGreyColor),
                 ),
                 SizedBox(height: 4.0), // Use const with SizedBox constructor
                 Text(
                   'Joe Doe',
                   style: TextStyle(
                       fontSize: 20,
-                      color: Color.fromRGBO(0, 0, 0, 1),
+                      color: userNameColor,
                       fontWeight: FontWeight.w600),
                 ),
               ],
@@ -41,8 +40,8 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
                   color: greyColorForIcon, // Use const with Color constructor
                 ),
                 padding: const EdgeInsets.all(5),
-                height: UIConverter.getComponentHeight(context, 50),
-                width: UIConverter.getComponentWidth(context, 50),
+                height: 50,
+                width: 50,
                 margin: const EdgeInsets.only(top: 5),
                 child: const Icon(
                   Icons.notifications,
@@ -51,8 +50,8 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
               Container(
-                width: UIConverter.getComponentWidth(context, 11),
-                height: UIConverter.getComponentHeight(context, 11),
+                width: 11,
+                height: 11,
                 margin: const EdgeInsets.only(left: 33, top: 2),
                 decoration: const BoxDecoration(
                   color: primary, // Use const with Color constructor
