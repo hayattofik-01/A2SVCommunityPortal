@@ -2,6 +2,7 @@ import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/features/notifications/presentation/widgets/tile.dart';
 import 'package:a2sv_community_portal_mobile/features/notifications/presentation/widgets/uppe_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AnnouncementPage extends StatelessWidget {
   AnnouncementPage({super.key});
@@ -23,7 +24,9 @@ class AnnouncementPage extends StatelessWidget {
       backgroundColor: backgroundWhite,
       body: ListView(
         children: [
-          const UpperBar(),
+          const UpperBar(
+            title: 'Announcemet',
+          ),
           const SizedBox(
             height: 20,
           ),
@@ -31,7 +34,6 @@ class AnnouncementPage extends StatelessWidget {
             children: <Widget>[
               for (var data in _announcements)
                 GestureDetector(
-                  onTap: () => print('tapppeddd'),
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 10),
                       padding: const EdgeInsets.only(left: 16.0, right: 16.0),
