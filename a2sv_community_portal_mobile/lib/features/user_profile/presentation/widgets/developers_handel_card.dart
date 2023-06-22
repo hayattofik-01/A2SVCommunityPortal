@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/content_box.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/media_query.dart';
@@ -18,7 +19,7 @@ class DeveloperHandelCard extends StatelessWidget {
             child: Text(
               "Developer Handel",
               style: TextStyle(
-                  color: const Color.fromRGBO(0, 0, 0, 0.64),
+                  color: cardTitleColor,
                   fontFamily: 'Urbanist',
                   fontWeight: FontWeight.w600,
                   fontSize: UIConverter.getComponentHeight(context, 16)),

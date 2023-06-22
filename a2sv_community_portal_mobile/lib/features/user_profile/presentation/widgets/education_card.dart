@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/media_query.dart';
 import 'content_box.dart';
@@ -18,7 +19,7 @@ class EducationCard extends StatelessWidget {
             child: Text(
               "Education",
               style: TextStyle(
-                  color: const Color.fromRGBO(0, 0, 0, 0.64),
+                  color: cardTitleColor,
                   fontFamily: 'Urbanist',
                   fontWeight: FontWeight.w600,
                   fontSize: UIConverter.getComponentHeight(context, 16)),

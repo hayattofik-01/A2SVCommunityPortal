@@ -54,7 +54,7 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
                 height: 11,
                 margin: const EdgeInsets.only(left: 33, top: 2),
                 decoration: const BoxDecoration(
-                  color: primary, // Use const with Color constructor
+                  color: primaryColor, // Use const with Color constructor
                   shape: BoxShape.circle,
                 ),
               ),

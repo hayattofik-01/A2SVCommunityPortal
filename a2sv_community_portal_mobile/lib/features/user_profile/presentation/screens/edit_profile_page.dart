@@ -23,7 +23,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
           Expanded(
             child: ListView(children: const [
               EditCard(
-                boxHeight: 511,
+                bio: true,
+                boxHeight: 521,
                 title: "Socials",
                 fieldList: [
                   ['Full Name', 'profile_icon'],

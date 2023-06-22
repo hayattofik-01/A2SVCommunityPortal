@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/content_box.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/profile_picture.dart';
@@ -27,7 +28,7 @@ class BioCard extends StatelessWidget {
         fontFamily: 'Urbanist',
         fontSize: UIConverter.getComponentHeight(context, 14),
         fontWeight: FontWeight.w600,
-        color: const Color.fromRGBO(0, 0, 0, 0.48));
+        color: bioTextColor);
     return ContentBox(
       boxHeight: 245,
       child: Padding(
@@ -51,7 +52,7 @@ class BioCard extends StatelessWidget {
                           fontFamily: 'Urbanist',
                           fontWeight: FontWeight.w600,
                           fontSize: UIConverter.getComponentHeight(context, 16),
-                          color: const Color.fromRGBO(0, 0, 0, 0.8)),
+                          color: infoNameColor),
                     ),
                     Row(
                       children: [
@@ -74,7 +75,7 @@ class BioCard extends StatelessWidget {
                             fontSize:
                                 UIConverter.getComponentHeight(context, 14),
                             fontWeight: FontWeight.w600,
-                            color: const Color(0xFF3182CE)))
+                            color: primaryColor))
                   ],
                 )
               ],
@@ -95,7 +96,7 @@ class BioCard extends StatelessWidget {
                             fontSize:
                                 UIConverter.getComponentHeight(context, 16),
                             fontWeight: FontWeight.w600,
-                            color: const Color.fromRGBO(0, 0, 0, 0.64))),
+                            color: cardTitleColor)),
                   ),
                 ),
                 Align(
@@ -106,7 +107,7 @@ class BioCard extends StatelessWidget {
                           fontFamily: 'Urbanist',
                           fontSize: UIConverter.getComponentHeight(context, 14),
                           fontWeight: FontWeight.w500,
-                          color: const Color.fromRGBO(0, 0, 0, 0.48))),
+                          color: bioTextColor)),
                 ),
               ],
             ),

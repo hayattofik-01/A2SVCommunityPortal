@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -29,7 +30,7 @@ class IconWithDescription extends StatelessWidget {
             width: iconSize,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(7),
-                color: const Color(0XFFEBF8FF)),
+                color: greyColorForIcon),
             child: Center(child: SvgPicture.asset("/images/$iconName.svg")),
           ),
           SizedBox(
@@ -55,7 +56,7 @@ class IconWithDescription extends StatelessWidget {
                   child: Text(
                     handle,
                     style: TextStyle(
-                        color: const Color.fromRGBO(0, 0, 0, 0.36),
+                        color: handleColor,
                         fontFamily: 'Poppins',
                         fontSize: UIConverter.getComponentHeight(context, 12),
                         fontWeight: FontWeight.w400),

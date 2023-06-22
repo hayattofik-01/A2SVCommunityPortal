@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -41,7 +42,7 @@ class ProfilePicture extends StatelessWidget {
               width: editIconSize,
               height: editIconSize,
               decoration: const BoxDecoration(
-                color: Color.fromRGBO(49, 130, 206, 1),
+                color: primaryColor,
                 shape: BoxShape.circle,
               ),
               child: Center(

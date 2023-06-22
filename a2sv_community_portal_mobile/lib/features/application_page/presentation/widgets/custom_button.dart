@@ -14,7 +14,6 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -23,7 +22,7 @@ class CustomButton extends StatelessWidget {
             : UIConverter.getComponentWidth(context, 124),
         height: UIConverter.getComponentHeight(context, 48),
         decoration: BoxDecoration(
-          color: primary,
+          color: primaryColor,
           borderRadius: BorderRadius.circular(6),
         ),
         child: Center(

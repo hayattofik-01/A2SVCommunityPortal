@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,12 +19,12 @@ class TitleBar extends StatelessWidget {
           IconButton(
             onPressed: () {},
             icon: SvgPicture.asset("assets/images/back_icon.svg",
-                color: const Color(0xFF343434), width: 8, height: 16),
+                color: appBarColor, width: 8, height: 16),
           ),
           Text(
             title,
             style: const TextStyle(
-                color: Color(0xFF343434),
+                color: appBarColor,
                 fontFamily: 'Urbanist',
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
@@ -32,7 +33,7 @@ class TitleBar extends StatelessWidget {
           IconButton(
             onPressed: () {},
             icon: SvgPicture.asset("assets/images/$iconName.svg",
-                color: const Color(0xFF3182CE), width: 18, height: 18),
+                color: primaryColor, width: 18, height: 18),
           ),
         ],
       ),

@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/media_query.dart';
@@ -20,7 +21,7 @@ class ContentBox extends StatelessWidget {
             height: UIConverter.getComponentHeight(context, boxHeight),
             decoration: BoxDecoration(
               border: Border.all(
-                color: const Color.fromRGBO(0, 0, 0, 0.08),
+                color: boxBorderColor,
                 width: 1,
               ),
               borderRadius: const BorderRadius.all(Radius.circular(10)),
