@@ -31,7 +31,8 @@ class IconWithDescription extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(7),
                 color: greyColorForIcon),
-            child: Center(child: SvgPicture.asset("/images/$iconName.svg")),
+            child:
+                Center(child: SvgPicture.asset("assets/images/$iconName.svg")),
           ),
           SizedBox(
             width: UIConverter.getComponentHeight(context, 20),

@@ -27,7 +27,7 @@ class EditField extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(16, 16, 10, 16),
                 child: Center(
                   child: SvgPicture.asset(
-                    ("/images/$iconName.svg"),
+                    ("assets/images/$iconName.svg"),
                     color: blueBlackForAppBar,
                     height: UIConverter.getComponentHeight(context, 20),
                     width: UIConverter.getComponentHeight(context, 20),

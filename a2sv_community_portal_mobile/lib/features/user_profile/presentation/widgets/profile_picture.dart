@@ -47,7 +47,7 @@ class ProfilePicture extends StatelessWidget {
               ),
               child: Center(
                 child: SvgPicture.asset(
-                  '/images/edit_icon_2.svg',
+                  'assets/images/edit_icon_2.svg',
                   width: editIconSize * 0.6,
                   height: editIconSize * 0.6,
                   color: Colors.white,
