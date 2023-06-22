@@ -5,7 +5,8 @@ class CustomListTile extends StatelessWidget {
   final String date;
   final String time;
 
-  CustomListTile({
+  const CustomListTile({
+    super.key, 
     required this.header,
     required this.date,
     required this.time,
@@ -14,9 +15,9 @@ class CustomListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(7),
+      padding: const EdgeInsets.all(7),
       decoration:  BoxDecoration(
-        border: Border(top: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08)),bottom: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08)),left: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08)),right: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08))),
+        border: const Border(top: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08)),bottom: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08)),left: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08)),right: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08))),
         borderRadius: BorderRadius.circular(8.0),
         
         

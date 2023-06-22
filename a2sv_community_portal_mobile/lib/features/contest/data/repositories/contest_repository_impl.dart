@@ -26,19 +26,17 @@ class ContestRepositoryImpl implements ContestRepository {
         return const Left(ServerFailure(serverFaliure));
       }
     } else {
-      return Left(NoConnectionFailure(noConnectionError));
+      return const Left(NoConnectionFailure(noConnectionError));
     }
   }
 
   @override
   Future<Either<Failure, List<Contest>>> getPastContests() {
-    // TODO: implement getPastContests
     throw UnimplementedError();
   }
 
   @override
   Future<Either<Failure, List<Contest>>> getUpcomingContests() {
-    // TODO: implement getUpcomingContests
     throw UnimplementedError();
   }
 }
