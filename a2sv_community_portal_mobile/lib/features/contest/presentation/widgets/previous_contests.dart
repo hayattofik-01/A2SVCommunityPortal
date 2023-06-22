@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/format_date_and_time.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/bloc/bloc/previous_contests_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/widgets/list_tile.dart';
@@ -21,11 +22,11 @@ class PreviousContests extends StatelessWidget {
         } else if (state is PreviousContestsLoaded) {
           if (state.previousContests.isEmpty) {
             return Container(
-              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+              padding: const EdgeInsets.only(top: 50),
               child: const Center(
                 child: Text(
                   "No Recent Contests",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: greyTextColor),
                 ),
               ),
             );
