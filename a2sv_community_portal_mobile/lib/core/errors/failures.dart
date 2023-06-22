@@ -12,6 +12,11 @@ class ServerFailure extends Failure {
   const ServerFailure(this.message);
 }
 
+class GeneralFailure extends Failure {
+  final String message;
+  const GeneralFailure(this.message);
+}
+
 class InputFailure extends Failure {
   final String message;
   const InputFailure(this.message);
@@ -22,14 +27,15 @@ class CacheFailure extends Failure {
 
   const CacheFailure(this.message);
 }
+
 class NoConnectionFailure extends Failure {
   final String message;
 
   const NoConnectionFailure(this.message);
-  
+
   @override
   List<Object> get props => throw UnimplementedError();
-  
+
   @override
   bool? get stringify => throw UnimplementedError();
 }
