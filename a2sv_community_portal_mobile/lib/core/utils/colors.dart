@@ -13,7 +13,7 @@ const Color boxShadowSecondary = Color.fromRGBO(0, 0, 0, 0.1);
 const Color boxShadowTernary = Color.fromRGBO(0, 0, 0, 0.06);
 const Color blueBlackForAppBar = Color.fromRGBO(26, 54, 93, 1);
 const Color greyColorForIcon = Color.fromRGBO(235, 248, 255, 1);
-
+const Color backgroundWhite = Color.fromRGBO(237, 242, 247, 1);
 const Color whiteGreyColor = Color.fromRGBO(168, 168, 168, 1);
 const Color userNameColor = Color.fromRGBO(0, 0, 0, 1);
 const Color bioTextColor = Color.fromRGBO(0, 0, 0, 0.48);
