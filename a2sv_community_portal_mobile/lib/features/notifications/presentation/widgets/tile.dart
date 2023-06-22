@@ -7,7 +7,7 @@ class CustomListTile extends StatelessWidget {
   final bool isnew;
   
 
-  CustomListTile({
+  const CustomListTile({super.key, 
     required this.header,
     required this.description,
     required this.isnew,
@@ -20,11 +20,7 @@ class CustomListTile extends StatelessWidget {
       // margin: EdgeInsets.only(left: 16,right: 16),
       padding: const EdgeInsets.all(7),
       decoration: BoxDecoration(
-        border: const Border(
-            top: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08)),
-            bottom: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08)),
-            left: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08)),
-            right: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08))),
+        border:  Border.all(color: const Color.fromRGBO(0, 0, 0, 0.08)),
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: ListTile(

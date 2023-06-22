@@ -33,9 +33,7 @@ class NotificationPage extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         backgroundColor: Color.fromRGBO(237, 242, 247, 1),
         body: ListView(
           children: [
@@ -57,7 +55,7 @@ class NotificationPage extends StatelessWidget {
             )
           ],
         ),
-      ),
-    );
+      )
+    ;
   }
 }
