@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:flutter/material.dart';
 
@@ -26,16 +27,16 @@ class CustomCard extends StatelessWidget {
         right: UIConverter.getComponentWidth(context, 27),
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: whiteColor,
         borderRadius: BorderRadius.circular(8),
         boxShadow: const [
           BoxShadow(
-            color: Color.fromRGBO(0, 0, 0, 0.06),
+            color: boxShadowTernary,
             blurRadius: 2,
             offset: Offset(0, 1),
           ),
           BoxShadow(
-            color: Color.fromRGBO(0, 0, 0, 0.1),
+            color: boxShadowSecondary,
             blurRadius: 3,
             offset: Offset(0, 1),
           ),
@@ -52,18 +53,18 @@ class CustomCard extends StatelessWidget {
                 done
                     ? const Icon(
                         Icons.check_circle,
-                        color: Color(0xFF3182CE),
+                        color: primary,
                       )
                     : const Icon(
                         Icons.radio_button_unchecked_rounded,
-                        color: Color(0xFF3182CE),
+                        color: primary,
                       ),
                 Text(
                   title,
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: blackColor,
                   ),
                 )
               ],
@@ -74,7 +75,7 @@ class CustomCard extends StatelessWidget {
                 description,
                 style: const TextStyle(
                   fontSize: 14,
-                  color: Color.fromRGBO(0, 0, 0, 0.326),
+                  color: boxShadowPrimary,
                 ),
               ),
             ),
