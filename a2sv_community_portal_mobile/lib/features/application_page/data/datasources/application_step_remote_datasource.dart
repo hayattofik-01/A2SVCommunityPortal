@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:a2sv_community_portal_mobile/core/errors/exceptions.dart';
-import 'package:a2sv_community_portal_mobile/features/application_page/data/models/application_step_model.dart';
 import 'package:http/http.dart' as http;
 
 abstract class ApplicationStepRemoteDataSource {

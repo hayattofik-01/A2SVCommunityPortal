@@ -28,7 +28,7 @@ class ApplicationStepRepoImpl implements ApplicationStepRepo {
       } on ServerException catch (_) {
         return const Left(ServerFailure(serverFaliure));
       } catch (e) {
-        return left( GeneralFailure(unknown));
+        return left( const GeneralFailure(unknown));
       }
     }
     else {
