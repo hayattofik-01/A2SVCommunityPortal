@@ -17,10 +17,10 @@ class ContestRepositoryImpl implements ContestRepository {
   });
 
   @override
-  Future<Either<Failure, List<Contest>>> getContests() async {
+  Future<Either<Failure, List<Contest>>> getPastContests() async {
     if (await networkInfo.isConnected) {
       try {
-        final contests = await remoteDataSource.getContests();
+        final contests = await remoteDataSource.getPastContests();
         return Right(contests);
       } on ServerException {
         return const Left(ServerFailure(serverFaliure));
@@ -31,12 +31,16 @@ class ContestRepositoryImpl implements ContestRepository {
   }
 
   @override
-  Future<Either<Failure, List<Contest>>> getPastContests() {
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<Either<Failure, List<Contest>>> getUpcomingContests() {
-    throw UnimplementedError();
+  Future<Either<Failure, List<Contest>>> getUpcomingContests() async {
+    if (await networkInfo.isConnected) {
+      try {
+        final contests = await remoteDataSource.getUpcomingContests();
+        return Right(contests);
+      } on ServerException {
+        return const Left(ServerFailure(serverFaliure));
+      }
+    } else {
+      return const Left(NoConnectionFailure(noConnectionError));
+    }
   }
 }
