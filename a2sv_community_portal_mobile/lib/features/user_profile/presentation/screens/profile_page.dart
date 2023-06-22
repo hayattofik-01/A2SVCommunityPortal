@@ -27,7 +27,15 @@ class _ProfilePageState extends State<ProfilePage> {
           Expanded(
             child: ListView(
               children: const [
-                BioCard(),
+                BioCard(
+                  name: "Beth Biruk",
+                  country: "Ethiopia",
+                  email: "Beth.biruk@gmail.com",
+                  shortBio:
+                      "Nunc vulputate libero et velit interdum, ac aliquet odio mattis",
+                  resume: "some link",
+                  phoneNumber: "+251 0912432453",
+                ),
                 EducationCard(),
                 DeveloperHandelCard(),
                 SocialCard(),

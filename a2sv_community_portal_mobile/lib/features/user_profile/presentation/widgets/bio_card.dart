@@ -6,8 +6,20 @@ import '../../../../core/utils/media_query.dart';
 import 'package:flutter_circle_flags_svg/flutter_circle_flags_svg.dart';
 
 class BioCard extends StatelessWidget {
-  const BioCard({super.key});
-
+  const BioCard(
+      {super.key,
+      required this.name,
+      required this.email,
+      required this.country,
+      required this.resume,
+      required this.phoneNumber,
+      required this.shortBio});
+  final String name;
+  final String email;
+  final String country;
+  final String resume;
+  final String phoneNumber;
+  final String shortBio;
   @override
   Widget build(BuildContext context) {
     final TextStyle biotextStyle = TextStyle(
@@ -17,12 +29,12 @@ class BioCard extends StatelessWidget {
         fontWeight: FontWeight.w600,
         color: const Color.fromRGBO(0, 0, 0, 0.48));
     return ContentBox(
-      boxHeight: 241,
+      boxHeight: 245,
       child: Padding(
         padding: EdgeInsets.all(UIConverter.getComponentHeight(context, 16)),
         child: Column(children: [
           SizedBox(
-            height: UIConverter.getComponentHeight(context, 121),
+            height: UIConverter.getComponentHeight(context, 127),
             child: Row(
               children: [
                 const ProfilePicture(),
@@ -34,7 +46,7 @@ class BioCard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      "Beth Biruk",
+                      name,
                       style: TextStyle(
                           fontFamily: 'Urbanist',
                           fontWeight: FontWeight.w600,
@@ -46,12 +58,15 @@ class BioCard extends StatelessWidget {
                         SizedBox(
                             height: 18,
                             width: 18,
-                            child: CircleFlag(countryCode["Ethiopia"]!)),
-                        Text(" Ethiopia", style: biotextStyle)
+                            child: CircleFlag(countryCode[country]!)),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8),
+                          child: Text(country, style: biotextStyle),
+                        )
                       ],
                     ),
-                    Text("Beth.biruk@gmail.com", style: biotextStyle),
-                    Text("+251 0912432453", style: biotextStyle),
+                    Text(email, style: biotextStyle),
+                    Text(phoneNumber, style: biotextStyle),
                     Text("Résumé",
                         style: TextStyle(
                             height: 1,
@@ -85,8 +100,7 @@ class BioCard extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.topLeft,
-                  child: Text(
-                      '''Nunc vulputate libero et velit interdum, ac aliquet odio mattis''',
+                  child: Text(shortBio,
                       style: TextStyle(
                           height: 1,
                           fontFamily: 'Urbanist',
