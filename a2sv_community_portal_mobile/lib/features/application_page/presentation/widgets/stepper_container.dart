@@ -36,45 +36,48 @@ class StepperBox extends StatelessWidget {
           ),
           SizedBox(width: UIConverter.getComponentWidth(context, 56)),
           Expanded(
-            child: Column(
-              children: [
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Text(
-                    currentStep,
-                    style: TextStyle(
-                      fontFamily: 'Inter',
-                      fontStyle: FontStyle.normal,
-                      fontWeight: FontWeight.w700,
-                      fontSize: max(
-                        UIConverter.getComponentHeight(context, 24),
-                        UIConverter.getComponentWidth(context, 24),
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Column(
+                children: [
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Text(
+                      currentStep,
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.w700,
+                        fontSize: max(
+                          UIConverter.getComponentHeight(context, 24),
+                          UIConverter.getComponentWidth(context, 24),
+                        ),
+                        height: 1.21,
+                        color: Colors.black,
                       ),
-                      height: 1.21,
-                      color: Colors.black,
                     ),
                   ),
-                ),
-                SizedBox(height: UIConverter.getComponentHeight(context, 8)),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Text(
-                    'Next: $nextStep',
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontStyle: FontStyle.normal,
-                      fontWeight: FontWeight.w500,
-                      fontSize: max(
-                        UIConverter.getComponentHeight(context, 16),
-                        UIConverter.getComponentWidth(context, 16),
+                  SizedBox(height: UIConverter.getComponentHeight(context, 8)),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Text(
+                      'Next: $nextStep',
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.w500,
+                        fontSize: max(
+                          UIConverter.getComponentHeight(context, 16),
+                          UIConverter.getComponentWidth(context, 16),
+                        ),
+                        height: 1.5, // equivalent to line-height: 24px
+                        color: const Color.fromRGBO(
+                            0, 0, 0, 0.326), // equivalent to blackAlpha/300
                       ),
-                      height: 1.5, // equivalent to line-height: 24px
-                      color: const Color.fromRGBO(
-                          0, 0, 0, 0.326), // equivalent to blackAlpha/300
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

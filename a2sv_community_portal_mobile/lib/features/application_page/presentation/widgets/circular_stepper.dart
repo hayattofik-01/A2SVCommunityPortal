@@ -26,7 +26,7 @@ class CircularStepper extends StatelessWidget {
         UIConverter.getComponentWidth(context, 8.5),
       ),
       animation: true,
-      backgroundColor: Colors.white,
+      backgroundColor: whiteColor,
       percent: percentage,
       center: Text(
         text,

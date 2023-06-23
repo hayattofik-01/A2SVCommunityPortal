@@ -9,9 +9,13 @@ import 'package:a2sv_community_portal_mobile/core/network/network_info.dart';
 import 'package:dartz/dartz.dart';
 
 class ApplicationStepRepoImpl implements ApplicationStepRepo {
-  ApplicationStepRepoImpl({required this.remoteDataSource, required this.networkInfo});
   final ApplicationStepRemoteDataSource remoteDataSource;
-    final NetworkInfo networkInfo;
+  final NetworkInfo networkInfo;
+
+  ApplicationStepRepoImpl({
+    required this.remoteDataSource,
+    required this.networkInfo,
+  });
 
   @override
   Future<Either<Failure, List<ApplicationStepEntity>>>
@@ -28,11 +32,10 @@ class ApplicationStepRepoImpl implements ApplicationStepRepo {
       } on ServerException catch (_) {
         return const Left(ServerFailure(serverFaliure));
       } catch (e) {
-        return left( const GeneralFailure(unknown));
+        return left(const GeneralFailure(unknown));
       }
-    }
-    else {
-            return const Left(NoConnectionFailure(noConnectionError));
+    } else {
+      return const Left(NoConnectionFailure(noConnectionError));
     }
   }
 }

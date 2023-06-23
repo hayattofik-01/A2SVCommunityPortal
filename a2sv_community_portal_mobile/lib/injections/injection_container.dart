@@ -6,6 +6,7 @@ import 'package:a2sv_community_portal_mobile/features/contest/domain/usecases/ge
 import 'package:a2sv_community_portal_mobile/features/contest/domain/usecases/get_upcoming_contests.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/bloc/bloc/previous_contests_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/bloc/bloc/upcoming_contests_bloc.dart';
+import 'package:a2sv_community_portal_mobile/injections/application_injection.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -46,7 +47,7 @@ Future<void> init() async {
   sl.registerFactory(() => PreviousContestsBloc(getPreviousContests: sl()));
 
   //! Features - Application
-
+  applicationInit();
   //! Features - Notification
 
   //! Features - Authentication
