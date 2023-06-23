@@ -1,37 +1,44 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/utils/colors.dart';
 import '../../../../core/utils/media_query.dart';
+import '../../../../injection_container.dart' as di;
+import '../bloc/login_bloc/login_bloc.dart';
+import '../bloc/login_bloc/login_state.dart';
 
 class SubmitButton extends StatelessWidget {
 final String title;
-  const SubmitButton({super.key, required this.title});
+final TextEditingController emailC;
+final TextEditingController passC;
+final LoginBloc loginBloc = di.sl<LoginBloc>();
+   SubmitButton({super.key, required this.title,required this.emailC,required this.passC});
 
   @override
   Widget build(BuildContext context) {
-     return ElevatedButton(
-       onPressed: () {  },
+    
+     return BlocBuilder<LoginBloc, LoginState>(
+      bloc:loginBloc,
+        builder: (context, state) { 
+          
+          return ElevatedButton(
+       onPressed: () { 
+
+        BlocProvider.of<LoginBloc>(context).add(LoginPressed(email: emailC.text, password: passC.text));
+
+        },
        child: Container(
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(vertical: UIConverter.getComponentHeight(context, 15)),
+        width: MediaQuery.of(context).size.width * 0.9,
+        padding: EdgeInsets.symmetric(vertical: UIConverter.getComponentHeight(context, 14)),
         alignment: Alignment.center,
-        // decoration: const BoxDecoration(
-        //     borderRadius:  BorderRadius.all(Radius.circular(5)),
-        //     boxShadow: <BoxShadow>[
-        //       BoxShadow(
-        //           color: grey,
-        //           offset:Offset(2, 4),
-        //           blurRadius: 5,
-        //           spreadRadius: 2)
-        //     ],
-        //    color:  buttonColor),
-        child: Text(
+        child: state is LoginLoading ?const CircularProgressIndicator() : Text(
           title,
-          style: TextStyle(fontFamily: 'Poppins',fontSize: UIConverter.textSize(context, 27), color: whiteColor),
+          style: TextStyle(fontFamily: 'Poppins',fontSize: UIConverter.textSize(context, 16), color: whiteColor),
         ),
          ),
          
-     );
+     );});
   }
 
 }

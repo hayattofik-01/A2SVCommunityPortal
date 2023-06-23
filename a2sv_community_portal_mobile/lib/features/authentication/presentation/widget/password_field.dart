@@ -5,9 +5,12 @@ import '../../../../core/utils/media_query.dart';
 // ignore: must_be_immutable
 class PasswordField extends StatefulWidget {
   final  String title;
+   final TextEditingController controller;
+   final String? Function(String?)?  validator;
  const PasswordField({
     Key? key,
     required this.title ,
+    required this.controller, this.validator
 
   }) : super(key: key);
 
@@ -26,10 +29,10 @@ class _PasswordFieldState extends State<PasswordField> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
       
-          SizedBox(
-            height: UIConverter.getComponentHeight(context, 5),
-          ),
-          TextField(
+         
+          TextFormField(
+            controller: widget.controller,
+            validator: widget.validator,
                obscureText: isPassword,
               decoration: InputDecoration(
                  contentPadding: EdgeInsets.symmetric(vertical:UIConverter.getComponentHeight(context, 25)),

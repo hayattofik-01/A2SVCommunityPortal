@@ -1,17 +1,21 @@
+import 'package:a2sv_community_portal_mobile/core/utils/validation.dart';
+import 'package:a2sv_community_portal_mobile/features/authentication/presentation/bloc/sign_up_bloc/sign_up_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/login_page.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/account_question.dart';
-import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/entry_field.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/password_field.dart';
-import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/submit_button.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/media_query.dart';
 import '../widget/bezier_container.dart';
-
+import '../widget/entry_field.dart';
+import '../widget/register_button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpPage extends StatefulWidget {
+  
   const SignUpPage({Key? key, this.title}) : super(key: key);
 
   final String? title;
+  
 
   @override
   // ignore: library_private_types_in_public_api
@@ -19,6 +23,45 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+   final TextEditingController emailController = TextEditingController();
+    final TextEditingController nameController = TextEditingController();
+    final TextEditingController telegramController = TextEditingController();
+    final TextEditingController codeforceController = TextEditingController();
+    final TextEditingController phoneController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final TextEditingController confirmPasswordController =
+        TextEditingController();
+        final formKey = GlobalKey<FormState>();
+  void showSnackBar(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: Colors.red,
+      ),
+    );
+  }
+
+  String? validateEmail(String value) {
+    // Check if the value is empty
+    if (value.isEmpty) {
+      return 'Email is required';
+    }
+
+    // Define the regular expression pattern
+    const emailPattern = r'^[\\w-\\.]+@[\\w-]+(\\.[\\w-]+)*\$';
+
+    // Create a regular expression object
+    final regExp = RegExp(emailPattern);
+
+    // Check if the value matches the pattern
+    if (!regExp.hasMatch(value)) {
+      return 'Invalid email format';
+    }
+
+    // Return null if the value is valid
+    return null;
+  }
+
   Widget _title() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,29 +78,17 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
         ),
         Text(
-          "A2SV community ",
+          "A2SV Community ",
           style: TextStyle(
               fontFamily: 'Urbanist ',
               fontSize: UIConverter.textSize(context, 30),
               fontWeight: FontWeight.w700),
         ),
         const AccountQuestion(
-            question: 'Already have an account ?', action: 'Login',page: LoginPage(),),
-      ],
-    );
-  }
-
-  Widget _emailPasswordWidget() {
-    return Column(
-      children: const <Widget>[
-        EntryField(label: "Full Name", icon: Icons.person),
-        EntryField(label: "Email", icon: Icons.email),
-        EntryField(label: "Phone Number", icon: Icons.phone),
-        EntryField(
-            label: "CodeForces Handle", icon: Icons.bar_chart_outlined),
-        EntryField(label: "Telegram Handle", icon: Icons.telegram),
-        PasswordField(title: "Password"),
-        PasswordField(title: "Confirm Password")
+          question: 'Already have an account ?',
+          action: 'Login',
+          page: LoginPage(),
+        ),
       ],
     );
   }
@@ -65,42 +96,119 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    return Scaffold(
-      body: SizedBox(
-        height: height,
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              top: -MediaQuery.of(context).size.height * .15,
-              right: -MediaQuery.of(context).size.width * .4,
-              child: const BezierContainer(),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(
-                  horizontal: UIConverter.getComponentWidth(context, 20)),
-              child: SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    SizedBox(height: height * .09),
-                    _title(),
-                    SizedBox(
-                      height: UIConverter.getComponentHeight(context, 15),
+   
+    return BlocConsumer<SignUpBloc, SignUpState>(listener: (context, state) {
+      if (state is SignUpFailure) {
+        showSnackBar(context, state.error);
+      } else if (state is SignUpSuccess) {
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (_) => const LoginPage()));
+      }
+    }, builder: (context, state) {
+      if (state is SignUpLoading) {
+        return const SafeArea(
+            child: Scaffold(body: Center(child: CircularProgressIndicator())));
+      } else {
+        return SafeArea(
+          child: Scaffold(
+            body: SizedBox(
+              height: height,
+              child: Stack(
+                children: <Widget>[
+                  Positioned(
+                    top: -MediaQuery.of(context).size.height * .15,
+                    right: -MediaQuery.of(context).size.width * .4,
+                    child: const BezierContainer(),
+                  ),
+                  Container(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: UIConverter.getComponentWidth(context, 20)),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          SizedBox(height: height * .09),
+                          _title(),
+                          SizedBox(
+                            height: UIConverter.getComponentHeight(context, 15),
+                          ),
+                          Form(
+                            child: Form(
+                              key: formKey,
+                              autovalidateMode: AutovalidateMode.always,
+                              child: Column(
+                                children: <Widget>[
+                                  EntryField(
+                                    label: "Full Name",
+                                    icon: Icons.person,
+                                    controller: nameController,
+                                    validator: Validator.validateName,
+                                  ),
+                                  EntryField(
+                                    label: "Email",
+                                    icon: Icons.email,
+                                    controller: emailController,
+                                    validator: Validator.validateEmail,
+                                  ),
+                                  EntryField(
+                                    label: "Phone Number",
+                                    icon: Icons.phone,
+                                    controller: phoneController,
+                                    validator: Validator.validatePhoneNumber,
+                                  ),
+                                  EntryField(
+                                    label: "CodeForces Handle",
+                                    icon: Icons.bar_chart_outlined,
+                                    controller: codeforceController,
+                                    validator: Validator.validateUsername,
+                                  ),
+                                  EntryField(
+                                    label: "Telegram Handle",
+                                    icon: Icons.telegram,
+                                    controller: telegramController,
+                                    validator: Validator.validateUsername,
+                                  ),
+                                  PasswordField(
+                                    title: "Password",
+                                    controller: passwordController,
+                                    validator: Validator.validatePassword,
+                                  ),
+                                  PasswordField(
+                                    title: "Confirm Password",
+                                    controller: confirmPasswordController,
+                                    validator: Validator.validatePassword,
+                                  )
+                                ],
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: UIConverter.getComponentHeight(context, 20),
+                          ),
+                          RegisterButton(
+                            title: "Register",
+                            emailC: emailController,
+                            passC: passwordController,
+                            nameC: nameController,
+                            telegramC: telegramController,
+                            codeforceC: codeforceController,
+                            phoneC: phoneController,
+                            passwordC: passwordController,
+                            confirmC: confirmPasswordController,
+                            formkey:formKey
+                          ),
+                          SizedBox(height: height * .14),
+                        ],
+                      ),
                     ),
-                    _emailPasswordWidget(),
-                    SizedBox(
-                      height: UIConverter.getComponentHeight(context, 20),
-                    ),
-                    const SubmitButton(title: "Register"),
-                    SizedBox(height: height * .14),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      ),
-    );
+          ),
+        );
+      }
+    });
   }
 }

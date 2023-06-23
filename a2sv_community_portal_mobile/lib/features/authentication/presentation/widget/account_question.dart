@@ -19,7 +19,7 @@ final dynamic page;
           children: <Widget>[
             Text(
              question,
-              style: TextStyle(fontFamily: 'Poppins',fontSize: UIConverter.textSize(context, 18), fontWeight: FontWeight.w400,color: grey),
+              style: TextStyle(fontFamily: 'Poppins',fontSize: UIConverter.textSize(context, 16), fontWeight: FontWeight.w400,color: grey),
             ),
             SizedBox(
               width:UIConverter.getComponentWidth(context, 10),
@@ -34,7 +34,7 @@ final dynamic page;
               style: TextStyle(
                 fontFamily: 'Poppins',
                   color:blue,
-                  fontSize: UIConverter.textSize(context, 18),
+                  fontSize: UIConverter.textSize(context, 14),
                   fontWeight: FontWeight.w600),
             ),)
           ],

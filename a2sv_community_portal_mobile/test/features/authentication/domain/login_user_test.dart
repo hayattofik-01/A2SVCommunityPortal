@@ -6,7 +6,7 @@ import 'package:dartz/dartz.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'register_user_test.mocks.dart';
+import 'login_user_test.mocks.dart';
 @GenerateMocks([AuthRepository])
 void main() {
   late MockAuthRepository mockRepository;

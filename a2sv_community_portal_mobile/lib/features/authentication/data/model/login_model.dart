@@ -13,7 +13,7 @@ class LoginModel extends Login {
 
   static LoginModel fromJson(Map<String, dynamic> json) {
     return LoginModel(
-      token: json['token'],
-    );
+      token: json ['value']['token']);
+    
   }
 }

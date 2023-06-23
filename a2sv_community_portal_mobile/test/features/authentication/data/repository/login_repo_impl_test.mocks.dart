@@ -13,7 +13,7 @@ import 'package:a2sv_community_portal_mobile/features/authentication/data/dataso
     as _i3;
 import 'package:a2sv_community_portal_mobile/features/authentication/domain/entities/login.dart'
     as _i2;
-import 'package:a2sv_community_portal_mobile/features/user_profile/data/models/user_model.dart'
+import 'package:a2sv_community_portal_mobile/features/authentication/domain/entities/registration_payload.dart'
     as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 
@@ -72,7 +72,7 @@ class MockLoginRemoteDataSource extends _i1.Mock
         )),
       ) as _i4.Future<_i2.Login>);
   @override
-  _i4.Future<_i2.Login> registerUser(_i5.UserModel? user) =>
+  _i4.Future<_i2.Login> registerUser(_i5.RegistrationPayload? user) =>
       (super.noSuchMethod(
         Invocation.method(
           #registerUser,

@@ -1,4 +1,4 @@
-import 'package:a2sv_community_portal_mobile/features/user_profile/data/models/user_model.dart';
+import 'package:a2sv_community_portal_mobile/features/authentication/domain/entities/registration_payload.dart';
 import 'package:dartz/dartz.dart';
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/errors/failures.dart';
@@ -27,6 +27,9 @@ class LoginRepositoryImpl implements AuthRepository {
         final remoteData = await remoteDataSource.loginUser(email, password);
         localDataSource.cacheToken(remoteData);
         return Right(remoteData);
+      } on LoginFailedException {
+        return const Left(InputFailure(loginFailed));
+     
       } on ServerException {
         return const Left(ServerFailure(serverFaliure));
       }
@@ -40,18 +43,22 @@ class LoginRepositoryImpl implements AuthRepository {
     try {
       final localData = await localDataSource.getLastToken();
       return Right(localData);
+      
     } on CacheException {
       return const Left(CacheFailure(cacheException));
     }
   }
 
   @override
-  Future<Either<Failure, Login>> register(UserModel user ) async{
-     if (await networkInfo.isConnected) {
+  Future<Either<Failure, Login>> register(
+     RegistrationPayload user) async {
+    if (await networkInfo.isConnected) {
       try {
-        final remoteData = await remoteDataSource.registerUser(user);
+        final remoteData = await remoteDataSource.registerUser(  user);
         localDataSource.cacheToken(remoteData);
         return Right(remoteData);
+      } on LoginFailedException {
+        return const Left(InputFailure(loginFailed));
       } on ServerException {
         return const Left(ServerFailure(serverFaliure));
       }
@@ -59,6 +66,4 @@ class LoginRepositoryImpl implements AuthRepository {
       return const Left(NoConnectionFailure(noConnectionError));
     }
   }
-  }
-
-
+}

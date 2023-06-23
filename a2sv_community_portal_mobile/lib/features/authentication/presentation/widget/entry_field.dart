@@ -7,7 +7,9 @@ import '../../../../core/utils/media_query.dart';
 class EntryField  extends StatelessWidget {
   final String label;
 final dynamic icon;
-  const EntryField({super.key, required this.label,required this.icon});
+final TextEditingController controller;
+final String? Function(String?)?  validator;
+  const EntryField({super.key, required this.label,required this.icon, required this.controller, required this.validator});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,21 +18,23 @@ final dynamic icon;
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
       
-          SizedBox(
-            height: UIConverter.getComponentHeight(context, 5),
-          ),
-          TextField(
-              
+          // SizedBox(
+          //   height: UIConverter.getComponentHeight(context, 1),
+          // ),
+          TextFormField(
+              controller: controller,
+             
               decoration: InputDecoration(
-                  contentPadding: EdgeInsets.symmetric(vertical:UIConverter.getComponentHeight(context, 25)),
+                  contentPadding: EdgeInsets.symmetric(vertical:UIConverter.getComponentHeight(context, 20)),
                   fillColor:inputColor,
                   filled: true, prefixIcon: Icon(icon),
                 labelText: label,
                  border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide.none
+            borderSide: BorderSide.none,
           ),
-                ))
+           
+                ), validator: validator,)
                   ,
         ],
       ),
