@@ -7,7 +7,7 @@ import '../repositories/user_repository.dart';
 
 class GetUser implements UseCase<UserEntity, String> {
   final UserRepository repository;
-  GetUser(this.repository);
+  GetUser({required this.repository});
 
   @override
   Future<Either<Failure, UserEntity>> call(String id) async {
