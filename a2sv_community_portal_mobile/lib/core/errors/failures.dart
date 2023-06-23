@@ -27,9 +27,10 @@ class NoConnectionFailure extends Failure {
 
   const NoConnectionFailure(this.message);
   
-  @override
-  List<Object> get props => throw UnimplementedError();
   
-  @override
-  bool? get stringify => throw UnimplementedError();
+}
+class LoignFailed extends Failure{
+ final String message;
+
+  const LoignFailed(this.message);
 }
