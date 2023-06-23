@@ -10,6 +10,5 @@ class ApplicationStepUseCases {
 
   Future<Either<Failure, List<ApplicationStepEntity>>> getSteps() async {
     return await applicationStepRepo.getApplicationStepFromDataSource();
-    
   }
 }

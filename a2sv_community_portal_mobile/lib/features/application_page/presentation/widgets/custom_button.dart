@@ -17,7 +17,7 @@ class CustomButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: UIConverter.getDeviceWidth(context) > 700
+        width: UIConverter.getDeviceWidth(context) > 400
             ? 124
             : UIConverter.getComponentWidth(context, 124),
         height: UIConverter.getComponentHeight(context, 48),

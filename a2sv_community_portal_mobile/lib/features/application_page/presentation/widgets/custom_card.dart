@@ -18,9 +18,9 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) {
     double horPadding = UIConverter.getComponentHeight(context, 15);
     return Container(
-      width: UIConverter.getDeviceWidth(context) >= 600
-          ? UIConverter.getComponentWidth(context, 150)
-          : null,
+      // width: UIConverter.getDeviceWidth(context) >= 600
+      //     ? UIConverter.getComponentWidth(context, 150)
+      //     : null,
       margin: EdgeInsets.only(
         left: UIConverter.getComponentWidth(context, 27),
         top: UIConverter.getComponentHeight(context, 41),
@@ -59,14 +59,19 @@ class CustomCard extends StatelessWidget {
                         Icons.radio_button_unchecked_rounded,
                         color: primaryColor,
                       ),
-                Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: blackColor,
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      title,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: blackColor,
+                      ),
+                    ),
                   ),
-                )
+                ),
               ],
             ),
             Padding(
