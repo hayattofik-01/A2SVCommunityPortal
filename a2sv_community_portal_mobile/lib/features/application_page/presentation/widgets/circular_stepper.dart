@@ -37,7 +37,7 @@ class CircularStepper extends StatelessWidget {
           ),
         ),
       ),
-      progressColor: primary,
+      progressColor: primaryColor,
       circularStrokeCap: CircularStrokeCap.round,
     );
   }

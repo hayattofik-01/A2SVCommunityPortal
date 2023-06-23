@@ -53,11 +53,11 @@ class CustomCard extends StatelessWidget {
                 done
                     ? const Icon(
                         Icons.check_circle,
-                        color: primary,
+                        color: primaryColor,
                       )
                     : const Icon(
                         Icons.radio_button_unchecked_rounded,
-                        color: primary,
+                        color: primaryColor,
                       ),
                 Text(
                   title,
