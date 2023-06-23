@@ -8,7 +8,7 @@ class GetAnnouncements {
   final AnnouncementRepository repository;
   GetAnnouncements({required this.repository});
 
-  Future<Either<Failure, List<Announcements>>> getAnnouncements() async {
+  Future<Either<Failure, List<Announcement>>> getAnnouncements() async {
     return await repository.getAnnouncements();
   }
 }

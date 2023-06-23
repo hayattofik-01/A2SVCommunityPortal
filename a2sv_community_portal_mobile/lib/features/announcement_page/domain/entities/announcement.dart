@@ -1,8 +1,8 @@
-class Announcements {
+class Announcement {
   final String title;
   final String description;
 
-  Announcements({
+  Announcement({
     required this.title,
     required this.description,
   });
