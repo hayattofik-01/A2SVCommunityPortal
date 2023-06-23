@@ -16,7 +16,7 @@ void main() {
   late MockUserRepository mockUserRepository;
   setUp(() {
     mockUserRepository = MockUserRepository();
-    usecase = GetUser(mockUserRepository);
+    usecase = GetUser(repository: mockUserRepository);
   });
   const String id = '123';
   const tUser = UserEntity(
