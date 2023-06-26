@@ -1,6 +1,7 @@
 import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/format_date_and_time.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/bloc/bloc/previous_contests_bloc.dart';
+import 'package:a2sv_community_portal_mobile/features/contest/presentation/pages/contest_detail.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/widgets/list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +27,10 @@ class PreviousContests extends StatelessWidget {
               child: const Center(
                 child: Text(
                   "No Recent Contests",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500, color: greyTextColor),
+                  style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w500,
+                      color: greyTextColor),
                 ),
               ),
             );
@@ -34,13 +38,21 @@ class PreviousContests extends StatelessWidget {
             return Column(
               children: <Widget>[
                 for (var contest in state.previousContests)
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 10),
-                    padding: const EdgeInsets.only(left: 16.0, right: 16.0),
-                    child: CustomListTile(
-                      header: contest.title,
-                      date: formatDateAndTime(contest.date)['date'] ?? "",
-                      time: formatDateAndTime(contest.date)['time'] ?? "",
+                  GestureDetector(
+                    onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ContestDetails(
+                                  contest: contest,
+                                ))),
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 10),
+                      padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+                      child: CustomListTile(
+                        header: contest.title,
+                        date: formatDateAndTime(contest.date)['date'] ?? "",
+                        time: formatDateAndTime(contest.date)['time'] ?? "",
+                      ),
                     ),
                   )
               ],

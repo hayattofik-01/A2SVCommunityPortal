@@ -18,7 +18,7 @@ class ContestPage extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          UpperBar(),
+          const UpperBar(),
           const SizedBox(height: 26),
           Container(
               padding: const EdgeInsets.only(left: 16.0, right: 16.0),
