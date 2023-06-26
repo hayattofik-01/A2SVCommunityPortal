@@ -13,10 +13,10 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: whiteColor,
       title: Row(
         children: [
-          Expanded(
+          const Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'Welcome',
                   style: TextStyle(fontSize: 14, color: whiteGreyColor),
