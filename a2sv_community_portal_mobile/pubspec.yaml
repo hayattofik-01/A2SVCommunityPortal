@@ -54,7 +54,7 @@ dependencies:
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.1
   url_launcher: ^6.1.11
-  flutter_circle_flags_svg: ^1.0.4
+
 
 dev_dependencies:
   flutter_test:
