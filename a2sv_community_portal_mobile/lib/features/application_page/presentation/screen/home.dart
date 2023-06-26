@@ -126,7 +126,6 @@ class _HomeState extends State<Home> {
           return Text("${state is ApplicationInitial}");
         }
       }),
-      bottomNavigationBar: const MainBottomNavigationBar(),
     );
   }
 }
