@@ -12,6 +12,8 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
+import 'auth_injection.dart';
+
 final sl = GetIt.instance;
 
 Future<void> init() async {
@@ -51,6 +53,7 @@ Future<void> init() async {
   //! Features - Notification
 
   //! Features - Authentication
+  authInit();
 
   //! External
 }
