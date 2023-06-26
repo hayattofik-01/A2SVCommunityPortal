@@ -1,3 +1,5 @@
+import 'package:a2sv_community_portal_mobile/features/application_page/presentation/bloc/application_bloc.dart';
+import 'package:a2sv_community_portal_mobile/features/application_page/presentation/screen/home.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/pages/upcoming_and_recent_contest_page.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/bloc/bloc/previous_contests_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/bloc/bloc/upcoming_contests_bloc.dart';
@@ -27,11 +29,14 @@ class MyApp extends StatelessWidget {
           create: (_) =>
               sl<PreviousContestsBloc>()..add(FetchPreviousContestsEvent()),
         ),
+        BlocProvider<ApplicationBloc>(
+          create: (_) => sl<ApplicationBloc>()..add(FetchDataEvent()),
+        )
         // Add more bloc providers for other blocs if needed
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: ContestPage(),
+        home: Home(),
       ),
     );
   }
