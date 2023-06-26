@@ -1,4 +1,3 @@
-import 'package:a2sv_community_portal_mobile/core/utils/widgets/bottom_bar.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/widgets/previous_contests.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/widgets/upcoming_contests.dart';
 import 'package:flutter/material.dart';
@@ -43,7 +42,6 @@ class ContestPage extends StatelessWidget {
           )
         ],
       ),
-      bottomNavigationBar: const MainBottomNavigationBar(),
     );
   }
 }

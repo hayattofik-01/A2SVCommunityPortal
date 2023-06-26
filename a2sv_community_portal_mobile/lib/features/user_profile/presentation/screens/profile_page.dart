@@ -42,20 +42,6 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
           ),
-          BottomNavigationBar(items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_max_outlined),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.code),
-              label: 'Contest',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-          ])
         ],
       ),
     ));
