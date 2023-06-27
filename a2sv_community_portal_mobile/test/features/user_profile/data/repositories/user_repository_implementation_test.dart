@@ -31,14 +31,13 @@ void main() {
     );
   });
 
-  const tUserId = '1';
   const tUserModel = UserModel(
-    id: tUserId,
-    name: 'John Doe',
+    fullName: 'John Doe',
     email: 'john.doe@example.com',
     telegramUsername: 'johndoe',
-    codeForces: 'johndoe',
-    password: 'password123',
+    codeforcesHandle: 'johndoe',
+    phoneNumber: '12345'
+
   );
 
   group('editUserProfile', () {
@@ -107,10 +106,9 @@ void main() {
   group('getUser', () {
     test('should check if the device is online', () async {
       when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
-      when(mockRemoteDataSource.getUser(any))
-          .thenAnswer((_) async => tUserModel);
-      await repository.getUser(tUserId);
-      verify(mockRemoteDataSource.getUser(any)).called(1);
+      when(mockRemoteDataSource.getUser()).thenAnswer((_) async => tUserModel);
+      await repository.getUser();
+      verify(mockRemoteDataSource.getUser()).called(1);
     });
 
     group('device is online', () {
@@ -120,20 +118,20 @@ void main() {
       test(
         'should return remote data when the call to remote data source is successful',
         () async {
-          when(mockRemoteDataSource.getUser(any))
+          when(mockRemoteDataSource.getUser())
               .thenAnswer((_) async => tUserModel);
-          final result = await repository.getUser(tUserId);
-          verify(mockRemoteDataSource.getUser(any));
+          final result = await repository.getUser();
+          verify(mockRemoteDataSource.getUser());
           expect(result, equals(const Right(tUserModel)));
         },
       );
       test(
         'should cache the data locally when the call to remote data is successful',
         () async {
-          when(mockRemoteDataSource.getUser(any))
+          when(mockRemoteDataSource.getUser())
               .thenAnswer((_) async => tUserModel);
-          await repository.getUser(tUserId);
-          verify(mockRemoteDataSource.getUser(any));
+          await repository.getUser();
+          verify(mockRemoteDataSource.getUser());
           verify(mockLocalDataSource.cacheUser(tUserModel));
         },
       );
@@ -141,11 +139,11 @@ void main() {
       test(
         'should retufn server Failure when the call to the remove data is not successful',
         () async {
-          when(mockRemoteDataSource.getUser(any))
+          when(mockRemoteDataSource.getUser())
               .thenThrow(ServerException(serverFaliure));
 
-          final result = await repository.getUser(tUserId);
-          verify(mockRemoteDataSource.getUser(any));
+          final result = await repository.getUser();
+          verify(mockRemoteDataSource.getUser());
           verifyZeroInteractions(mockLocalDataSource);
           expect(result, equals(const Left(ServerFailure(serverFaliure))));
         },
@@ -161,7 +159,7 @@ void main() {
         () async {
           when(mockLocalDataSource.getUser())
               .thenAnswer((_) async => tUserModel);
-          final result = await repository.getUser(tUserId);
+          final result = await repository.getUser();
           verifyZeroInteractions(mockRemoteDataSource);
           verify(mockLocalDataSource.getUser());
           expect(result, equals(const Right(tUserModel)));
@@ -173,7 +171,7 @@ void main() {
         () async {
           when(mockLocalDataSource.getUser())
               .thenThrow(CacheException(cacheException));
-          final result = await repository.getUser(tUserId);
+          final result = await repository.getUser();
           verifyZeroInteractions(mockRemoteDataSource);
           verify(mockLocalDataSource.getUser());
           expect(result, equals(const Left(CacheFailure(cacheException))));

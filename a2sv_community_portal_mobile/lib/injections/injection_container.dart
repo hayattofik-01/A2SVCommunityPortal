@@ -13,6 +13,7 @@ import 'package:a2sv_community_portal_mobile/features/notifications/domain/useca
 import 'package:a2sv_community_portal_mobile/features/notifications/domain/usecases/send_is_read.dart';
 import 'package:a2sv_community_portal_mobile/features/notifications/presentation/bloc/notification_bloc.dart';
 import 'package:a2sv_community_portal_mobile/injections/application_injection.dart';
+import 'package:a2sv_community_portal_mobile/injections/profile_injection.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -35,7 +36,7 @@ Future<void> init() async {
       () => NetworkInfoImpl(connectionChecker: sl()));
 
   //! Features - UserProfile
-
+  profileInit();
   //! Features - Contest
   //usecase
   sl.registerLazySingleton(() => GetPastContests(repository: sl()));

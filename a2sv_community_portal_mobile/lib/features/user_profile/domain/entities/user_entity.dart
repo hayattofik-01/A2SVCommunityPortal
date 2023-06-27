@@ -1,50 +1,70 @@
 import 'package:equatable/equatable.dart';
 
+import '../../data/models/user_model.dart';
+
 class UserEntity extends Equatable {
-  final String id;
-  final String name;
+  final String fullName;
   final String email;
   final String telegramUsername;
-  final String country;
+  final String? country;
   final String phoneNumber;
-  final String university;
-  final String department;
+  final String? university;
+  final String? department;
   final int? graduationYear;
-  final String favoriteLanguage;
-  final String password;
-  final String cv;
-  final String shortBio;
-  final String leetCode;
-  final String hackerRank;
-  final String codeForces;
-  final String gitHub;
-  final String linkedIn;
+  final String? favoriteLanguage;
+  final String? cv;
+  final String? shortBio;
+  final String? leetCodeHandle;
+  final String? hackerrankHandle;
+  final String codeforcesHandle;
+  final String? gitHubHandle;
+  final String? linkedInHandle;
+  final String? profilePicture;
 
-  const UserEntity({
-    required this.id,
-    required this.name,
-    required this.email,
-    required this.telegramUsername,
-    required this.codeForces,
-    required this.password,
-    this.country = '',
-    this.phoneNumber = '',
-    this.university = '',
-    this.department = '',
-    this.graduationYear,
-    this.favoriteLanguage = '',
-    this.cv = '',
-    this.shortBio = '',
-    this.leetCode = '',
-    this.hackerRank = '',
-    this.gitHub = '',
-    this.linkedIn = '',
-  });
+  const UserEntity(
+      {required this.fullName,
+      required this.email,
+      required this.telegramUsername,
+      required this.codeforcesHandle,
+      this.country,
+      required this.phoneNumber,
+      this.university,
+      this.department,
+      this.graduationYear,
+      this.favoriteLanguage,
+      this.cv,
+      this.shortBio,
+      this.leetCodeHandle,
+      this.hackerrankHandle,
+      this.gitHubHandle,
+      this.linkedInHandle,
+      this.profilePicture});
+
+  UserModel toUserModel() {
+    return UserModel(
+      fullName: fullName,
+      email: email,
+      telegramUsername: telegramUsername,
+      codeforcesHandle: codeforcesHandle,
+      country: country,
+      phoneNumber: phoneNumber,
+      university: university,
+      department: department,
+      graduationYear: graduationYear,
+      favoriteLanguage: favoriteLanguage,
+      cv: cv,
+      shortBio: shortBio,
+      leetCodeHandle: leetCodeHandle,
+      hackerrankHandle: hackerrankHandle,
+      gitHubHandle: gitHubHandle,
+      linkedInHandle: linkedInHandle,
+      profilePicture: profilePicture,
+    );
+  }
 
   @override
   List<Object?> get props => [
-        id,
-        name,
+        fullName,
         email,
         telegramUsername,
         country,
@@ -53,13 +73,13 @@ class UserEntity extends Equatable {
         department,
         graduationYear,
         favoriteLanguage,
-        password,
         cv,
         shortBio,
-        leetCode,
-        hackerRank,
-        codeForces,
-        gitHub,
-        linkedIn
+        leetCodeHandle,
+        hackerrankHandle,
+        codeforcesHandle,
+        gitHubHandle,
+        linkedInHandle,
+        profilePicture,
       ];
 }

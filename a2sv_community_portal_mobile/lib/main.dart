@@ -6,6 +6,7 @@ import 'package:a2sv_community_portal_mobile/features/contest/presentation/bloc/
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/bloc/bloc/upcoming_contests_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/notifications/presentation/bloc/notification_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/notifications/presentation/pages/notifications_page.dart';
+import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/bloc/profile_bloc.dart';
 
 import 'package:a2sv_community_portal_mobile/injections/injection_container.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'features/authentication/presentation/bloc/login_bloc/login_bloc.dart';
 import 'features/authentication/presentation/bloc/sign_up_bloc/sign_up_bloc.dart';
+import 'features/user_profile/presentation/screens/edit_profile_page.dart';
+import 'features/user_profile/presentation/screens/profile_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,13 +49,15 @@ class MyApp extends StatelessWidget {
         
         BlocProvider<NotificationBloc>(
           create: (_) => sl<NotificationBloc>()..add(GetNotificationsEvent()),
-        )
+        ),
         // Add more bloc providers for other blocs if needed
+        BlocProvider<ProfileBloc>(
+          create: (context) => sl<ProfileBloc>(),
+        )
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: LoginPage(),
-
+        home: ProfilePage(),
       ),
     );
   }

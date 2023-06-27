@@ -53,9 +53,10 @@ dependencies:
   go_router: ^8.1.0
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.1
-  url_launcher: ^6.1.11
   smooth_page_indicator: ^1.1.0
-
+  image_picker: ^0.8.9
+  url_launcher: ^6.1.11
+  file_picker: ^5.3.1
 
 dev_dependencies:
   flutter_test:

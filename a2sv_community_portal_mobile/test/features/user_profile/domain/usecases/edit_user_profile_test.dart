@@ -16,23 +16,23 @@ void main() {
   late MockUserRepository mockUserRepository;
   setUp(() {
     mockUserRepository = MockUserRepository();
-    usecase = EditUserProfile(repository:mockUserRepository);
+    usecase = EditUserProfile(repository: mockUserRepository);
   });
 
   const tUser = UserEntity(
-      id: '123',
-      name: 'Test User',
+      fullName: 'Test User',
       email: 'test@test.com',
       telegramUsername: 'testuser',
-      codeForces: 'testuser',
-      password: 'password123');
+      codeforcesHandle: 'testuser',
+      phoneNumber: '12345'
+      );
   const tEditedUser = UserEntity(
-      id: '123',
-      name: 'Edited Test User',
+      fullName: 'Edited Test User',
       email: 'edited@test.com',
       telegramUsername: 'editedtestuser',
-      codeForces: 'editedtestuser',
-      password: 'password123');
+      codeforcesHandle: 'editedtestuser',
+      phoneNumber: '12345'
+      );
 
   test(
     'should edit the user profile when the repository call is successful',

@@ -3,6 +3,6 @@ import 'package:a2sv_community_portal_mobile/features/user_profile/domain/entiti
 import 'package:dartz/dartz.dart';
 
 abstract class UserRepository {
-  Future<Either<Failure, UserEntity>> getUser(String id);
+  Future<Either<Failure, UserEntity>> getUser();
   Future<Either<Failure, UserEntity>> editUserProfile(UserEntity user);
 }

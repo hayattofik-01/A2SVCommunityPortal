@@ -24,14 +24,13 @@ void main() {
 
   group('getUser', () {
     const tUserModel = UserModel(
-      id: '1',
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-      telegramUsername: 'johndoe',
-      codeForces: 'johndoe',
-      password: 'password123',
-    );
+        fullName: 'John Doe',
+        email: 'john.doe@example.com',
+        telegramUsername: 'johndoe',
+        codeforcesHandle: 'johndoe',
+        phoneNumber: '12345');
     final jsonString = jsonEncode(tUserModel.toJson());
+    
 
     test(
       'should return UserModel from SharedPreferences when there is one in the cache',
@@ -61,13 +60,11 @@ void main() {
 
   group('cacheUser', () {
     const tUserModel = UserModel(
-      id: '1',
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-      telegramUsername: 'johndoe',
-      codeForces: 'johndoe',
-      password: 'password123',
-    );
+        fullName: 'John Doe',
+        email: 'john.doe@example.com',
+        telegramUsername: 'johndoe',
+        codeforcesHandle: 'johndoe',
+        phoneNumber: '12345');
 
     test(
       'should call SharedPreferences to cache the data',
