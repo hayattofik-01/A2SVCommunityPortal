@@ -5,6 +5,7 @@ import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../../core/errors/failures.dart';
+import '../../../../core/usecases/usecase.dart';
 import '../../domain/entities/user_entity.dart';
 
 part 'profile_event.dart';
@@ -17,10 +18,11 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       : super(ProfileInitialState()) {
     on<GetProfileEvent>(_loadUser);
     on<EditProfileEvent>(_editUser);
+    on<EditProfilePictureEvent>(_upLoadImage);
   }
   void _loadUser(GetProfileEvent event, Emitter<ProfileState> emit) async {
     emit(ProfileLoadingState());
-    final result = await getUser(event.userId);
+    final result = await getUser(NoParams());
     emit(_loadingSucessOrFailure(result));
   }
 
@@ -28,6 +30,15 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     emit(ProfileSavingState());
     final result = await editUserProfile(event.user);
     emit(_updatingSucessOrFailure(result));
+  }
+
+  void _upLoadImage(
+      EditProfilePictureEvent event, Emitter<ProfileState> emit) async {
+    emit(UpLoadingState());
+    final result = await editUserProfile(event.user);
+    emit(_upLoadingSucessOrFailure(result));
+    emit(ProfileLoadingState());
+    emit(_loadingSucessOrFailure(result));
   }
 
   ProfileState _loadingSucessOrFailure(Either<Failure, UserEntity> data) {
@@ -41,6 +52,13 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     return data.fold(
       (falure) => ProfileFailureState(error: falure),
       (user) => ProfileSavedState(user: user),
+    );
+  }
+
+  ProfileState _upLoadingSucessOrFailure(Either<Failure, UserEntity> data) {
+    return data.fold(
+      (falure) => ProfileFailureState(error: falure),
+      (user) => UpLoadedState(user: user),
     );
   }
 }

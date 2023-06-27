@@ -8,12 +8,11 @@ abstract class ProfileEvent extends Equatable {
 }
 
 class GetProfileEvent extends ProfileEvent {
-  final String userId;
 
-  const GetProfileEvent({required this.userId});
+  const GetProfileEvent();
 
   @override
-  List<Object> get props => [userId];
+  List<Object> get props => [];
 }
 
 class EditProfilePictureEvent extends ProfileEvent {

@@ -11,11 +11,21 @@ class ProfileInitialState extends ProfileState {}
 
 class ProfileLoadingState extends ProfileState {}
 
-class ProfileSavingState extends ProfileState{}
+class ProfileSavingState extends ProfileState {}
 
-class ProfileSavedState extends ProfileState{
+class ProfileSavedState extends ProfileState {
   final UserEntity user;
   const ProfileSavedState({required this.user});
+
+  @override
+  List<Object?> get props => [user];
+}
+
+class UpLoadingState extends ProfileState {}
+
+class UpLoadedState extends ProfileState {
+  final UserEntity user;
+  const UpLoadedState({required this.user});
 
   @override
   List<Object?> get props => [user];
@@ -28,8 +38,6 @@ class ProfileLoadedState extends ProfileState {
   @override
   List<Object?> get props => [user];
 }
-
-
 
 class ProfileFailureState extends ProfileState {
   final Failure error;
