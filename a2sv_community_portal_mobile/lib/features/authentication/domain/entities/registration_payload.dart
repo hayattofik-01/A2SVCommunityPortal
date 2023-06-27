@@ -26,8 +26,8 @@ class RegistrationPayload extends Equatable{
       'fullName': fullName,
       'email': email,
       'phoneNumber': phoneNumber,
-      'codeforces': codeforces,
-      'telegram': telegram,
+      'codeforcesHandle': codeforces,
+       "telegramUsername": telegram,
       'password': password,
       'confirmPassword': confirmPassword,
     };
@@ -39,8 +39,8 @@ class RegistrationPayload extends Equatable{
       fullName: jsonData['fullName'],
       email: jsonData['email'],
       phoneNumber: jsonData['phoneNumber'],
-      codeforces: jsonData['codeforces'],
-      telegram: jsonData['telegram'],
+      codeforces: jsonData['codeforcesHandle'],
+      telegram: jsonData[ "telegramUsername"],
       password: jsonData['password'],
       confirmPassword: jsonData['confirmPassword'],
     );

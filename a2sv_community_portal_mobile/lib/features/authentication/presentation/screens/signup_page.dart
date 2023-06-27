@@ -5,6 +5,7 @@ import 'package:a2sv_community_portal_mobile/features/authentication/presentatio
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/account_question.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/password_field.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/snackbar.dart';
+import 'package:a2sv_community_portal_mobile/main_Home.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/utils/media_query.dart';
 import '../widget/bezier_container.dart';
@@ -106,7 +107,7 @@ class _SignUpPageState extends State<SignUpPage> {
        CustomSnackBar.showError(context, state.error);
       } else if (state is SignUpSuccess) {
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => const LoginPage()));
+            .push(MaterialPageRoute(builder: (_) => const MyHomePage()));
       }
     }, builder: (context, state) {
       if (state is SignUpLoading) {
