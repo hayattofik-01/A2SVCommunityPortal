@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class EditField extends StatelessWidget {
-  const EditField(
-      {super.key,
-      required this.hintText,
-      required this.iconName,
-      });
+  const EditField({
+    super.key,
+    required this.hintText,
+    required this.iconName,
+    required this.controllers
+  });
   final String iconName;
   final String hintText;
+  final Map<String, TextEditingController> controllers;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,10 +36,11 @@ class EditField extends StatelessWidget {
                   ),
                 )),
             Expanded(
-              child: TextField(
+              child: TextFormField(
+                controller: controllers[hintText],
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
-                      vertical: UIConverter.getComponentHeight(context, 25)),
+                      vertical: UIConverter.getComponentHeight(context, 20)),
                   hintText: hintText,
                   hintStyle: const TextStyle(
                       color: hintTextColor,

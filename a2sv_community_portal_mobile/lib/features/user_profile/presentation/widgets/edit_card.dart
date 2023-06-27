@@ -10,10 +10,12 @@ class EditCard extends StatelessWidget {
       required this.fieldList,
       required this.title,
       required this.boxHeight,
-      this.bio = false});
+      this.bio = false,
+      required this.controllers});
   final List<List<dynamic>> fieldList;
   final String title;
   final double boxHeight;
+  final Map<String, TextEditingController> controllers;
   final bool bio;
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,7 @@ class EditCard extends StatelessWidget {
                     .map((fieldData) => EditField(
                           hintText: fieldData[0],
                           iconName: fieldData[1],
+                          controllers: controllers,
                         ))
                     .toList(),
               ),
@@ -53,8 +56,9 @@ class EditCard extends StatelessWidget {
                       color: inputFieldColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: TextField(
-                      keyboardType: TextInputType.multiline,
+                    child: TextFormField(
+                      controller: controllers["Bio"],
+                      maxLines: 3,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(
                             UIConverter.getComponentHeight(context, 16)),
