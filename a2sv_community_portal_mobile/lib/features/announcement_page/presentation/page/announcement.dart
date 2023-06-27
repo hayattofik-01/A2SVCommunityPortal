@@ -38,10 +38,10 @@ class AnnouncementPage extends StatelessWidget {
                       margin: const EdgeInsets.only(bottom: 10),
                       padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                       child: CustomListTile(
-                        header: data["title"],
-                        description: data["description"],
-                        isnew: data["isnew"],
-                      )),
+                          header: data["title"],
+                          description: data["description"],
+                          isRead: data["isnew"],
+                          type: "")),
                 )
             ],
           )
