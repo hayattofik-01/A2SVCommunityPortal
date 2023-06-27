@@ -4,6 +4,8 @@ import 'package:a2sv_community_portal_mobile/features/authentication/presentatio
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/pages/upcoming_and_recent_contest_page.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/bloc/bloc/previous_contests_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/bloc/bloc/upcoming_contests_bloc.dart';
+import 'package:a2sv_community_portal_mobile/features/notifications/presentation/bloc/notification_bloc.dart';
+import 'package:a2sv_community_portal_mobile/features/notifications/presentation/pages/notifications_page.dart';
 
 import 'package:a2sv_community_portal_mobile/injections/injection_container.dart';
 import 'package:flutter/material.dart';
@@ -41,11 +43,16 @@ class MyApp extends StatelessWidget {
           BlocProvider<SignUpBloc>(
             create: (_) => sl<SignUpBloc>(),
           ),
+        
+        BlocProvider<NotificationBloc>(
+          create: (_) => sl<NotificationBloc>()..add(GetNotificationsEvent()),
+        )
         // Add more bloc providers for other blocs if needed
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: LoginPage(),
+
       ),
     );
   }

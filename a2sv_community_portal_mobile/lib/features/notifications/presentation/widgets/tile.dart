@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 class CustomListTile extends StatelessWidget {
   final String header;
   final String description;
-  final bool isnew;
+  final String type;
+  final bool isRead;
 
   const CustomListTile({
     super.key,
     required this.header,
     required this.description,
-    required this.isnew,
+    required this.type,
+    required this.isRead,
   });
 
   @override
@@ -48,8 +50,9 @@ class CustomListTile extends StatelessWidget {
           height: 9.0,
           margin: const EdgeInsets.only(left: 0, bottom: 35),
           decoration: BoxDecoration(
-            color:
-                isnew ? const Color.fromRGBO(49, 130, 206, 1) : backgroundWhite,
+            color: isRead
+                ? backgroundWhite
+                : const Color.fromRGBO(49, 130, 206, 1),
             shape: BoxShape.circle,
           ),
         ),
