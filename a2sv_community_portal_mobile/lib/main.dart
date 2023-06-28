@@ -40,13 +40,14 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<ApplicationBloc>(
           create: (_) => sl<ApplicationBloc>()..add(FetchDataEvent()),
-        ),  BlocProvider<LoginBloc>(
-            create: (_) => sl<LoginBloc>(),
-          ),
-          BlocProvider<SignUpBloc>(
-            create: (_) => sl<SignUpBloc>(),
-          ),
-        
+        ),
+        BlocProvider<LoginBloc>(
+          create: (_) => sl<LoginBloc>(),
+        ),
+        BlocProvider<SignUpBloc>(
+          create: (_) => sl<SignUpBloc>(),
+        ),
+
         BlocProvider<NotificationBloc>(
           create: (_) => sl<NotificationBloc>()..add(GetNotificationsEvent()),
         ),
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: ProfilePage(),
+        home: Home(),
       ),
     );
   }

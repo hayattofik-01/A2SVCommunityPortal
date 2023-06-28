@@ -23,6 +23,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late final Map<String, TextEditingController> controllers;
   final _formkey = GlobalKey<FormState>();
   String fileName = "No file";
+  late String? cvPath;
   @override
   void initState() {
     super.initState();
@@ -49,7 +50,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    String? cvPath;
     return Scaffold(
       body: SafeArea(
         child: BlocConsumer<ProfileBloc, ProfileState>(
