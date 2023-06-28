@@ -82,7 +82,12 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               if (state is UpLoadingState)
-                const Expanded(child: Center(child: Text('Uploading...'))),
+                const Expanded(
+                    child: Center(
+                        child: Text(
+                  'Uploading...',
+                  style: TextStyle(fontFamily: 'Urbanist', fontSize: 20),
+                ))),
               if (state is ProfileLoadingState)
                 const Expanded(
                     child: Center(child: CircularProgressIndicator())),
@@ -91,7 +96,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     onPressed: () {
                       context.read<ProfileBloc>().add(const GetProfileEvent());
                     },
-                    child: const Center(child: Text('Try again'))),
+                    child: const Expanded(
+                        child: Center(child: Text('Try again')))),
             ],
           ),
         ));

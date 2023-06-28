@@ -38,14 +38,15 @@ class EditField extends StatelessWidget {
                 )),
             Expanded(
               child: TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
+                style: const TextStyle(
+                    fontFamily: 'Urbanist', fontWeight: FontWeight.w400),
+                validator: validator,
                 controller: controllers[hintText],
                 decoration: InputDecoration(
+                  errorStyle: const TextStyle(
+                      color: errorColor,
+                      fontFamily: 'Urbanist',
+                      fontWeight: FontWeight.w500),
                   contentPadding: EdgeInsets.symmetric(
                       vertical: UIConverter.getComponentHeight(context, 0)),
                   hintText: hintText,

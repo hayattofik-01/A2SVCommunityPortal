@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/utils/validation.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/content_box.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/edit_card.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ class EditProfilePage extends StatefulWidget {
 class _EditProfilePageState extends State<EditProfilePage> {
   late final Map<String, TextEditingController> controllers;
   final _formkey = GlobalKey<FormState>();
+  String fileName = "No file";
   @override
   void initState() {
     super.initState();
@@ -48,7 +50,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     String? cvPath;
-    String fileName = "No file";
     return Scaffold(
       body: SafeArea(
         child: BlocConsumer<ProfileBloc, ProfileState>(
@@ -124,19 +125,35 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             boxHeight: 521,
                             title: "Info",
                             fieldList: const [
-                              ['Full Name', 'profile_icon'],
-                              ['Country', 'flag_icon'],
-                              ['Phone Number', 'phone_icon'],
-                              ['Email', 'email_icon'],
+                              [
+                                'Full Name',
+                                'profile_icon',
+                                Validator.validateName
+                              ],
+                              ['Country', 'flag_icon', Validator.noValidation],
+                              [
+                                'Phone Number',
+                                'phone_icon',
+                                Validator.validatePhoneNumber
+                              ],
+                              ['Email', 'email_icon', Validator.validateEmail],
                             ],
                             controllers: controllers,
                           ),
                           EditCard(
                             boxHeight: 300,
                             fieldList: const [
-                              ['University', 'school_icon'],
-                              ['Graduation Year', 'school_icon'],
-                              ['Major', 'cap_icon'],
+                              [
+                                'University',
+                                'school_icon',
+                                Validator.noValidation
+                              ],
+                              [
+                                'Graduation Year',
+                                'school_icon',
+                                Validator.noValidation
+                              ],
+                              ['Major', 'cap_icon', Validator.noValidation],
                             ],
                             title: "Education",
                             controllers: controllers,
@@ -144,18 +161,42 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           EditCard(
                             boxHeight: 370,
                             fieldList: const [
-                              ['LeetCode', 'leetcode_icon'],
-                              ['CodeForces', 'codeforces_icon'],
-                              ['Hacker Rank', 'hacker_rank_icon'],
-                              ['GitHub', 'github_icon'],
+                              [
+                                'LeetCode',
+                                'leetcode_icon',
+                                Validator.validateNoSpace
+                              ],
+                              [
+                                'CodeForces',
+                                'codeforces_icon',
+                                Validator.validateCodeforces
+                              ],
+                              [
+                                'Hacker Rank',
+                                'hacker_rank_icon',
+                                Validator.validateNoSpace
+                              ],
+                              [
+                                'GitHub',
+                                'github_icon',
+                                Validator.validateNoSpace
+                              ],
                             ],
                             title: "Developer Handles",
                             controllers: controllers,
                           ),
                           EditCard(
                             fieldList: const [
-                              ['Linkedin', 'linkedin_icon'],
-                              ['Telegram', 'telegram_icon']
+                              [
+                                'Linkedin',
+                                'linkedin_icon',
+                                Validator.validateNoSpace
+                              ],
+                              [
+                                'Telegram',
+                                'telegram_icon',
+                                Validator.validateUsername
+                              ]
                             ],
                             title: "Socials",
                             boxHeight: 229,
@@ -163,7 +204,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           ),
                           EditCard(
                               fieldList: const [
-                                ['Favorite Language', 'code_icon']
+                                [
+                                  'Favorite Language',
+                                  'code_icon',
+                                  Validator.validateNoSpace
+                                ]
                               ],
                               title: 'Favorite Language',
                               boxHeight: 150,
@@ -186,6 +231,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                     Row(
                                       children: [
                                         ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                                backgroundColor: primaryColor),
                                             onPressed: () async {
                                               final FilePickerResult? result =
                                                   await FilePicker.platform
@@ -202,8 +249,21 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                                 });
                                               }
                                             },
-                                            child: const Text("Choose PDF")),
-                                        Text(fileName)
+                                            child: const Text("Choose PDF",
+                                                style: TextStyle(
+                                                    fontFamily: 'Urbanist',
+                                                    fontWeight: FontWeight.w500,
+                                                    fontSize: 16))),
+                                        const SizedBox(
+                                          width: 30,
+                                        ),
+                                        Text(
+                                          fileName,
+                                          style: const TextStyle(
+                                              fontFamily: 'Urbanist',
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 16),
+                                        )
                                       ],
                                     )
                                   ],

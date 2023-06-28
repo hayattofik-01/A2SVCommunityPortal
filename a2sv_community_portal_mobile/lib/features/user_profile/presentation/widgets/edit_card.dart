@@ -45,6 +45,7 @@ class EditCard extends StatelessWidget {
                           hintText: fieldData[0],
                           iconName: fieldData[1],
                           controllers: controllers,
+                          validator: fieldData[2],
                         ))
                     .toList(),
               ),
@@ -59,6 +60,8 @@ class EditCard extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextFormField(
+                      style: const TextStyle(
+                          fontFamily: 'Urbanist', fontWeight: FontWeight.w400),
                       controller: controllers["Bio"],
                       maxLines: 3,
                       decoration: InputDecoration(

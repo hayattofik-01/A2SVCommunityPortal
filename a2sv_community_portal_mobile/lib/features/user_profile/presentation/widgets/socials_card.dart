@@ -37,8 +37,8 @@ class SocialCard extends StatelessWidget {
                     handle: linkedInHandle,
                     url: "https://linkedin/in/",
                   ),
-                  const SizedBox(
-                    width: 33,
+                  SizedBox(
+                    width: UIConverter.getComponentWidth(context, 40),
                   ),
                   IconWithDescription(
                     iconName: "telegram_icon",
