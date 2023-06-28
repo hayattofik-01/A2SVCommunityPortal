@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class UpperBar extends StatelessWidget {
   const UpperBar({super.key, required this.title});
@@ -19,6 +20,7 @@ class UpperBar extends StatelessWidget {
             icon: const Icon(Icons.arrow_back_ios_new_sharp),
             onPressed: () {
               // Add your menu button functionality here
+              context.pop();
             },
           ),)
                         ),

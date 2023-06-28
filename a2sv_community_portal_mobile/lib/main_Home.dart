@@ -45,6 +45,12 @@ class _MyHomePageState extends State<MyHomePage> {
         icon: Icon(Icons.code),
         label: 'Contest',
       ),
+
+      // BottomNavigationBarItem(
+      //   icon: Icon(Icons.announcement),
+      //   label: 'Announcement',
+      // ),
+
       BottomNavigationBarItem(
         icon: Icon(Icons.person),
         label: 'Profile',
@@ -56,3 +62,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+

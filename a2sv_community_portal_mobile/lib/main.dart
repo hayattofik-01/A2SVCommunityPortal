@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/routes/routes.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/bloc/application_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/screen/home.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/login_page.dart';
@@ -56,9 +57,9 @@ class MyApp extends StatelessWidget {
           create: (context) => sl<ProfileBloc>(),
         )
       ],
-      child: const MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        home: Home(),
+        routerConfig: routes(),
       ),
     );
   }

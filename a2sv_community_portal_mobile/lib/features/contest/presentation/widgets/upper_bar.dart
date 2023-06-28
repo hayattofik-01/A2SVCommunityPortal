@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class UpperBar extends StatelessWidget {
   const UpperBar({super.key});
@@ -9,10 +10,10 @@ class UpperBar extends StatelessWidget {
       padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
       child: Row(
         children: [
-           Expanded(
+          const Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   'Welcome',
                   style: TextStyle(
@@ -31,32 +32,37 @@ class UpperBar extends StatelessWidget {
           ),
           Align(
             alignment: Alignment.topRight,
-            child: Stack(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: const Color.fromRGBO(235, 248, 255, 1)),
-                  padding: const EdgeInsets.all(5),
-                  height: 46,
-                  width: 46,
-                  margin: const EdgeInsets.only(top: 5),
-                  child: const Icon(
-                    Icons.notifications,
-                    color: Color.fromRGBO(26, 54, 93, 1),
-                    size: 24,
+            child: GestureDetector(
+              onTap: (){
+                GoRouter.of(context).push('/contests/notifications');
+              },
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: const Color.fromRGBO(235, 248, 255, 1)),
+                    padding: const EdgeInsets.all(5),
+                    height: 46,
+                    width: 46,
+                    margin: const EdgeInsets.only(top: 5),
+                    child: const Icon(
+                      Icons.notifications,
+                      color: Color.fromRGBO(26, 54, 93, 1),
+                      size: 24,
+                    ),
                   ),
-                ),
-                Container(
-                  width: 11.0,
-                  height: 11.0,
-                  margin: const EdgeInsets.only(left: 33, top: 2),
-                  decoration: const BoxDecoration(
-                    color: Color.fromRGBO(49, 130, 206, 1),
-                    shape: BoxShape.circle,
+                  Container(
+                    width: 11.0,
+                    height: 11.0,
+                    margin: const EdgeInsets.only(left: 33, top: 2),
+                    decoration: const BoxDecoration(
+                      color: Color.fromRGBO(49, 130, 206, 1),
+                      shape: BoxShape.circle,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

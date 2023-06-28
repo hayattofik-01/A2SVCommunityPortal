@@ -3,6 +3,7 @@ import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/utils/media_query.dart';
 
@@ -26,7 +27,7 @@ class TitleBar extends StatelessWidget {
         children: [
           IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              context.pop();
               context.read<ProfileBloc>().add(const GetProfileEvent());
             },
             icon: SvgPicture.asset("assets/images/back_icon.svg",

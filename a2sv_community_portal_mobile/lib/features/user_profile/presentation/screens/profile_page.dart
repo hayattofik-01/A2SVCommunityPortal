@@ -5,6 +5,7 @@ import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/socials_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../bloc/profile_bloc.dart';
 import '../widgets/title_bar.dart';
@@ -37,12 +38,13 @@ class _ProfilePageState extends State<ProfilePage> {
                   iconName: "edit_icon",
                   action: () {
                     if (state is ProfileLoadedState) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EditProfilePage(
-                                    user: state.user,
-                                  )));
+                      context.push('/profile/editProfile', extra: state.user);
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => EditProfilePage(
+                      //               user: state.user,
+                      //             )));
                     }
                   },
                 ),
@@ -104,7 +106,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
           ),
-          bottomNavigationBar: const MainBottomNavigationBar(),
+
         );
       },
     );

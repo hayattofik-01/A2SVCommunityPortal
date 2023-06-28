@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class Onboarding extends StatelessWidget {
   final String title;
@@ -16,9 +17,10 @@ class Onboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin:
-          islast ? EdgeInsets.only(bottom: 0) : EdgeInsets.only(bottom: 150),
-      color: Color.fromRGBO(255, 255, 255, 1),
+      margin: islast
+          ? const EdgeInsets.only(bottom: 0)
+          : const EdgeInsets.only(bottom: 150),
+      color: const Color.fromRGBO(255, 255, 255, 1),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -26,21 +28,22 @@ class Onboarding extends StatelessWidget {
             Column(
               children: [
                 Container(
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     child: Image.asset(
                       'assets/svg/$image',
                     )),
                 Container(
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     child: Text(
                       title,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 24,
                       ),
                     )),
                 Container(
-                    padding: EdgeInsets.only(top: 20, left: 30, right: 30),
+                    padding:
+                        const EdgeInsets.only(top: 20, left: 30, right: 30),
                     child: Center(
                       child: Text(
                         subtitle,
@@ -52,21 +55,22 @@ class Onboarding extends StatelessWidget {
                         ),
                       ),
                     )),
-                
               ],
             ),
             islast
-                    ? Container(
-                        height: 60,
-                        width: double.infinity,
-                        margin: EdgeInsets.only(
-                            left: 37.0, right: 37.0, top: 36),
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text("Get Started"),
-                        ),
-                      )
-                    : Container(),
+                ? Container(
+                    height: 60,
+                    width: double.infinity,
+                    margin:
+                        const EdgeInsets.only(left: 37.0, right: 37.0, top: 36),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        GoRouter.of(context).go('/login');
+                      },
+                      child: const Text("Get Started"),
+                    ),
+                  )
+                : Container(),
           ],
         ),
       ),

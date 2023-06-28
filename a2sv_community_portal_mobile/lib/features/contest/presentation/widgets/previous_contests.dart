@@ -5,6 +5,7 @@ import 'package:a2sv_community_portal_mobile/features/contest/presentation/pages
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/widgets/list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class PreviousContests extends StatelessWidget {
   const PreviousContests({super.key});
@@ -39,12 +40,7 @@ class PreviousContests extends StatelessWidget {
               children: <Widget>[
                 for (var contest in state.previousContests)
                   GestureDetector(
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ContestDetails(
-                                  contest: contest,
-                                ))),
+                    onTap: () => context.go('/contests/detail', extra: contest),
                     child: Container(
                       margin: const EdgeInsets.only(bottom: 10),
                       padding: const EdgeInsets.only(left: 16.0, right: 16.0),
