@@ -5,6 +5,9 @@ import 'package:a2sv_community_portal_mobile/features/contest/presentation/pages
 import 'package:a2sv_community_portal_mobile/features/notifications/presentation/pages/notifications_page.dart';
 import 'package:a2sv_community_portal_mobile/features/onboarding/presentation/pages/onboarding_page.dart';
 import 'package:a2sv_community_portal_mobile/features/splash/presentation/pages/splash_page.dart';
+import 'package:a2sv_community_portal_mobile/features/user_profile/domain/entities/user_entity.dart';
+import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/screens/edit_profile_page.dart';
+import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/screens/profile_page.dart';
 import 'package:a2sv_community_portal_mobile/main_Home.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -38,6 +41,20 @@ GoRouter routes() => GoRouter(
           path: '/login',
           pageBuilder: (context, state) =>
               const MaterialPage(child: LoginPage()),
+        ),
+
+        GoRoute(
+          path: '/profile',
+          pageBuilder: (context, state) =>
+              const MaterialPage(child: ProfilePage()),
+        ),
+
+        GoRoute(
+          path: '/profile/editProfile',
+          pageBuilder: (context, state) => MaterialPage(
+              child: EditProfilePage(
+            user: state.extra as UserEntity,
+          )),
         ),
 
         GoRoute(

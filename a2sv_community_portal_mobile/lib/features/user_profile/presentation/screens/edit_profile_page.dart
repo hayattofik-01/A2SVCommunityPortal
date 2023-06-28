@@ -3,6 +3,7 @@ import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/edit_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/utils/colors.dart';
 import '../../domain/entities/user_entity.dart';
 import '../bloc/profile_bloc.dart';
@@ -23,7 +24,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   late final Map<String, TextEditingController> controllers;
   final _formkey = GlobalKey<FormState>();
   String fileName = "No file";
-  late String? cvPath;
+  String? cvPath;
   @override
   void initState() {
     super.initState();
@@ -62,6 +63,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Profile saved successfully')),
               );
+              context.pop();
             }
           },
           builder: (context, state) {
