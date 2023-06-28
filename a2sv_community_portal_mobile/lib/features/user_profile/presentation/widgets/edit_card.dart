@@ -5,18 +5,20 @@ import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/
 import 'package:flutter/material.dart';
 
 class EditCard extends StatelessWidget {
-  const EditCard(
-      {super.key,
-      required this.fieldList,
-      required this.title,
-      required this.boxHeight,
-      this.bio = false,
-      required this.controllers});
+  const EditCard({
+    super.key,
+    required this.fieldList,
+    required this.title,
+    required this.boxHeight,
+    this.bio = false,
+    required this.controllers,
+  });
   final List<List<dynamic>> fieldList;
   final String title;
   final double boxHeight;
   final Map<String, TextEditingController> controllers;
   final bool bio;
+
   @override
   Widget build(BuildContext context) {
     return ContentBox(

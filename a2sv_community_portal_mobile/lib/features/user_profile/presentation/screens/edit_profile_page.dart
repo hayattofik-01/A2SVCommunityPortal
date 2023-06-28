@@ -20,6 +20,7 @@ class EditProfilePage extends StatefulWidget {
 
 class _EditProfilePageState extends State<EditProfilePage> {
   late final Map<String, TextEditingController> controllers;
+  final _formkey = GlobalKey<FormState>();
   @override
   void initState() {
     super.initState();
@@ -63,159 +64,165 @@ class _EditProfilePageState extends State<EditProfilePage> {
             }
           },
           builder: (context, state) {
-            return Stack(children: [
-              Column(
-                children: [
-                  TitleBar(
-                    title: "Edit Profile",
-                    iconName: "save_icon",
-                    action: () {
-                      final fullName = controllers['Full Name']!.text;
-                      final country = controllers['Country']!.text;
-                      final phoneNumber = controllers['Phone Number']!.text;
-                      final email = controllers['Email']!.text;
-                      final university = controllers['University']!.text;
-                      final graduationYear =
-                          int.tryParse(controllers['Graduation Year']!.text);
-                      final major = controllers['Major']!.text;
-                      final leetCode = controllers['LeetCode']!.text;
-                      final codeForces = controllers['CodeForces']!.text;
-                      final hackerRank = controllers['Hacker Rank']!.text;
-                      final gitHub = controllers['GitHub']!.text;
-                      final linkedin = controllers['Linkedin']!.text;
-                      final telegram = controllers['Telegram']!.text;
-                      final shortBio = controllers['Bio']!.text;
-                      final favoriteLanguage =
-                          controllers['Favorite Language']!.text;
+            return Form(
+              key: _formkey,
+              child: Stack(children: [
+                Column(
+                  children: [
+                    TitleBar(
+                      title: "Edit Profile",
+                      iconName: "save_icon",
+                      action: () {
+                        if (_formkey.currentState!.validate()) {
+                          final fullName = controllers['Full Name']!.text;
+                          final country = controllers['Country']!.text;
+                          final phoneNumber = controllers['Phone Number']!.text;
+                          final email = controllers['Email']!.text;
+                          final university = controllers['University']!.text;
+                          final graduationYear = int.tryParse(
+                              controllers['Graduation Year']!.text);
+                          final major = controllers['Major']!.text;
+                          final leetCode = controllers['LeetCode']!.text;
+                          final codeForces = controllers['CodeForces']!.text;
+                          final hackerRank = controllers['Hacker Rank']!.text;
+                          final gitHub = controllers['GitHub']!.text;
+                          final linkedin = controllers['Linkedin']!.text;
+                          final telegram = controllers['Telegram']!.text;
+                          final shortBio = controllers['Bio']!.text;
+                          final favoriteLanguage =
+                              controllers['Favorite Language']!.text;
 
-                      final user = UserEntity(
-                          fullName: fullName,
-                          email: email,
-                          telegramUsername: telegram,
-                          codeforcesHandle: codeForces,
-                          country: country,
-                          phoneNumber: phoneNumber,
-                          university: university,
-                          department: major,
-                          graduationYear: graduationYear,
-                          leetCodeHandle: leetCode,
-                          hackerrankHandle: hackerRank,
-                          gitHubHandle: gitHub,
-                          linkedInHandle: linkedin,
-                          shortBio: shortBio,
-                          cv: cvPath,
-                          favoriteLanguage: favoriteLanguage);
+                          final user = UserEntity(
+                              fullName: fullName,
+                              email: email,
+                              telegramUsername: telegram,
+                              codeforcesHandle: codeForces,
+                              country: country,
+                              phoneNumber: phoneNumber,
+                              university: university,
+                              department: major,
+                              graduationYear: graduationYear,
+                              leetCodeHandle: leetCode,
+                              hackerrankHandle: hackerRank,
+                              gitHubHandle: gitHub,
+                              linkedInHandle: linkedin,
+                              shortBio: shortBio,
+                              cv: cvPath,
+                              favoriteLanguage: favoriteLanguage);
 
-                      context
-                          .read<ProfileBloc>()
-                          .add(EditProfileEvent(user: user));
-                    },
-                  ),
-                  Expanded(
-                    child: ListView(
-                      children: [
-                        EditCard(
-                          bio: true,
-                          boxHeight: 521,
-                          title: "Socials",
-                          fieldList: const [
-                            ['Full Name', 'profile_icon'],
-                            ['Country', 'flag_icon'],
-                            ['Phone Number', 'phone_icon'],
-                            ['Email', 'email_icon'],
-                          ],
-                          controllers: controllers,
-                        ),
-                        EditCard(
-                          boxHeight: 300,
-                          fieldList: const [
-                            ['University', 'school_icon'],
-                            ['Graduation Year', 'school_icon'],
-                            ['Major', 'cap_icon'],
-                          ],
-                          title: "Education",
-                          controllers: controllers,
-                        ),
-                        EditCard(
-                          boxHeight: 370,
-                          fieldList: const [
-                            ['LeetCode', 'leetcode_icon'],
-                            ['CodeForces', 'codeforces_icon'],
-                            ['Hacker Rank', 'hacker_rank_icon'],
-                            ['GitHub', 'github_icon'],
-                          ],
-                          title: "Developer Handles",
-                          controllers: controllers,
-                        ),
-                        EditCard(
-                          fieldList: const [
-                            ['Linkedin', 'linkedin_icon'],
-                            ['Telegram', 'telegram_icon']
-                          ],
-                          title: "Socials",
-                          boxHeight: 229,
-                          controllers: controllers,
-                        ),
-                        EditCard(
-                            fieldList: const [
-                              ['Favorite Language', 'code_icon']
-                            ],
-                            title: 'Favorite Language',
-                            boxHeight: 150,
-                            controllers: controllers),
-                        ContentBox(
-                            boxHeight: 90,
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text(
-                                    'Resume',
-                                    style: TextStyle(
-                                        color: cardTitleColor,
-                                        fontFamily: 'Urbanist',
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 16),
-                                  ),
-                                  Row(
-                                    children: [
-                                      ElevatedButton(
-                                          onPressed: () async {
-                                            final FilePickerResult? result =
-                                                await FilePicker.platform
-                                                    .pickFiles(
-                                              type: FileType.custom,
-                                              allowedExtensions: ['pdf'],
-                                            );
-                                            if (result != null) {
-                                              cvPath = result.files.first.path!;
-                                              setState(() {
-                                                fileName =
-                                                    result.files.first.name;
-                                              });
-                                            }
-                                          },
-                                          child: const Text("Choose PDF")),
-                                      Text(fileName)
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ))
-                      ],
+                          context
+                              .read<ProfileBloc>()
+                              .add(EditProfileEvent(user: user));
+                        }
+                      },
                     ),
-                  ),
-                ],
-              ),
-              if (state is ProfileSavingState)
-                Container(
-                  color: Colors.black54,
-                  child: const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                )
-            ]);
+                    Expanded(
+                      child: ListView(
+                        children: [
+                          EditCard(
+                            bio: true,
+                            boxHeight: 521,
+                            title: "Info",
+                            fieldList: const [
+                              ['Full Name', 'profile_icon'],
+                              ['Country', 'flag_icon'],
+                              ['Phone Number', 'phone_icon'],
+                              ['Email', 'email_icon'],
+                            ],
+                            controllers: controllers,
+                          ),
+                          EditCard(
+                            boxHeight: 300,
+                            fieldList: const [
+                              ['University', 'school_icon'],
+                              ['Graduation Year', 'school_icon'],
+                              ['Major', 'cap_icon'],
+                            ],
+                            title: "Education",
+                            controllers: controllers,
+                          ),
+                          EditCard(
+                            boxHeight: 370,
+                            fieldList: const [
+                              ['LeetCode', 'leetcode_icon'],
+                              ['CodeForces', 'codeforces_icon'],
+                              ['Hacker Rank', 'hacker_rank_icon'],
+                              ['GitHub', 'github_icon'],
+                            ],
+                            title: "Developer Handles",
+                            controllers: controllers,
+                          ),
+                          EditCard(
+                            fieldList: const [
+                              ['Linkedin', 'linkedin_icon'],
+                              ['Telegram', 'telegram_icon']
+                            ],
+                            title: "Socials",
+                            boxHeight: 229,
+                            controllers: controllers,
+                          ),
+                          EditCard(
+                              fieldList: const [
+                                ['Favorite Language', 'code_icon']
+                              ],
+                              title: 'Favorite Language',
+                              boxHeight: 150,
+                              controllers: controllers),
+                          ContentBox(
+                              boxHeight: 90,
+                              child: Padding(
+                                padding: const EdgeInsets.all(16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Text(
+                                      'Resume',
+                                      style: TextStyle(
+                                          color: cardTitleColor,
+                                          fontFamily: 'Urbanist',
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 16),
+                                    ),
+                                    Row(
+                                      children: [
+                                        ElevatedButton(
+                                            onPressed: () async {
+                                              final FilePickerResult? result =
+                                                  await FilePicker.platform
+                                                      .pickFiles(
+                                                type: FileType.custom,
+                                                allowedExtensions: ['pdf'],
+                                              );
+                                              if (result != null) {
+                                                cvPath =
+                                                    result.files.first.path!;
+                                                setState(() {
+                                                  fileName =
+                                                      result.files.first.name;
+                                                });
+                                              }
+                                            },
+                                            child: const Text("Choose PDF")),
+                                        Text(fileName)
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ))
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                if (state is ProfileSavingState)
+                  Container(
+                    color: Colors.black54,
+                    child: const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  )
+              ]),
+            );
           },
         ),
       ),
