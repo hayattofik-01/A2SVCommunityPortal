@@ -8,9 +8,12 @@ class EditField extends StatelessWidget {
       {super.key,
       required this.hintText,
       required this.iconName,
-      });
+      required this.controllers,
+      this.validator});
   final String iconName;
   final String hintText;
+  final Map<String, TextEditingController> controllers;
+  final validator;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -34,10 +37,19 @@ class EditField extends StatelessWidget {
                   ),
                 )),
             Expanded(
-              child: TextField(
+              child: TextFormField(
+                style: const TextStyle(
+                    fontFamily: 'Urbanist', fontWeight: FontWeight.w400),
+                validator: validator,
+                controller: controllers[hintText],
                 decoration: InputDecoration(
+                  errorStyle: const TextStyle(
+                    color: errorColor,
+                    fontFamily: 'Urbanist',
+                    fontWeight: FontWeight.w500,
+                  ),
                   contentPadding: EdgeInsets.symmetric(
-                      vertical: UIConverter.getComponentHeight(context, 25)),
+                      vertical: UIConverter.getComponentHeight(context, 0)),
                   hintText: hintText,
                   hintStyle: const TextStyle(
                       color: hintTextColor,

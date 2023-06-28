@@ -5,16 +5,20 @@ import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/
 import 'package:flutter/material.dart';
 
 class EditCard extends StatelessWidget {
-  const EditCard(
-      {super.key,
-      required this.fieldList,
-      required this.title,
-      required this.boxHeight,
-      this.bio = false});
+  const EditCard({
+    super.key,
+    required this.fieldList,
+    required this.title,
+    required this.boxHeight,
+    this.bio = false,
+    required this.controllers,
+  });
   final List<List<dynamic>> fieldList;
   final String title;
   final double boxHeight;
+  final Map<String, TextEditingController> controllers;
   final bool bio;
+
   @override
   Widget build(BuildContext context) {
     return ContentBox(
@@ -40,6 +44,8 @@ class EditCard extends StatelessWidget {
                     .map((fieldData) => EditField(
                           hintText: fieldData[0],
                           iconName: fieldData[1],
+                          controllers: controllers,
+                          validator: fieldData[2],
                         ))
                     .toList(),
               ),
@@ -53,8 +59,11 @@ class EditCard extends StatelessWidget {
                       color: inputFieldColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: TextField(
-                      keyboardType: TextInputType.multiline,
+                    child: TextFormField(
+                      style: const TextStyle(
+                          fontFamily: 'Urbanist', fontWeight: FontWeight.w400),
+                      controller: controllers["Bio"],
+                      maxLines: 3,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(
                             UIConverter.getComponentHeight(context, 16)),

@@ -63,16 +63,16 @@ class MockUserRemoteDataSource extends _i1.Mock
         )),
       ) as _i4.Future<_i2.UserModel>);
   @override
-  _i4.Future<_i2.UserModel> getUser(String? userId) => (super.noSuchMethod(
+  _i4.Future<_i2.UserModel> getUser() => (super.noSuchMethod(
         Invocation.method(
           #getUser,
-          [userId],
+          [],
         ),
         returnValue: _i4.Future<_i2.UserModel>.value(_FakeUserModel_0(
           this,
           Invocation.method(
             #getUser,
-            [userId],
+            [],
           ),
         )),
       ) as _i4.Future<_i2.UserModel>);

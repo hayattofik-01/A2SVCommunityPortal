@@ -24,3 +24,4 @@ const Color inputFieldColor = Color.fromARGB(255, 243, 246, 249);
 const Color hintTextColor = Color(0xFFCBD5E0);
 const Color handleColor = Color.fromRGBO(0, 0, 0, 0.36);
 const Color appBarColor = Color(0xFF343434);
+const Color errorColor = Color(0xFFF44336);

@@ -5,8 +5,17 @@ import '../../../../core/utils/media_query.dart';
 import 'icon_with_description.dart';
 
 class DeveloperHandelCard extends StatelessWidget {
-  const DeveloperHandelCard({super.key});
-
+  const DeveloperHandelCard({
+    super.key,
+    required this.hackerrankHandle,
+    required this.codeforcesHandle,
+    required this.leetCodeHandle,
+    required this.gitHubHandle,
+  });
+  final String hackerrankHandle;
+  final String codeforcesHandle;
+  final String leetCodeHandle;
+  final String gitHubHandle;
   @override
   Widget build(BuildContext context) {
     return ContentBox(
@@ -26,37 +35,44 @@ class DeveloperHandelCard extends StatelessWidget {
             ),
           ),
           Row(
-            children: const [
-              IconWithDescription(
-                description: "LeetCode",
-                iconName: "leetcode_icon",
-                handle: "simongreat",
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  IconWithDescription(
+                    description: "LeetCode",
+                    iconName: "leetcode_icon",
+                    handle: leetCodeHandle,
+                    url: 'https://leetcode.com/',
+                  ),
+                  IconWithDescription(
+                    iconName: "github_icon",
+                    description: "Github",
+                    handle: gitHubHandle,
+                    url: 'https://github.com/',
+                  ),
+                ],
               ),
               SizedBox(
-                width: 33,
+                width: UIConverter.getComponentWidth(context, 40),
               ),
-              IconWithDescription(
-                iconName: "hacker_rank_icon",
-                description: "HackerRank",
-                handle: "simongreat",
-              ),
-            ],
-          ),
-          Row(
-            children: const [
-              IconWithDescription(
-                description: "CodeForces",
-                iconName: "codeforces_icon",
-                handle: "simongreat",
-              ),
-              SizedBox(
-                width: 20,
-              ),
-              IconWithDescription(
-                iconName: "github_icon",
-                description: "Github",
-                handle: "simongreat",
-              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  IconWithDescription(
+                    description: "CodeForces",
+                    iconName: "codeforces_icon",
+                    handle: codeforcesHandle,
+                    url: 'https://codeforces.com/profile/',
+                  ),
+                  IconWithDescription(
+                    iconName: "hacker_rank_icon",
+                    description: "HackerRank",
+                    handle: hackerrankHandle,
+                    url: 'https://hackerrank.com/',
+                  ),
+                ],
+              )
             ],
           )
         ]),

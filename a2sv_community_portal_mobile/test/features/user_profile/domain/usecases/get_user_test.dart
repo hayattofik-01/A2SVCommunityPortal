@@ -1,4 +1,5 @@
 import 'package:a2sv_community_portal_mobile/core/errors/failures.dart';
+import 'package:a2sv_community_portal_mobile/core/usecases/usecase.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/domain/entities/user_entity.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/domain/repositories/user_repository.dart';
@@ -16,28 +17,27 @@ void main() {
   late MockUserRepository mockUserRepository;
   setUp(() {
     mockUserRepository = MockUserRepository();
-    usecase = GetUser(mockUserRepository);
+    usecase = GetUser(repository: mockUserRepository);
   });
-  const String id = '123';
   const tUser = UserEntity(
-      id: '123',
-      name: 'Test User',
+      fullName: 'Test User',
       email: 'test@test.com',
       telegramUsername: 'testuser',
-      codeForces: 'testuser',
-      password: 'password123');
+      codeforcesHandle: 'testuser',
+      phoneNumber: '12345'
+    );
 
   test(
     'should get the user profile when the repository call is successful',
     () async {
       // arrange
-      when(mockUserRepository.getUser(id))
+      when(mockUserRepository.getUser())
           .thenAnswer((_) async => const Right(tUser));
       // act
-      final result = await usecase(id);
+      final result = await usecase(NoParams());
       // assert
       expect(result, const Right(tUser));
-      verify(mockUserRepository.getUser(id));
+      verify(mockUserRepository.getUser());
       verifyNoMoreInteractions(mockUserRepository);
     },
   );
@@ -45,13 +45,13 @@ void main() {
     'should return a failure when the repository call is unsuccessful',
     () async {
       // arrange
-      when(mockUserRepository.getUser(id))
+      when(mockUserRepository.getUser())
           .thenAnswer((_) async => const Left(ServerFailure(serverFaliure)));
       // act
-      final result = await usecase(id);
+      final result = await usecase(NoParams());
       // assert
       expect(result, const Left(ServerFailure(serverFaliure)));
-      verify(mockUserRepository.getUser(id));
+      verify(mockUserRepository.getUser());
       verifyNoMoreInteractions(mockUserRepository);
     },
   );

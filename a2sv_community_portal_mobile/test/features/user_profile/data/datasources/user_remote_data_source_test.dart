@@ -22,29 +22,27 @@ void main() {
 
   group('editUserProfile', () {
     const tUserModel = UserModel(
-      id: '1',
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-      telegramUsername: 'johndoe',
-      codeForces: 'johndoe',
-      password: 'password123',
-    );
+        fullName: 'John Doe',
+        email: 'john.doe@example.com',
+        telegramUsername: 'johndoe',
+        codeforcesHandle: 'johndoe',
+        phoneNumber: '12345');
     final jsonString = jsonEncode(tUserModel.toJson());
 
     test(
       'should perform a PUT request on a URL with the user data in the body',
       () async {
         // arrange
-        when(mockHttpClient.put(any,
+        when(mockHttpClient.post(any,
                 body: anyNamed('body'), headers: anyNamed('headers')))
             .thenAnswer((_) async => http.Response(jsonString, 200));
         // act
         await dataSource.editUserProfile(tUserModel);
         // assert
-        verify(mockHttpClient.put(
+        verify(mockHttpClient.post(
           any,
           body: jsonEncode(tUserModel.toJson()),
-          headers: {'Content-Type': 'application/json'},
+          headers: anyNamed('headers'),
         ));
       },
     );
@@ -80,16 +78,13 @@ void main() {
   });
 
   group('getUser', () {
-    const tUserId = '1';
     const tUserModel = UserModel(
-      id: tUserId,
-      name: 'John Doe',
-      email: 'john.doe@example.com',
-      telegramUsername: 'johndoe',
-      codeForces: 'johndoe',
-      password: 'password123',
-    );
-    final jsonString = jsonEncode(tUserModel.toJson());
+        fullName: 'John Doe',
+        email: 'john.doe@example.com',
+        telegramUsername: 'johndoe',
+        codeforcesHandle: 'johndoe',
+        phoneNumber: '12345');
+    final jsonString = jsonEncode({'value': tUserModel.toJson()});
 
     test(
       'should perform a GET request on a URL with the user id being the endpoint',
@@ -98,11 +93,11 @@ void main() {
         when(mockHttpClient.get(any, headers: anyNamed('headers')))
             .thenAnswer((_) async => http.Response(jsonString, 200));
         // act
-        await dataSource.getUser(tUserId);
+        await dataSource.getUser();
         // assert
         verify(mockHttpClient.get(
           any,
-          headers: {'Content-Type': 'application/json'},
+          headers: anyNamed('headers'),
         ));
       },
     );
@@ -114,7 +109,7 @@ void main() {
         when(mockHttpClient.get(any, headers: anyNamed('headers')))
             .thenAnswer((_) async => http.Response(jsonString, 200));
         // act
-        final result = await dataSource.getUser(tUserId);
+        final result = await dataSource.getUser();
         // assert
         expect(result, equals(tUserModel));
       },
@@ -129,7 +124,7 @@ void main() {
         // act
         final call = dataSource.getUser;
         // assert
-        expect(() => call(tUserId), throwsA(isA<ServerException>()));
+        expect(() => call(), throwsA(isA<ServerException>()));
       },
     );
   });

@@ -36,10 +36,10 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<Either<Failure, UserEntity>> getUser(String id) async {
+  Future<Either<Failure, UserEntity>> getUser() async {
     if (await networkInfo.isConnected) {
       try {
-        final remoteUser = await remoteDataSource.getUser(id);
+        final remoteUser = await remoteDataSource.getUser();
         localDataSource.cacheUser(remoteUser);
         return Right(remoteUser);
       } on ServerException {
