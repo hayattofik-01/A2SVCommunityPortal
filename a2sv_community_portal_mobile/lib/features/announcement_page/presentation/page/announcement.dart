@@ -10,23 +10,10 @@ import 'package:go_router/go_router.dart';
 import '../bloc/announcement_bloc.dart';
 
 class AnnouncementPage extends StatelessWidget {
-  AnnouncementPage({super.key});
-  // final List<Map<String, dynamic>> _announcements = [
-  //   {
-  //     "title": "Updates Available",
-  //     "description": "Big Hackathon Coming up",
-  //     "isnew": false,
-  //   },
-  //   {
-  //     "title": "Updates Available",
-  //     "description": "Big Hackathon Coming up",
-  //     "isnew": false,
-  //   },
-  // ];
+  const AnnouncementPage({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: backgroundWhite,
       body: ListView(
         children: [
           const UpperBar(
@@ -47,21 +34,23 @@ class AnnouncementPage extends StatelessWidget {
               } else if (state is AnnouncementLoaded) {
                 return Column(
                   children: <Widget>[
-                    for (var data in state.announcements)
+                    for (var announcement in state.announcements)
                       GestureDetector(
-                        onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => DetailsPage(
-                                    title: data.title,
-                                    description: data.description))),
+                        onTap: () =>
+                            context.push("/announcement/detail", extra: announcement),
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => AnnouncementDetailsPage(
+                        //             title: data.title,
+                        //             description: data.description))),
                         child: Container(
                             margin: const EdgeInsets.only(bottom: 10),
                             padding:
                                 const EdgeInsets.only(left: 16.0, right: 16.0),
                             child: CustomListTile(
-                              header: data.title,
-                              description: data.description,
+                              header: announcement.title,
+                              description: announcement.description,
                               isRead: false,
                               type: "",
                             )),

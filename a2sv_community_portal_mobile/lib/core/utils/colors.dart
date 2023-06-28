@@ -25,3 +25,8 @@ const Color hintTextColor = Color(0xFFCBD5E0);
 const Color handleColor = Color.fromRGBO(0, 0, 0, 0.36);
 const Color appBarColor = Color(0xFF343434);
 const Color errorColor = Color(0xFFF44336);
+
+const Color bottomNavigationUnSelectedIconsColor =
+    Color.fromRGBO(120, 120, 120, 1);
+
+const Color bottomNavigationSelectedIconsColor = Colors.blue;
