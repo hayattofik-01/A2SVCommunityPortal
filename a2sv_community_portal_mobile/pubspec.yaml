@@ -55,6 +55,7 @@ dependencies:
   json_annotation: ^4.8.1
   url_launcher: ^6.1.11
   smooth_page_indicator: ^1.1.0
+  flutter_html: ^3.0.0-beta.2
 
 
 dev_dependencies:

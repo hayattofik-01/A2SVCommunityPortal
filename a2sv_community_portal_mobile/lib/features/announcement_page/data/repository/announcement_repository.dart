@@ -18,12 +18,8 @@ class AnnouncementRepositoryImplementation implements AnnouncementRepository {
   @override
   Future<Either<Failure, List<Announcement>>> getAnnouncements() async {
     if (await networkInfo.isConnected) {
-      try {
-        final announcements = await remoteDataSource.getAnnouncements();
-        return Right(announcements);
-      } on ServerException {
-        return const Left(ServerFailure(serverFaliure));
-      }
+      final announcements = await remoteDataSource.getAnnouncements();
+      return Right(announcements);
     } else {
       return const Left(NoConnectionFailure(noConnectionError));
     }

@@ -1,3 +1,5 @@
+import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/bloc/announcement_bloc.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/announcement.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/bloc/application_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/screen/home.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/login_page.dart';
@@ -35,17 +37,22 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<ApplicationBloc>(
           create: (_) => sl<ApplicationBloc>()..add(FetchDataEvent()),
-        ),  BlocProvider<LoginBloc>(
-            create: (_) => sl<LoginBloc>(),
-          ),
-          BlocProvider<SignUpBloc>(
-            create: (_) => sl<SignUpBloc>(),
-          ),
+        ),
+        BlocProvider<LoginBloc>(
+          create: (_) => sl<LoginBloc>(),
+        ),
+        BlocProvider<SignUpBloc>(
+          create: (_) => sl<SignUpBloc>(),
+        ),
+
+        BlocProvider<AnnouncementBloc>(
+          create: (_) => sl<AnnouncementBloc>()..add(GetAnnouncementEvent()),
+        )
         // Add more bloc providers for other blocs if needed
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Home(),
+        home: AnnouncementPage(),
       ),
     );
   }
