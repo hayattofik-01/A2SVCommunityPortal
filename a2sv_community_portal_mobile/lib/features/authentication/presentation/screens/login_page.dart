@@ -2,8 +2,10 @@ import 'package:a2sv_community_portal_mobile/features/authentication/presentatio
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/account_question.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/snackbar.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/submit_button.dart';
+import 'package:a2sv_community_portal_mobile/main_Home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/utils/media_query.dart';
 
 import '../../../../core/utils/validation.dart';
@@ -60,7 +62,8 @@ final formKey = GlobalKey<FormState>();
         CustomSnackBar.showError(context, state.exception);
         }
         else if (state is LoginSuccessfull){
-          Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SignUpPage()));
+        GoRouter.of(context).go('/home'); // changed to go_router navigation
+         
         }
       },
       builder: (context, state) {

@@ -11,133 +11,21 @@ class ApplicationStepRemoteDataSourceImpl
   final http.Client client;
 
   ApplicationStepRemoteDataSourceImpl({required this.client});
-
+  String token =
+      "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI4MjU3Yzk2Yy0yNDUwLTQ0Y2QtOTUwYi0zZmJkNjMxNWU3MmUiLCJqdGkiOiI5ODY1NTM4MS1kZTNlLTQ2YWMtYWQ0My04ZmExMTY3OWY3YTMiLCJlbWFpbCI6ImR1cmVAYTJzdi5vcmciLCJ1bmlxdWVfbmFtZSI6ImR1cmVAYTJzdi5vcmciLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJTdHVkZW50IiwiZXhwIjoxNjkwNTY3MjIyLCJpc3MiOiJBMlNWIENvbW11bml0eSBQb3J0YWwiLCJhdWQiOiJBMlNWIENvbW11bml0eSBQb3J0YWwifQ.CUPSeW32p_gmNYBQLXk8mg-iqMslnRWeMQCAI3TNiv0";
   @override
   Future<dynamic> getApplicationStepFromApi() async {
-    // final response = await client.get(
-    //   Uri.parse('https://a2sv-community-portal-api.onrender.com/api/Steps'),
-    //   headers: {'content-type': 'application/json'},
-    // );
-    // for checking with mock data
-    dynamic response = {
-      "statusCode": 200,
-      "isSuccess": true,
-      "error": null,
-      "body": [
-        {
-          "isCompleted": true,
-          "stepName": "Setup Profile",
-          "id": 1,
-          "subSteps": [
-            {
-              "id": 1,
-              "isCompleted": true,
-              "subStepName": "Sign Up",
-              "mainStepId": 1,
-              "description":
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, dignissimos reiciendis. Pariatur et placeat at deleniti, laboriosam consequuntur. Porro dolorem cum unde praesentium. Temporibus in veritatis nemo perspiciatis fuga quia!"
-            },
-            {
-              "id": 2,
-              "isCompleted": true,
-              "subStepName": "Codeforce profile",
-              "mainStepId": 1,
-              "description":
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, dignissimos reiciendis. Pariatur et placeat at deleniti, laboriosam consequuntur. Porro dolorem cum unde praesentium. Temporibus in veritatis nemo perspiciatis fuga quia!"
-            },
-            {
-              "id": 3,
-              "isCompleted": true,
-              "subStepName": "Github profile",
-              "mainStepId": 1,
-              "description":
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, dignissimos reiciendis. Pariatur et placeat at deleniti, laboriosam consequuntur. Porro dolorem cum unde praesentium. Temporibus in veritatis nemo perspiciatis fuga quia!"
-            },
-            {
-              "id": 4,
-              "isCompleted": true,
-              "subStepName": "Leetcode profile",
-              "mainStepId": 1,
-              "description":
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, dignissimos reiciendis. Pariatur et placeat at deleniti, laboriosam consequuntur. Porro dolorem cum unde praesentium. Temporibus in veritatis nemo perspiciatis fuga quia!"
-            }
-          ]
-        },
-        {
-          "isCompleted": false,
-          "stepName": "Participate in A2SV Contest",
-          "id": 2,
-          "subSteps": [
-            {
-              "id": 1,
-              "isCompleted": false,
-              "subStepName": "Participate in Your first A2SV contest",
-              "mainStepId": 2,
-              "description":
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, dignissimos reiciendis. Pariatur et placeat at deleniti, laboriosam consequuntur. Porro dolorem cum unde praesentium. Temporibus in veritatis nemo perspiciatis fuga quia!"
-            },
-            {
-              "id": 2,
-              "isCompleted": false,
-              "subStepName": "Participate in Your second A2SV contest",
-              "mainStepId": 2,
-              "description":
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, dignissimos reiciendis. Pariatur et placeat at deleniti, laboriosam consequuntur. Porro dolorem cum unde praesentium. Temporibus in veritatis nemo perspiciatis fuga quia!"
-            }
-          ]
-        },
-        {
-          "isCompleted": false,
-          "stepName": "Resume",
-          "id": 3,
-          "subSteps": [
-            {
-              "id": 1,
-              "isCompleted": false,
-              "subStepName": "Upload your resume",
-              "mainStepId": 3,
-              "description":
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, dignissimos reiciendis. Pariatur et placeat at deleniti, laboriosam consequuntur. Porro dolorem cum unde praesentium. Temporibus in veritatis nemo perspiciatis fuga quia!"
-            }
-          ]
-        },
-        {
-          "isCompleted": false,
-          "stepName": "Ready to Apply",
-          "id": 4,
-          "subSteps": [
-            {
-              "id": 1,
-              "isCompleted": false,
-              "subStepName": "Apply to join A2SV community",
-              "mainStepId": 4,
-              "description":
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, dignissimos reiciendis. Pariatur et placeat at deleniti, laboriosam consequuntur. Porro dolorem cum unde praesentium. Temporibus in veritatis nemo perspiciatis fuga quia!"
-            }
-          ]
-        },
-        {
-          "isCompleted": false,
-          "stepName": "Waitlist",
-          "id": 5,
-          "subSteps": [
-            {
-              "id": 1,
-              "isCompleted": false,
-              "subStepName": "Apply to join A2SV community",
-              "mainStepId": 1,
-              "description":
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, dignissimos reiciendis. Pariatur etplaceat at deleniti, laboriosam consequuntur. Porro dolorem cum unde praesentium. Temporibus in veritatis nemo perspiciatis fuga quia!"
-            }
-          ]
-        }
-      ]
-    };
-    if (response["statusCode"] != 200) {
+    final response = await client.get(
+      Uri.parse(
+          'https://a2sv-community-portal-api.onrender.com/api/Progress/me'),
+      headers: {'content-type': 'application/json', 'Authorization': token},
+    );
+
+    if (response.statusCode != 200) {
       throw ServerException('server error');
     } else {
-      // final responseBody = jsonDecode(response.body);
-      return response["body"];
+      final responseBody = jsonDecode(response.body);
+      return responseBody['value'];
     }
   }
 }

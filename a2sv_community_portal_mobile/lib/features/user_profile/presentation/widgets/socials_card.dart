@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 import 'icon_with_description.dart';
 
 class SocialCard extends StatelessWidget {
-  const SocialCard({super.key});
-
+  const SocialCard(
+      {super.key, required this.linkedInHandle, required this.telegramHandle});
+  final String linkedInHandle;
+  final String telegramHandle;
   @override
   Widget build(BuildContext context) {
     return ContentBox(
@@ -28,19 +30,21 @@ class SocialCard extends StatelessWidget {
                 ),
               ),
               Row(
-                children: const [
+                children: [
                   IconWithDescription(
                     description: "Linkedin",
                     iconName: "linkedin_icon",
-                    handle: "simon",
+                    handle: linkedInHandle,
+                    url: "https://linkedin/in/",
                   ),
                   SizedBox(
-                    width: 33,
+                    width: UIConverter.getComponentWidth(context, 40),
                   ),
                   IconWithDescription(
                     iconName: "telegram_icon",
                     description: "Telegram",
-                    handle: "simon",
+                    handle: telegramHandle,
+                    url: "https://t.me/",
                   ),
                 ],
               ),

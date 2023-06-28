@@ -5,6 +5,7 @@ import 'package:a2sv_community_portal_mobile/features/contest/presentation/pages
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/widgets/list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class UpcommingContests extends StatelessWidget {
   UpcommingContests({super.key});
@@ -23,10 +24,10 @@ class UpcommingContests extends StatelessWidget {
         } else if (state is UpcomingContestsLoaded) {
           if (state.upcomingContests.isEmpty) {
             return Container(
-              padding: const EdgeInsets.only(top: 50),
+              padding: const EdgeInsets.symmetric(vertical: 30),
               child: const Center(
                 child: Text(
-                  "No Recent Contests",
+                  "No Upcomming Contests",
                   style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
@@ -39,12 +40,7 @@ class UpcommingContests extends StatelessWidget {
               children: <Widget>[
                 for (var contest in state.upcomingContests)
                   GestureDetector(
-                    onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ContestDetails(
-                                  contest: contest,
-                                ))),
+                    onTap: () => context.go('/contests/detail', extra: contest),
                     child: Container(
                       margin: const EdgeInsets.only(bottom: 10),
                       padding: const EdgeInsets.only(left: 16.0, right: 16.0),

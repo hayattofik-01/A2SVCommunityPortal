@@ -1,26 +1,32 @@
 import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
+import 'package:a2sv_community_portal_mobile/features/user_profile/domain/entities/user_entity.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/content_box.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/profile_picture.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../../core/utils/media_query.dart';
 import 'package:flutter_circle_flags_svg/flutter_circle_flags_svg.dart';
 
 class BioCard extends StatelessWidget {
   const BioCard(
       {super.key,
+      required this.user,
       required this.name,
       required this.email,
       required this.country,
       required this.resume,
       required this.phoneNumber,
-      required this.shortBio});
+      required this.shortBio,
+      required this.profilePicture});
   final String name;
   final String email;
   final String country;
   final String resume;
   final String phoneNumber;
   final String shortBio;
+  final String profilePicture;
+  final UserEntity user;
   @override
   Widget build(BuildContext context) {
     final TextStyle biotextStyle = TextStyle(
@@ -38,7 +44,10 @@ class BioCard extends StatelessWidget {
             height: UIConverter.getComponentHeight(context, 127),
             child: Row(
               children: [
-                const ProfilePicture(),
+                ProfilePicture(
+                  profilePicture: profilePicture,
+                  user: user,
+                ),
                 SizedBox(
                   width: UIConverter.getComponentWidth(context, 20),
                 ),
@@ -68,14 +77,19 @@ class BioCard extends StatelessWidget {
                     ),
                     Text(email, style: biotextStyle),
                     Text(phoneNumber, style: biotextStyle),
-                    Text("Résumé",
-                        style: TextStyle(
-                            height: 1,
-                            fontFamily: 'Urbanist',
-                            fontSize:
-                                UIConverter.getComponentHeight(context, 14),
-                            fontWeight: FontWeight.w600,
-                            color: primaryColor))
+                    GestureDetector(
+                      onTap: () {
+                        final Uri uri = Uri.parse(user.cv!);
+                      },
+                      child: Text("Résumé",
+                          style: TextStyle(
+                              height: 1,
+                              fontFamily: 'Urbanist',
+                              fontSize:
+                                  UIConverter.getComponentHeight(context, 14),
+                              fontWeight: FontWeight.w600,
+                              color: primaryColor)),
+                    )
                   ],
                 )
               ],

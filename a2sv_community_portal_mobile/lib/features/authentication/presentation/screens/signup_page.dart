@@ -5,7 +5,9 @@ import 'package:a2sv_community_portal_mobile/features/authentication/presentatio
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/account_question.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/password_field.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/snackbar.dart';
+import 'package:a2sv_community_portal_mobile/main_Home.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../core/utils/media_query.dart';
 import '../widget/bezier_container.dart';
 import '../widget/entry_field.dart';
@@ -13,11 +15,9 @@ import '../widget/register_button.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SignUpPage extends StatefulWidget {
-  
   const SignUpPage({Key? key, this.title}) : super(key: key);
 
   final String? title;
-  
 
   @override
   // ignore: library_private_types_in_public_api
@@ -25,25 +25,22 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-   final TextEditingController emailController = TextEditingController();
-    final TextEditingController nameController = TextEditingController();
-    final TextEditingController telegramController = TextEditingController();
-    final TextEditingController codeforceController = TextEditingController();
-    final TextEditingController phoneController = TextEditingController();
-    final TextEditingController passwordController = TextEditingController();
-    final TextEditingController confirmPasswordController =
-        TextEditingController();
-        final formKey = GlobalKey<FormState>();
-        final emailFocusNode = FocusNode();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController telegramController = TextEditingController();
+  final TextEditingController codeforceController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+  final formKey = GlobalKey<FormState>();
+  final emailFocusNode = FocusNode();
   final nameFocusNode = FocusNode();
   final codeforceFocusNode = FocusNode();
   final telegramFocusNode = FocusNode();
   final phoneFocusNode = FocusNode();
   final passwordFocusNode = FocusNode();
   final confirmFocusNode = FocusNode();
-
-      
- 
 
   String? validateEmail(String value) {
     // Check if the value is empty
@@ -100,13 +97,12 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-   
+
     return BlocConsumer<SignUpBloc, SignUpState>(listener: (context, state) {
       if (state is SignUpFailure) {
-       CustomSnackBar.showError(context, state.error);
+        CustomSnackBar.showError(context, state.error);
       } else if (state is SignUpSuccess) {
-        Navigator.of(context)
-            .push(MaterialPageRoute(builder: (_) => const LoginPage()));
+        GoRouter.of(context).go('/home');
       }
     }, builder: (context, state) {
       if (state is SignUpLoading) {
@@ -144,12 +140,11 @@ class _SignUpPageState extends State<SignUpPage> {
                               child: Column(
                                 children: <Widget>[
                                   EntryField(
-                                    label: "Full Name",
-                                    icon: Icons.person,
-                                    controller: nameController,
-                                    validator: Validator.validateName,
-                                    node: nameFocusNode
-                                  ),
+                                      label: "Full Name",
+                                      icon: Icons.person,
+                                      controller: nameController,
+                                      validator: Validator.validateName,
+                                      node: nameFocusNode),
                                   EntryField(
                                     label: "Email",
                                     icon: Icons.email,
@@ -176,51 +171,58 @@ class _SignUpPageState extends State<SignUpPage> {
                                     icon: Icons.telegram,
                                     controller: telegramController,
                                     validator: Validator.validateUsername,
-                                    node:  telegramFocusNode,
+                                    node: telegramFocusNode,
                                   ),
                                   PasswordField(
                                     title: "Password",
                                     controller: passwordController,
                                     validator: Validator.validatePassword,
                                   ),
-                                   SizedBox(height:UIConverter.getComponentHeight(context, 5) ),
-         const  Text(
-            '*The password needs to have a minimum length of 8 characters and include at least one uppercase letter and one lowercase letter.',
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 12,
-            )),
+                                  SizedBox(
+                                      height: UIConverter.getComponentHeight(
+                                          context, 5)),
+                                  const Text(
+                                      '*The password needs to have a minimum length of 8 characters and include at least one uppercase letter and one lowercase letter.',
+                                      style: TextStyle(
+                                        color: Colors.grey,
+                                        fontSize: 12,
+                                      )),
                                   PasswordField(
-                                    title: "Confirm Password",
-                                    controller: confirmPasswordController,
-                                    validator:(value) => PasswordConfirmationValidator.validate(passwordController.text, confirmPasswordController.text)
-                                  )
+                                      title: "Confirm Password",
+                                      controller: confirmPasswordController,
+                                      validator: (value) =>
+                                          PasswordConfirmationValidator
+                                              .validate(
+                                                  passwordController.text,
+                                                  confirmPasswordController
+                                                      .text))
                                 ],
                               ),
                             ),
                           ),
-                          SizedBox(height:UIConverter.getComponentHeight(context, 5) ),
-         const  Text(
-            '*The password needs to have a minimum length of 8 characters and include at least one uppercase letter and one lowercase letter.',
-            style: TextStyle(
-              color: Colors.grey,
-              fontSize: 12,
-            )),
+                          SizedBox(
+                              height:
+                                  UIConverter.getComponentHeight(context, 5)),
+                          const Text(
+                              '*The password needs to have a minimum length of 8 characters and include at least one uppercase letter and one lowercase letter.',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 12,
+                              )),
                           SizedBox(
                             height: UIConverter.getComponentHeight(context, 20),
                           ),
                           RegisterButton(
-                            title: "Register",
-                            emailC: emailController,
-                            passC: passwordController,
-                            nameC: nameController,
-                            telegramC: telegramController,
-                            codeforceC: codeforceController,
-                            phoneC: phoneController,
-                            passwordC: passwordController,
-                            confirmC: confirmPasswordController,
-                            formkey:formKey
-                          ),
+                              title: "Register",
+                              emailC: emailController,
+                              passC: passwordController,
+                              nameC: nameController,
+                              telegramC: telegramController,
+                              codeforceC: codeforceController,
+                              phoneC: phoneController,
+                              passwordC: passwordController,
+                              confirmC: confirmPasswordController,
+                              formkey: formKey),
                           SizedBox(height: height * .14),
                         ],
                       ),

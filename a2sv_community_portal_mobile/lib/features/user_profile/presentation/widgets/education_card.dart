@@ -5,8 +5,15 @@ import 'content_box.dart';
 import 'icon_with_description.dart';
 
 class EducationCard extends StatelessWidget {
-  const EducationCard({super.key});
-
+  const EducationCard({
+    super.key,
+    required this.department,
+    required this.university,
+    required this.graduationYear,
+  });
+  final String department;
+  final String university;
+  final int graduationYear;
   @override
   Widget build(BuildContext context) {
     return ContentBox(
@@ -25,12 +32,11 @@ class EducationCard extends StatelessWidget {
                   fontSize: UIConverter.getComponentHeight(context, 16)),
             ),
           ),
-          const IconWithDescription(
-            description: "Addis Ababa University | 2024",
+          IconWithDescription(
+            description: "$university | $graduationYear",
             iconName: "school_icon",
           ),
-          const IconWithDescription(
-              iconName: "cap_icon", description: "SoftWare Engineering")
+          IconWithDescription(iconName: "cap_icon", description: department)
         ]),
       ),
     );

@@ -199,5 +199,6 @@ const countryCode = {
   'Vietnam': 'VN',
   'Yemen': 'YE',
   'Zambia': 'ZM',
-  'Zimbabwe': 'ZW'
+  'Zimbabwe': 'ZW',
+  'Country': ''
 };
