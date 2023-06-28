@@ -44,9 +44,10 @@ class EditField extends StatelessWidget {
                 controller: controllers[hintText],
                 decoration: InputDecoration(
                   errorStyle: const TextStyle(
-                      color: errorColor,
-                      fontFamily: 'Urbanist',
-                      fontWeight: FontWeight.w500),
+                    color: errorColor,
+                    fontFamily: 'Urbanist',
+                    fontWeight: FontWeight.w500,
+                  ),
                   contentPadding: EdgeInsets.symmetric(
                       vertical: UIConverter.getComponentHeight(context, 0)),
                   hintText: hintText,
