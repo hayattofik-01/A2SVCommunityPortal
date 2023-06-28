@@ -8,11 +8,9 @@ import 'package:get_it/get_it.dart';
 final sl = GetIt.instance;
 
 Future<void> applicationInit() async {
-
-
   //! Features - Application
-    //usecase
-  sl.registerLazySingleton(() => ApplicationStepUseCases(applicationStepRepo: sl()));
+  //usecase
+  sl.registerLazySingleton(() => GetSteps(applicationStepRepo: sl()));
   // repository
   sl.registerLazySingleton<ApplicationStepRepo>(() => ApplicationStepRepoImpl(
         networkInfo: sl(),
@@ -24,6 +22,5 @@ Future<void> applicationInit() async {
       () => ApplicationStepRemoteDataSourceImpl(client: sl()));
 
   // bloc
-  sl.registerFactory(() => ApplicationBloc(applicationStepUseCases: sl()));
-
+  sl.registerFactory(() => ApplicationBloc(getStep: sl()));
 }
