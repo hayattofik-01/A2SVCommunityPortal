@@ -1,15 +1,17 @@
 import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/widgets/bottom_bar.dart';
-import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/upper_bar.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/bloc/application_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/custom_button.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/custom_card.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/stepper_container.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import '../../../contest/presentation/widgets/upper_bar.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
+
+import '../../../../core/utils/colors.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -27,7 +29,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const UpperBar(),
+      backgroundColor: backgroundWhite,
       body: BlocBuilder<ApplicationBloc, ApplicationState>(
           builder: (context, state) {
         if (state is ApplicationLoading) {
@@ -43,8 +45,11 @@ class _HomeState extends State<Home> {
           }).toList();
           return Column(
             children: [
+              Container(
+                margin: EdgeInsets.only(top: 20),
+                child: UpperBar()),
               Padding(
-                padding: const EdgeInsets.only(top: 17, bottom: 17.0),
+                padding: const EdgeInsets.only(top: 50, bottom: 17.0),
                 child: StepperBox(
                   text: '${i + 1} of ${state.applicationStepEntity.length}',
                   percentage: (i + 1) / (state.applicationStepEntity.length),
@@ -54,12 +59,10 @@ class _HomeState extends State<Home> {
                       : "Apply",
                 ),
               ),
-              Expanded(
-                child: Center(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: subStepCards,
-                    ),
+              Center(
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: subStepCards,
                   ),
                 ),
               ),

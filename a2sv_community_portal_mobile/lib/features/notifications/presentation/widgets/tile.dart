@@ -21,7 +21,7 @@ class CustomListTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(7),
       decoration: BoxDecoration(
-        border: Border.all(color: const Color.fromRGBO(0, 0, 0, 0.08)),
+        border: Border.all(color: boxBorderColor),
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: ListTile(
@@ -30,7 +30,7 @@ class CustomListTile extends StatelessWidget {
           style: const TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 16,
-            color: Color.fromRGBO(0, 0, 0, 1),
+            color: userNameColor,
             fontFamily: "Urbanist",
           ),
         ),
@@ -54,7 +54,7 @@ class CustomListTile extends StatelessWidget {
           decoration: BoxDecoration(
             color: isRead
                 ? backgroundWhite
-                : const Color.fromRGBO(49, 130, 206, 1),
+                :  buttonColor,
             shape: BoxShape.circle,
           ),
         ),
