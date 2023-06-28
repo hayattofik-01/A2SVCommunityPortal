@@ -36,42 +36,48 @@ class DeveloperHandelCard extends StatelessWidget {
           ),
           Row(
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  IconWithDescription(
-                    description: "LeetCode",
-                    iconName: "leetcode_icon",
-                    handle: leetCodeHandle,
-                    url: 'https://leetcode.com/',
-                  ),
-                  IconWithDescription(
-                    iconName: "github_icon",
-                    description: "Github",
-                    handle: gitHubHandle,
-                    url: 'https://github.com/',
-                  ),
-                ],
+              Expanded(
+                flex: 1,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    IconWithDescription(
+                      description: "LeetCode",
+                      iconName: "leetcode_icon",
+                      handle: leetCodeHandle,
+                      url: 'https://leetcode.com/',
+                    ),
+                    IconWithDescription(
+                      iconName: "github_icon",
+                      description: "Github",
+                      handle: gitHubHandle,
+                      url: 'https://github.com/',
+                    ),
+                  ],
+                ),
               ),
               SizedBox(
-                width: UIConverter.getComponentWidth(context, 40),
+                width: UIConverter.getComponentWidth(context, 30),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  IconWithDescription(
-                    description: "CodeForces",
-                    iconName: "codeforces_icon",
-                    handle: codeforcesHandle,
-                    url: 'https://codeforces.com/profile/',
-                  ),
-                  IconWithDescription(
-                    iconName: "hacker_rank_icon",
-                    description: "HackerRank",
-                    handle: hackerrankHandle,
-                    url: 'https://hackerrank.com/',
-                  ),
-                ],
+              Expanded(
+                flex: 1,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    IconWithDescription(
+                      description: "CodeForces",
+                      iconName: "codeforces_icon",
+                      handle: codeforcesHandle,
+                      url: 'https://codeforces.com/profile/',
+                    ),
+                    IconWithDescription(
+                      iconName: "hacker_rank_icon",
+                      description: "HackerRank",
+                      handle: hackerrankHandle,
+                      url: 'https://hackerrank.com/',
+                    ),
+                  ],
+                ),
               )
             ],
           )

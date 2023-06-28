@@ -39,12 +39,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   action: () {
                     if (state is ProfileLoadedState) {
                       context.push('/profile/editProfile', extra: state.user);
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => EditProfilePage(
-                      //               user: state.user,
-                      //             )));
+       
                     }
                   },
                 ),

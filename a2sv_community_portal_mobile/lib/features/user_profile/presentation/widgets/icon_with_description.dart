@@ -62,15 +62,20 @@ class IconWithDescription extends StatelessWidget {
                   ),
                 ),
                 if (handle != "")
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      handle,
-                      style: TextStyle(
-                          color: handleColor,
-                          fontFamily: 'Poppins',
-                          fontSize: UIConverter.getComponentHeight(context, 12),
-                          fontWeight: FontWeight.w400),
+                  Container(
+                    width: 120,
+                    child: Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        handle,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color: handleColor,
+                            fontFamily: 'Poppins',
+                            fontSize:
+                                UIConverter.getComponentHeight(context, 12),
+                            fontWeight: FontWeight.w400),
+                      ),
                     ),
                   ),
               ],

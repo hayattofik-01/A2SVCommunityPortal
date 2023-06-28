@@ -63,7 +63,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Profile saved successfully')),
               );
+
               context.pop();
+              context.read<ProfileBloc>().add(const GetProfileEvent());
             }
           },
           builder: (context, state) {
