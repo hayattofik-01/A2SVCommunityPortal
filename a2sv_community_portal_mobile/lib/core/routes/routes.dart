@@ -1,3 +1,6 @@
+import 'package:a2sv_community_portal_mobile/features/announcement_page/domain/entities/announcement.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/announcement.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/detail.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/login_page.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/domain/entities/contest.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/pages/contest_detail.dart';
@@ -75,6 +78,21 @@ GoRouter routes() => GoRouter(
               return MaterialPage(
                   child: ContestDetails(
                 contest: contests,
+              ));
+            }),
+
+        GoRoute(
+            path: '/announcement',
+            pageBuilder: (context, state) =>
+                const MaterialPage(child: AnnouncementPage())),
+        GoRoute(
+            path: '/announcement/detail',
+            pageBuilder: (context, state) {
+              final announcement = state.extra as Announcement;
+              return MaterialPage(
+                  child: AnnouncementDetailsPage(
+                description: announcement.description,
+                title: announcement.title,
               ));
             }),
 
