@@ -1,5 +1,6 @@
 import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
 class CustomListTile extends StatelessWidget {
   final String header;
@@ -35,14 +36,15 @@ class CustomListTile extends StatelessWidget {
         ),
         subtitle: Container(
           padding: const EdgeInsets.only(top: 5, bottom: 0),
-          child: Text(
-            description,
-            style: const TextStyle(
-              color: Color.fromRGBO(74, 85, 104, 1),
-              fontWeight: FontWeight.w500,
-              fontSize: 14,
-              fontFamily: "Urbanist",
-            ),
+          child: Html(
+            data: description,
+            // description,
+            // style: const TextStyle(
+            //   color: Color.fromRGBO(74, 85, 104, 1),
+            //   fontWeight: FontWeight.w500,
+            //   fontSize: 14,
+            //   fontFamily: "Urbanist",
+            // ),
           ),
         ),
         trailing: Container(

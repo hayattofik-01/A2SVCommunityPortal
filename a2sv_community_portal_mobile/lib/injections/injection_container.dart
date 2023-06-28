@@ -1,4 +1,9 @@
 import 'package:a2sv_community_portal_mobile/core/network/network_info.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/data/data_source/announcement_datasource.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/data/repository/announcement_repository.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/domain/repository/announcement_repository.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/domain/usecase/get_announcement.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/bloc/announcement_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/data/datasources/contest_remote_datasource.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/data/repositories/contest_repository_impl.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/domain/repository/contest_repository.dart';
@@ -19,6 +24,7 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
+import '../features/announcement_page/domain/repository/announcement_datasource.dart';
 import 'auth_injection.dart';
 
 final sl = GetIt.instance;
@@ -83,4 +89,19 @@ Future<void> init() async {
   authInit();
 
   //! External
+
+  //! Features - AnnouncementPage
+  //usercase
+  sl.registerLazySingleton(() => GetAnnouncements(repository: sl()));
+  // repository
+  sl.registerLazySingleton<AnnouncementRepository>(
+      () => AnnouncementRepositoryImplementation(
+            networkInfo: sl(),
+            remoteDataSource: sl(),
+          ));
+  // datasource
+  sl.registerLazySingleton<AnnouncementRemoteDataSource>(
+      () => DataSource(client: sl()));
+
+  sl.registerFactory(() => AnnouncementBloc(getAnnouncements: sl()));
 }

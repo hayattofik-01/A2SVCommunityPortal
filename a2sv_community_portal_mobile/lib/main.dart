@@ -1,3 +1,5 @@
+import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/bloc/announcement_bloc.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/announcement.dart';
 import 'package:a2sv_community_portal_mobile/core/routes/routes.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/bloc/application_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/screen/home.dart';
@@ -49,6 +51,9 @@ class MyApp extends StatelessWidget {
           create: (_) => sl<SignUpBloc>(),
         ),
 
+        BlocProvider<AnnouncementBloc>(
+          create: (_) => sl<AnnouncementBloc>()..add(GetAnnouncementEvent()),
+        ),
         BlocProvider<NotificationBloc>(
           create: (_) => sl<NotificationBloc>()..add(GetNotificationsEvent()),
         ),

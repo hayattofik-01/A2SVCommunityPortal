@@ -1,16 +1,31 @@
-import 'package:a2sv_community_portal_mobile/features/announcement_page/domain/entities/announcement.dart';
 import 'package:flutter/foundation.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-part 'announcement_model.freezed.dart';
-part 'announcement_model.g.dart';
 
-@freezed
-class AnnouncementModel extends Announcement with _$AnnouncementModel {
-  const factory AnnouncementModel({
-    required String title,
-    required String description,
-  }) = _AnnouncementModel;
+import '../../domain/entities/announcement.dart';
 
-  factory AnnouncementModel.fromJson(Map<String, Object?> json) =>
-      _$AnnouncementModelFromJson(json);
+class AnnouncementModel extends Announcement {
+  final String title;
+  final String description;
+
+  AnnouncementModel({
+    required this.title,
+    required this.description,
+  }) : super(title: '', description: '');
+
+  @override
+  List<Object?> get props => [title, description];
+
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'description': description,
+    };
+  }
+
+  static AnnouncementModel fromJson(Map<String, dynamic> json) {
+    debugPrint(json.toString());
+    return AnnouncementModel(
+      title: json['title'] ?? 'No title available',
+      description: json['description'] ?? 'No description available',
+    );
+  }
 }
