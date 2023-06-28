@@ -34,3 +34,4 @@ const Color blackText = Color.fromRGBO(0, 0, 0, 0.92);
 const Color buttonColor = Color.fromRGBO(49, 130, 206, 1);
 const Color tileTextColor = Color.fromRGBO(0, 0, 0, 0.24);
 const Color tileSubtitleColor = Color.fromRGBO(74, 85, 104, 1);
+const Color iconColor = Color.fromRGBO(26, 54, 93, 1);
