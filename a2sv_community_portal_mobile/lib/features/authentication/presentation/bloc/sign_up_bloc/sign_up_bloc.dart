@@ -16,7 +16,7 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
      
 
       signUpEither.fold(
-        (failure) => emit(SignUpFailure(error: failure.toString())),
+        (failure) => emit(SignUpFailure(error: failure.message.toString())),
         (login) => emit(SignUpSuccess()),
       );
     });
