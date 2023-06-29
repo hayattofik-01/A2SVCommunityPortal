@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/features/notifications/presentation/bloc/notification_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/notifications/presentation/widgets/notifications_widger.dart';
 import 'package:flutter/material.dart';
@@ -12,7 +13,7 @@ class NotificationPage extends StatelessWidget {
     return BlocBuilder<NotificationBloc, NotificationState>(
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: const Color.fromRGBO(237, 242, 247, 1),
+          backgroundColor: whiteColor,
           body: ListView(
             children: const [
               UpperBar(

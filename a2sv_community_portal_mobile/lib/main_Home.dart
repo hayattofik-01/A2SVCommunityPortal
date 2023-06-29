@@ -39,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: _widgetOptions,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: whiteColor,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: SvgPicture.asset(
