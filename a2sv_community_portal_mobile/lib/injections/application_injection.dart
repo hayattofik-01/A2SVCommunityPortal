@@ -19,7 +19,7 @@ Future<void> applicationInit() async {
 
   // datasource
   sl.registerLazySingleton<ApplicationStepRemoteDataSource>(
-      () => ApplicationStepRemoteDataSourceImpl(client: sl()));
+      () => ApplicationStepRemoteDataSourceImpl(client: sl(),sharedPreferences: sl()));
 
   // bloc
   sl.registerFactory(() => ApplicationBloc(getStep: sl()));

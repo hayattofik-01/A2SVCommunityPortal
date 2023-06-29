@@ -48,95 +48,100 @@ class _ProfilePageState extends State<ProfilePage> {
         }
       },
       builder: (context, state) {
-        return Scaffold(
-          body: SafeArea(
-            child: Column(
-              children: [
-                TitleBar(
-                  title: "Profile",
-                  iconName: "edit_icon",
-                  action: () {
-                    if (state is ProfileLoadedState) {
-                      context.push('/profile/editProfile', extra: state.user);
-                    }
-                  },
-                ),
-                if (state is ProfileLoadedState)
-                  Expanded(
-                    child: ListView(
-                      children: [
-                        BioCard(
-                            name: state.user.fullName,
-                            country: state.user.country ?? "Country",
-                            email: state.user.email,
-                            shortBio: state.user.shortBio ?? "No Bio",
-                            resume: "some link",
-                            phoneNumber: state.user.phoneNumber,
-                            profilePicture: state.user.profilePicture ?? "No",
-                            user: state.user),
-                        EducationCard(
-                          department:
-                              state.user.department ?? "Unknown Department",
-                          university:
-                              state.user.university ?? "Unknown University",
-                          graduationYear: state.user.graduationYear ?? 3333,
-                        ),
-                        DeveloperHandelCard(
-                          codeforcesHandle: state.user.codeforcesHandle,
-                          leetCodeHandle:
-                              state.user.leetCodeHandle ?? "No Handle",
-                          hackerrankHandle:
-                              state.user.hackerrankHandle ?? "No Handle",
-                          gitHubHandle: state.user.gitHubHandle ?? "No Handle",
-                        ),
-                        SocialCard(
-                          telegramHandle: state.user.telegramUsername,
-                          linkedInHandle:
-                              state.user.linkedInHandle ?? "No Handle",
-                        ),
-                      ],
+        return SafeArea(
+          child: Scaffold(
+            backgroundColor: whiteColor,
+            body: SafeArea(
+              child: Column(
+                children: [
+                  TitleBar(
+                    title: "Profile",
+                    iconName: "edit_icon",
+                    action: () {
+                      if (state is ProfileLoadedState) {
+                        context.push('/profile/editProfile', extra: state.user);
+                      }
+                    },
+                  ),
+                  if (state is ProfileLoadedState)
+                    Expanded(
+                      child: ListView(
+                        children: [
+                          BioCard(
+                              name: state.user.fullName,
+                              country: state.user.country ?? "Country",
+                              email: state.user.email,
+                              shortBio: state.user.shortBio ?? "No Bio",
+                              resume: "some link",
+                              phoneNumber: state.user.phoneNumber,
+                              profilePicture: state.user.profilePicture ?? "No",
+                              user: state.user),
+                          EducationCard(
+                            department:
+                                state.user.department ?? "Unknown Department",
+                            university:
+                                state.user.university ?? "Unknown University",
+                            graduationYear: state.user.graduationYear ?? 3333,
+                          ),
+                          DeveloperHandelCard(
+                            codeforcesHandle: state.user.codeforcesHandle,
+                            leetCodeHandle:
+                                state.user.leetCodeHandle ?? "No Handle",
+                            hackerrankHandle:
+                                state.user.hackerrankHandle ?? "No Handle",
+                            gitHubHandle:
+                                state.user.gitHubHandle ?? "No Handle",
+                          ),
+                          SocialCard(
+                            telegramHandle: state.user.telegramUsername,
+                            linkedInHandle:
+                                state.user.linkedInHandle ?? "No Handle",
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                if (state is UpLoadingState)
-                  Expanded(
-                      child: Center(
-                          child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
-                        'Uploading',
-                        style: TextStyle(fontFamily: 'Urbanist', fontSize: 20),
-                      ),
-                      SizedBox(
-                        width: 15,
-                      ),
-                      SpinKitThreeBounce(
-                        size: 25,
-                        color: Colors.black,
-                      )
-                    ],
-                  ))),
-                if (state is ProfileLoadingState)
-                  const Expanded(
-                      child: Center(child: CircularProgressIndicator())),
-                if (state is ProfileFailureState)
-                  Expanded(
-                    child: TextButton(
-                        onPressed: () {
-                          context
-                              .read<ProfileBloc>()
-                              .add(const GetProfileEvent());
-                        },
-                        child: const Center(
-                            child: Text(
-                          'Reload',
-                          style: TextStyle(
-                              fontFamily: 'Urbanist',
-                              fontSize: 24,
-                              color: primaryColor),
-                        ))),
-                  ),
-              ],
+                  if (state is UpLoadingState)
+                    Expanded(
+                        child: Center(
+                            child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Text(
+                          'Uploading',
+                          style:
+                              TextStyle(fontFamily: 'Urbanist', fontSize: 20),
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        SpinKitThreeBounce(
+                          size: 25,
+                          color: Colors.black,
+                        )
+                      ],
+                    ))),
+                  if (state is ProfileLoadingState)
+                    const Expanded(
+                        child: Center(child: CircularProgressIndicator())),
+                  if (state is ProfileFailureState)
+                    Expanded(
+                      child: TextButton(
+                          onPressed: () {
+                            context
+                                .read<ProfileBloc>()
+                                .add(const GetProfileEvent());
+                          },
+                          child: const Center(
+                              child: Text(
+                            'Reload',
+                            style: TextStyle(
+                                fontFamily: 'Urbanist',
+                                fontSize: 24,
+                                color: primaryColor),
+                          ))),
+                    ),
+                ],
+              ),
             ),
           ),
         );

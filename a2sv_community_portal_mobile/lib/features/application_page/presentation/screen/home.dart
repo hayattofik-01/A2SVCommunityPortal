@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/widgets/bottom_bar.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/upper_bar.dart';
@@ -27,6 +28,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteColor,
       appBar: const UpperBar(),
       body: BlocBuilder<ApplicationBloc, ApplicationState>(
           builder: (context, state) {
@@ -55,11 +57,9 @@ class _HomeState extends State<Home> {
                 ),
               ),
               Expanded(
-                child: Center(
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: subStepCards,
-                    ),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: subStepCards,
                   ),
                 ),
               ),
