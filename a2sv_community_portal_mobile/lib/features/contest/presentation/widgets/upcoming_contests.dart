@@ -40,7 +40,7 @@ class UpcommingContests extends StatelessWidget {
               children: <Widget>[
                 for (var contest in state.upcomingContests)
                   GestureDetector(
-                    onTap: () => context.go('/contests/detail', extra: contest),
+                    onTap: () => context.push('/contests/detail', extra: contest),
                     child: Container(
                       margin: const EdgeInsets.only(bottom: 10),
                       padding: const EdgeInsets.only(left: 16.0, right: 16.0),

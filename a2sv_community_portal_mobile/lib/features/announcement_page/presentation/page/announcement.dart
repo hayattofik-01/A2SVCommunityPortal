@@ -51,7 +51,7 @@ class AnnouncementPage extends StatelessWidget {
                             child: CustomListTile(
                               header: announcement.title,
                               description: announcement.description,
-                              isRead: false,
+                              isRead: true,
                               type: "",
                             )),
                       )
