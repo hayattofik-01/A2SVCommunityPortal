@@ -1,4 +1,3 @@
-import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomListTile extends StatelessWidget {
@@ -18,7 +17,11 @@ class CustomListTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(7),
       decoration: BoxDecoration(
-        border: Border.all(color: boxBorderColor),
+        border: const Border(
+            top: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08)),
+            bottom: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08)),
+            left: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08)),
+            right: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.08))),
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: ListTile(
@@ -27,7 +30,7 @@ class CustomListTile extends StatelessWidget {
           style: const TextStyle(
             fontWeight: FontWeight.w500,
             fontSize: 16,
-            color: blackColor,
+            color: Color.fromRGBO(0, 0, 0, 1),
           ),
         ),
         subtitle: Container(
@@ -35,7 +38,7 @@ class CustomListTile extends StatelessWidget {
           child: Text(
             '$date  $time',
             style: const TextStyle(
-              color: tileTextColor,
+              color: Color.fromRGBO(0, 0, 0, 0.24),
               fontWeight: FontWeight.w500,
               fontSize: 12,
             ),
