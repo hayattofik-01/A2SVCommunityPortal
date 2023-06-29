@@ -15,7 +15,6 @@ class ContestDetails extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-        backgroundColor: backgroundWhite,
         appBar: AppBar(
             elevation: 0,
             backgroundColor: whiteColor,
@@ -23,7 +22,7 @@ class ContestDetails extends StatelessWidget {
               onTap: () => context.pop(),
               child: const Icon(
                 Icons.arrow_back,
-                color: userNameColor,
+                color: Colors.black,
               ),
             )),
         body: Container(
@@ -39,7 +38,7 @@ class ContestDetails extends StatelessWidget {
                   style: const TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w500,
-                      color: userNameColor),
+                      color: Color.fromRGBO(0, 0, 0, 1)),
                 ),
                 SizedBox(
                   height: screenHeight * 0.02,
@@ -71,19 +70,19 @@ class ContestDetails extends StatelessWidget {
                       },
                       icon: const Icon(
                         Icons.open_in_browser_outlined,
-                        color: whiteColor,
+                        color: Colors.white,
                         size: 24.0,
                       ),
                       label: const Text(
                         "Open Contest",
                         style: TextStyle(
-                          color: whiteColor,
+                          color: Colors.white,
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor:  buttonColor,
+                        backgroundColor: const Color.fromRGBO(49, 130, 206, 1),
                         padding: const EdgeInsets.symmetric(
                             vertical: 12.0, horizontal: 16.0),
                         shape: RoundedRectangleBorder(
