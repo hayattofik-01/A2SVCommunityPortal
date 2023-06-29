@@ -52,6 +52,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteColor,
       body: SafeArea(
         child: BlocConsumer<ProfileBloc, ProfileState>(
           listener: (context, state) {

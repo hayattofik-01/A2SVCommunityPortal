@@ -15,6 +15,7 @@ class ContestDetails extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: whiteColor,
         appBar: AppBar(
             elevation: 0,
             backgroundColor: whiteColor,

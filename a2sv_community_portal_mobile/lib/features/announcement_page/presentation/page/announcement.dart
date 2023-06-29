@@ -15,6 +15,7 @@ class AnnouncementPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteColor,
       body: ListView(
         children: [
           const UpperBar(
