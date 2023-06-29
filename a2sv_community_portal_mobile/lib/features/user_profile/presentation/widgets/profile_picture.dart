@@ -6,6 +6,7 @@ import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../bloc/profile_bloc.dart';
 
@@ -39,13 +40,19 @@ class ProfilePicture extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: imageProvider,
-                  fit: BoxFit.fitWidth,
+            child: GestureDetector(
+              onTap: () {
+                final Uri uri = Uri.parse(profilePicture);
+                launchUrl(uri);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: imageProvider,
+                    fit: BoxFit.fitWidth,
+                  ),
+                  shape: BoxShape.circle,
                 ),
-                shape: BoxShape.circle,
               ),
             ),
           ),

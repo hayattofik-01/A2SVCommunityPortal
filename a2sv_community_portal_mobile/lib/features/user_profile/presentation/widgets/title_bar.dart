@@ -25,22 +25,25 @@ class TitleBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-            onPressed: () {
-              context.pop();
-              context.read<ProfileBloc>().add(const GetProfileEvent());
-            },
-            icon: SvgPicture.asset("assets/images/back_icon.svg",
-                color: appBarColor, width: 8, height: 16),
-          ),
-          Text(
-            title,
-            style: const TextStyle(
-                color: appBarColor,
-                fontFamily: 'Urbanist',
-                fontSize: 24,
-                fontWeight: FontWeight.w600,
-                height: 1),
+          (title == "Edit Profile")
+              ? IconButton(
+                  onPressed: () {
+                    context.pop();
+                  },
+                  icon: SvgPicture.asset("assets/images/back_icon.svg",
+                      color: appBarColor, width: 8, height: 16),
+                )
+              : const SizedBox.shrink(),
+          Center(
+            child: Text(
+              title,
+              style: const TextStyle(
+                  color: appBarColor,
+                  fontFamily: 'Urbanist',
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                  height: 1),
+            ),
           ),
           IconButton(
             onPressed: action,

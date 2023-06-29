@@ -1,5 +1,7 @@
 class Validator {
-  static String? noValidation(String? value) {}
+  static String? noValidation(String? value) {
+    return null;
+  }
 
   static String? validateName(String? value) {
     // Check if the value is empty

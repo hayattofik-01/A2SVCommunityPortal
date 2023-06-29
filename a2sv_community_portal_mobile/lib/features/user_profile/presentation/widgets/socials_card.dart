@@ -31,20 +31,26 @@ class SocialCard extends StatelessWidget {
               ),
               Row(
                 children: [
-                  IconWithDescription(
-                    description: "Linkedin",
-                    iconName: "linkedin_icon",
-                    handle: linkedInHandle,
-                    url: "https://linkedin/in/",
+                  Expanded(
+                    flex: 1,
+                    child: IconWithDescription(
+                      description: "Linkedin",
+                      iconName: "linkedin_icon",
+                      handle: linkedInHandle,
+                      url: "https://linkedin/in/",
+                    ),
                   ),
                   SizedBox(
-                    width: UIConverter.getComponentWidth(context, 40),
+                    width: UIConverter.getComponentWidth(context, 30),
                   ),
-                  IconWithDescription(
-                    iconName: "telegram_icon",
-                    description: "Telegram",
-                    handle: telegramHandle,
-                    url: "https://t.me/",
+                  Expanded(
+                    flex: 1,
+                    child: IconWithDescription(
+                      iconName: "telegram_icon",
+                      description: "Telegram",
+                      handle: telegramHandle,
+                      url: "https://t.me/",
+                    ),
                   ),
                 ],
               ),

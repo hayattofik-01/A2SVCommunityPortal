@@ -57,7 +57,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
 
   ProfileState _upLoadingSucessOrFailure(Either<Failure, UserEntity> data) {
     return data.fold(
-      (falure) => ProfileFailureState(error: falure),
+      (falure) =>UploadingFailureState(error: falure),
       (user) => UpLoadedState(user: user),
     );
   }
