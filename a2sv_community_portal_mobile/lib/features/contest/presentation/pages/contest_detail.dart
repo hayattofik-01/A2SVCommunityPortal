@@ -2,6 +2,7 @@ import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/domain/entities/contest.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/widgets/countdown_timer_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContestDetails extends StatelessWidget {
@@ -18,7 +19,7 @@ class ContestDetails extends StatelessWidget {
             elevation: 0,
             backgroundColor: whiteColor,
             leading: GestureDetector(
-              onTap: () => Navigator.of(context).pop(),
+              onTap: () => context.pop(),
               child: const Icon(
                 Icons.arrow_back,
                 color: Colors.black,
