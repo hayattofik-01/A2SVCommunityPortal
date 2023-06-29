@@ -55,7 +55,7 @@ Future<void> init() async {
 
   // datasource
   sl.registerLazySingleton<ContestRemoteDataSource>(
-      () => ContestRemoteDataSourceImpl(client: sl()));
+      () => ContestRemoteDataSourceImpl(client: sl(), sharedPreferences: sl()));
 
   // bloc
   sl.registerFactory(() => UpcomingContestsBloc(getUpcomingContests: sl()));
@@ -73,8 +73,8 @@ Future<void> init() async {
             remoteDataSource: sl(),
           ));
   // datasource
-  sl.registerLazySingleton<NotificationRemoteDataSource>(
-      () => NotificationRemoteDataSourceImpl(client: sl()));
+  sl.registerLazySingleton<NotificationRemoteDataSource>(() =>
+      NotificationRemoteDataSourceImpl(client: sl(), sharedPreferences: sl()));
   // bloc
   sl.registerFactory(() => NotificationBloc(
         getNotifications: sl(),
@@ -101,7 +101,7 @@ Future<void> init() async {
           ));
   // datasource
   sl.registerLazySingleton<AnnouncementRemoteDataSource>(
-      () => DataSource(client: sl()));
+      () => DataSource(client: sl(), sharedPreferences: sl()));
 
   sl.registerFactory(() => AnnouncementBloc(getAnnouncements: sl()));
 }
