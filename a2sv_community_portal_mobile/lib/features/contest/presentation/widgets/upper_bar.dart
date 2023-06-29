@@ -12,7 +12,7 @@ class UpperBar extends StatelessWidget {
       padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
       child: Row(
         children: [
-          const Expanded(
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
