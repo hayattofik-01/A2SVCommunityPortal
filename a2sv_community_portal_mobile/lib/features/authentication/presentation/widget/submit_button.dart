@@ -26,7 +26,10 @@ class SubmitButton extends StatelessWidget {
       if (state is LoginFailure) {
         CustomSnackBar.showError(context, state.exception);
       } else if (state is LoginSuccessfull) {
-        GoRouter.of(context).go('/home');
+        Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => MyHomePage()),
+  );
       }
     }, builder: (context, state) {
       return ElevatedButton(

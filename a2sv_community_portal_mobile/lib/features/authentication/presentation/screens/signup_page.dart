@@ -102,8 +102,10 @@ class _SignUpPageState extends State<SignUpPage> {
       if (state is SignUpFailure) {
         CustomSnackBar.showError(context, state.error);
       } else if (state is SignUpSuccess) {
-    
-        GoRouter.of(context).go('/home');
+        Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => MyHomePage()),
+  );
       }
     }, builder: (context, state) {
       if (state is SignUpLoading) {
@@ -214,7 +216,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             height: UIConverter.getComponentHeight(context, 20),
                           ),
                           RegisterButton(
-                              title: "Sign up",
+                              title: "Register",
                               emailC: emailController,
                               passC: passwordController,
                               nameC: nameController,
