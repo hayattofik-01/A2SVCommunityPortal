@@ -2,6 +2,7 @@ import 'package:a2sv_community_portal_mobile/features/contest/presentation/widge
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/widgets/upcoming_contests.dart';
 import 'package:flutter/material.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import '../../../../core/utils/colors.dart';
 import '../widgets/upper_bar.dart';
 import 'package:http/http.dart' as http;
 
@@ -15,6 +16,7 @@ class ContestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: backgroundWhite,
       body: ListView(
         children: [
           const UpperBar(),
@@ -25,7 +27,7 @@ class ContestPage extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w600,
-                      color: Color.fromRGBO(0, 0, 0, 0.92)))),
+                      color: blackText))),
           const SizedBox(height: 26),
           UpcommingContests(),
           Container(
@@ -35,7 +37,7 @@ class ContestPage extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.w600,
-                      color: Color.fromRGBO(0, 0, 0, 0.92)))),
+                      color: blackText))),
           const PreviousContests(),
           const SizedBox(
             height: 50,

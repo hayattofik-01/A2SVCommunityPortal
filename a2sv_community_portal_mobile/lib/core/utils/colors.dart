@@ -13,7 +13,7 @@ const Color boxShadowSecondary = Color.fromRGBO(0, 0, 0, 0.1);
 const Color boxShadowTernary = Color.fromRGBO(0, 0, 0, 0.06);
 const Color blueBlackForAppBar = Color.fromRGBO(26, 54, 93, 1);
 const Color greyColorForIcon = Color.fromRGBO(235, 248, 255, 1);
-const Color backgroundWhite = Color.fromRGBO(237, 242, 247, 1);
+const Color backgroundWhite = Color.fromRGBO(255, 255, 255, 1);
 const Color whiteGreyColor = Color.fromRGBO(168, 168, 168, 1);
 const Color userNameColor = Color.fromRGBO(0, 0, 0, 1);
 const Color bioTextColor = Color.fromRGBO(0, 0, 0, 0.48);
@@ -30,3 +30,8 @@ const Color bottomNavigationUnSelectedIconsColor =
     Color.fromRGBO(120, 120, 120, 1);
 
 const Color bottomNavigationSelectedIconsColor = Colors.blue;
+const Color blackText = Color.fromRGBO(0, 0, 0, 0.92);
+const Color buttonColor = Color.fromRGBO(49, 130, 206, 1);
+const Color tileTextColor = Color.fromRGBO(0, 0, 0, 0.24);
+const Color tileSubtitleColor = Color.fromRGBO(74, 85, 104, 1);
+const Color iconColor = Color.fromRGBO(26, 54, 93, 1);

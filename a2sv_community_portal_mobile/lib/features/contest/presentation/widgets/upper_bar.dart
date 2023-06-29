@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/utils/colors.dart';
+
 class UpperBar extends StatelessWidget {
   const UpperBar({super.key});
 
@@ -17,14 +19,14 @@ class UpperBar extends StatelessWidget {
                 Text(
                   'Welcome',
                   style: TextStyle(
-                      fontSize: 14, color: Color.fromRGBO(168, 168, 168, 1)),
+                      fontSize: 14, color: greyTextColor),
                 ),
                 SizedBox(height: 4.0), // Adds spacing between the texts
                 Text(
                   'Joe Doe',
                   style: TextStyle(
                       fontSize: 20,
-                      color: Color.fromRGBO(0, 0, 0, 1),
+                      color: userNameColor,
                       fontWeight: FontWeight.w600),
                 ),
               ],
@@ -41,14 +43,14 @@ class UpperBar extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: const Color.fromRGBO(235, 248, 255, 1)),
+                        color: backgroundWhite),
                     padding: const EdgeInsets.all(5),
                     height: 46,
                     width: 46,
                     margin: const EdgeInsets.only(top: 5),
                     child: const Icon(
                       Icons.notifications,
-                      color: Color.fromRGBO(26, 54, 93, 1),
+                      color: iconColor,
                       size: 24,
                     ),
                   ),
@@ -57,7 +59,7 @@ class UpperBar extends StatelessWidget {
                     height: 11.0,
                     margin: const EdgeInsets.only(left: 33, top: 2),
                     decoration: const BoxDecoration(
-                      color: Color.fromRGBO(49, 130, 206, 1),
+                      color: buttonColor,
                       shape: BoxShape.circle,
                     ),
                   ),

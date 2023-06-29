@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import '../../../../core/utils/colors.dart';
+
 class CountdownTimerWidget extends StatefulWidget {
   final DateTime targetDateTime;
 
@@ -63,11 +65,11 @@ class _CountdownTimerWidgetState extends State<CountdownTimerWidget> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(label, style: const TextStyle(fontSize: 14, color: Color.fromRGBO(0, 0, 0, 1)),),
+        Text(label, style: const TextStyle(fontSize: 14, color: userNameColor),),
         Text(
           value.toString().padLeft(2, '0'),
          
-          style: const TextStyle(fontSize: 36, color: Color.fromRGBO(77, 76, 89, 1)),
+          style: const TextStyle(fontSize: 36, color: greyTextColor),
         ),
       ],
     );
