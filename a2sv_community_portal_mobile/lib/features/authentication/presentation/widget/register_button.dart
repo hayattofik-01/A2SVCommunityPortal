@@ -58,7 +58,7 @@ class RegisterButton extends StatelessWidget {
       child: Container(
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.symmetric(
-            vertical: UIConverter.getComponentHeight(context, 10)),
+            vertical: UIConverter.getComponentHeight(context, 20)),
         alignment: Alignment.center,
         child: Text(
           title,

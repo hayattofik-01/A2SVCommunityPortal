@@ -1,15 +1,9 @@
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/signup_page.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/account_question.dart';
-import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/snackbar.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/submit_button.dart';
-import 'package:a2sv_community_portal_mobile/main_Home.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/utils/media_query.dart';
-
 import '../../../../core/utils/validation.dart';
-import '../bloc/login_bloc/login_bloc.dart';
-import '../bloc/login_bloc/login_state.dart';
 import '../widget/bezier_container.dart';
 import '../widget/entry_field.dart';
 import '../widget/password_field.dart';
@@ -54,24 +48,6 @@ final formKey = GlobalKey<FormState>();
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     
-
-    return BlocConsumer<LoginBloc, LoginState>(
-      listener: (context, state) {
-        if(state is LoginFailure){
-        CustomSnackBar.showError(context, state.exception);
-        }
-        else if (state is LoginSuccessfull){
-          Navigator.of(context).push(MaterialPageRoute(builder: (_) => const MyHomePage()));
-        }
-      },
-      builder: (context, state) {
-        if (state is LoginLoading){
-          return   const SafeArea
-          (child: Scaffold(body: Center(
-            child:CircularProgressIndicator()
-            )));
-        }
-        else{
         return SafeArea(
           child: Scaffold(
               body: SizedBox(
@@ -130,6 +106,4 @@ final formKey = GlobalKey<FormState>();
           )),
         );
       }
-  });
   }
-}

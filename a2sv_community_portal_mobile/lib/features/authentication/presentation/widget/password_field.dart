@@ -49,7 +49,7 @@ class _PasswordFieldState extends State<PasswordField> {
             borderRadius: BorderRadius.circular(10.0),
             borderSide: BorderSide.none
           ),
-                prefixIcon: const Icon(Icons.lock),
+                prefixIcon: const Icon(Icons.lock_outline),
                 labelText: widget.title,
                 fillColor: inputColor,
                   filled: true, 

@@ -153,7 +153,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   ),
                                   EntryField(
                                     label: "Email",
-                                    icon: Icons.email,
+                                    icon: Icons.email_outlined,
                                     controller: emailController,
                                     validator: Validator.validateEmail,
                                     node: emailFocusNode,
@@ -167,7 +167,7 @@ class _SignUpPageState extends State<SignUpPage> {
                                   ),
                                   EntryField(
                                     label: "CodeForces Handle",
-                                    icon: Icons.bar_chart_outlined,
+                                    icon: Icons.bar_chart,
                                     controller: codeforceController,
                                     validator: Validator.validateUsername,
                                     node: codeforceFocusNode,
@@ -211,7 +211,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             height: UIConverter.getComponentHeight(context, 20),
                           ),
                           RegisterButton(
-                            title: "Register",
+                            title: "Sign up",
                             emailC: emailController,
                             passC: passwordController,
                             nameC: nameController,
