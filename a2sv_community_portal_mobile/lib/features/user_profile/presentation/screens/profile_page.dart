@@ -1,4 +1,4 @@
-import 'package:a2sv_community_portal_mobile/core/utils/widgets/bottom_bar.dart';
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/bio_card.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/developers_handel_card.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/education_card.dart';
@@ -10,6 +10,7 @@ import 'package:go_router/go_router.dart';
 import '../bloc/profile_bloc.dart';
 import '../widgets/title_bar.dart';
 import 'edit_profile_page.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -27,7 +28,25 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfileBloc, ProfileState>(
+    return BlocConsumer<ProfileBloc, ProfileState>(
+      listener: (context, state) {
+        if (state is UploadingFailureState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+                content: Text('Failed To update your Profile Picture')),
+          );
+        }
+        if (state is UpLoadedState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Updated your Profile Picture')),
+          );
+        }
+        if (state is ProfileFailureState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Failed to laod your profile')),
+          );
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           body: SafeArea(
@@ -39,7 +58,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   action: () {
                     if (state is ProfileLoadedState) {
                       context.push('/profile/editProfile', extra: state.user);
-       
                     }
                   },
                 ),
@@ -80,28 +98,47 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 if (state is UpLoadingState)
-                  const Expanded(
+                  Expanded(
                       child: Center(
-                          child: Text(
-                    'Uploading...',
-                    style: TextStyle(fontFamily: 'Urbanist', fontSize: 20),
+                          child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text(
+                        'Uploading',
+                        style: TextStyle(fontFamily: 'Urbanist', fontSize: 20),
+                      ),
+                      SizedBox(
+                        width: 15,
+                      ),
+                      SpinKitThreeBounce(
+                        size: 25,
+                        color: Colors.black,
+                      )
+                    ],
                   ))),
                 if (state is ProfileLoadingState)
                   const Expanded(
                       child: Center(child: CircularProgressIndicator())),
                 if (state is ProfileFailureState)
-                  ElevatedButton(
-                      onPressed: () {
-                        context
-                            .read<ProfileBloc>()
-                            .add(const GetProfileEvent());
-                      },
-                      child: const Expanded(
-                          child: Center(child: Text('Try again')))),
+                  Expanded(
+                    child: TextButton(
+                        onPressed: () {
+                          context
+                              .read<ProfileBloc>()
+                              .add(const GetProfileEvent());
+                        },
+                        child: const Center(
+                            child: Text(
+                          'Reload',
+                          style: TextStyle(
+                              fontFamily: 'Urbanist',
+                              fontSize: 24,
+                              color: primaryColor),
+                        ))),
+                  ),
               ],
             ),
           ),
-
         );
       },
     );

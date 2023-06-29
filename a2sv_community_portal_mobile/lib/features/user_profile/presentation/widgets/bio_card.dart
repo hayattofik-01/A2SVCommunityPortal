@@ -80,6 +80,7 @@ class BioCard extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         final Uri uri = Uri.parse(user.cv!);
+                        launchUrl(uri);
                       },
                       child: Text("Résumé",
                           style: TextStyle(

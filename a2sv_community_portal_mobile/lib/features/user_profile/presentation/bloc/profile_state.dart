@@ -47,3 +47,12 @@ class ProfileFailureState extends ProfileState {
   @override
   List<Object?> get props => [error];
 }
+
+class UploadingFailureState extends ProfileState {
+  final Failure error;
+
+  const UploadingFailureState({required this.error});
+
+  @override
+  List<Object?> get props => [error];
+}
