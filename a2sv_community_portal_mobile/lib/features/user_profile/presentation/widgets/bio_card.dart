@@ -1,5 +1,6 @@
 import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
+import 'package:a2sv_community_portal_mobile/core/utils/country.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/domain/entities/user_entity.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/content_box.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/profile_picture.dart';
@@ -68,7 +69,7 @@ class BioCard extends StatelessWidget {
                         SizedBox(
                             height: 18,
                             width: 18,
-                            child: CircleFlag(countryCode[country]!)),
+                            child: CircleFlag(isvalid(country)!)),
                         Padding(
                           padding: const EdgeInsets.only(left: 8),
                           child: Text(country, style: biotextStyle),
