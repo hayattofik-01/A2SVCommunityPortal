@@ -101,9 +101,10 @@ class _SignUpPageState extends State<SignUpPage> {
     return BlocConsumer<SignUpBloc, SignUpState>(listener: (context, state) {
       if (state is SignUpFailure) {
         CustomSnackBar.showError(context, state.error);
-      } else if (state is SignUpSuccess) {
-    
-        GoRouter.of(context).go('/home');
+        Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => MyHomePage()),
+  );
       }
     }, builder: (context, state) {
       if (state is SignUpLoading) {
