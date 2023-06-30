@@ -1,10 +1,13 @@
 import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/announcement.dart';
+import 'package:a2sv_community_portal_mobile/features/application_page/domain/usecases/application_step_usecase.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/pages/upcoming_and_recent_contest_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/utils/media_query.dart';
+import 'features/application_page/presentation/bloc/application_bloc.dart';
 import 'features/application_page/presentation/screen/home.dart';
 import 'features/user_profile/presentation/screens/profile_page.dart';
 
@@ -28,6 +31,9 @@ class _MyHomePageState extends State<MyHomePage> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      if (index == 0) {
+        context.read<ApplicationBloc>().add(FetchDataEvent());
+      }
     });
   }
 
