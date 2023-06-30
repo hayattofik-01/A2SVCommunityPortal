@@ -11,65 +11,69 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: whiteColor,
-      title: Row(
-        children: [
-         Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Welcome',
-                  style: TextStyle(fontSize: 14, color: whiteGreyColor),
-                ),
-                SizedBox(height: 4.0), // Use const with SizedBox constructor
-                Text(
-                  'Joe Doe',
-                  style: TextStyle(
-                      fontSize: 20,
-                      color: userNameColor,
-                      fontWeight: FontWeight.w600),
-                ),
-              ],
+    return SafeArea(
+      child: AppBar(
+        elevation: 0,
+        backgroundColor: whiteColor,
+        title:
+            // margin: EdgeInsets.only(top: 16),
+            Row(
+          children: [
+            const Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Welcome',
+                    style: TextStyle(fontSize: 14, color: whiteGreyColor),
+                  ),
+                  SizedBox(height: 4.0), // Use const with SizedBox constructor
+                  Text(
+                    'Joe Doe',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: userNameColor,
+                        fontWeight: FontWeight.w600),
+                  ),
+                ],
+              ),
             ),
-          ),
-          GestureDetector(
-            onTap: () {
-              GoRouter.of(context).push('/home/notifications');
-              context.read<NotificationBloc>().add(GetNotificationsEvent());
-            },
-            child: Stack(
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: greyColorForIcon, // Use const with Color constructor
+            GestureDetector(
+              onTap: () {
+                GoRouter.of(context).push('/home/notifications');
+                context.read<NotificationBloc>().add(GetNotificationsEvent());
+              },
+              child: Stack(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: greyColorForIcon, // Use const with Color constructor
+                    ),
+                    padding: const EdgeInsets.all(5),
+                    height: 50,
+                    width: 50,
+                    margin: const EdgeInsets.only(top: 5),
+                    child: const Icon(
+                      Icons.notifications,
+                      color: blueBlackForAppBar,
+                      size: 24,
+                    ),
                   ),
-                  padding: const EdgeInsets.all(5),
-                  height: 50,
-                  width: 50,
-                  margin: const EdgeInsets.only(top: 5),
-                  child: const Icon(
-                    Icons.notifications,
-                    color: blueBlackForAppBar,
-                    size: 24,
+                  Container(
+                    width: 11,
+                    height: 11,
+                    margin: const EdgeInsets.only(left: 33, top: 2),
+                    decoration: const BoxDecoration(
+                      color: primaryColor, // Use const with Color constructor
+                      shape: BoxShape.circle,
+                    ),
                   ),
-                ),
-                Container(
-                  width: 11,
-                  height: 11,
-                  margin: const EdgeInsets.only(left: 33, top: 2),
-                  decoration: const BoxDecoration(
-                    color: primaryColor, // Use const with Color constructor
-                    shape: BoxShape.circle,
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
