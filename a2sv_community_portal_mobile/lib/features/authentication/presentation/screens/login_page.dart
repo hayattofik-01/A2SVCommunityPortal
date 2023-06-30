@@ -32,8 +32,8 @@ class _LoginPageState extends State<LoginPage> {
         ),
         const AccountQuestion(
             question: 'Don\'t have an account ?',
-            action: 'Sign up',
-            page: SignUpPage()),
+            action: 'SignUp',
+            ),
       ],
     );
   }
