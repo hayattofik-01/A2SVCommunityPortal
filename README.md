@@ -2,13 +2,6 @@
 
 The A2SV Community Portal Mobile App is a centralized platform designed to address the challenges faced by community members and heads of the A2SV community program. The app aims to streamline the joining process, provide clear instructions, automate application management, and alleviate scalability issues. It serves as a comprehensive tool to enhance the efficiency and effectiveness of the A2SV community program.
 
-![Login Page](a2sv_community_portal_mobile/images/splashScreenFinal.png)
-![Onboarding screen](a2sv_community_portal_mobile/images/onboardingFinal.png)
-![Splash Screen](a2sv_community_portal_mobile/images/loginpagefinal.png)
-![Home screen](a2sv_community_portal_mobile/images/homePagefinal.png)
-![Profile Page screen](a2sv_community_portal_mobile/images/profilePagefinal.png)
-![Contest Page screen](a2sv_community_portal_mobile/images/contestPageFinal.png)
-![Announcement Screen](a2sv_community_portal_mobile/images/AnnouncementPageFinal.png)
 
 ## Problem
 
@@ -33,6 +26,18 @@ The A2SV Community Portal Mobile App offers a solution by providing a centralize
 The A2SV Community Portal Mobile App is an essential tool in improving the efficiency of the A2SV community program. While the current focus of the project is on onboarding new members to the Community division, there are plans to expand the app in the future to encompass all activities related to community education.
 
 This repository contains the codebase for the mobile app of the A2SV Community Portal. It is built using [insert technology/framework] and follows industry-standard coding practices.
+
+## Preview
+
+<p align="center">
+  <img src="a2sv_community_portal_mobile/images/splashScreenFinal.png" alt="Image 1" width="45%/>
+  <img src="a2sv_community_portal_mobile/images/onboardingFinal.png" alt="Image 2" width="45%" />
+  <img src="a2sv_community_portal_mobile/images/loginpagefinal.png" alt="Image 2" width="45%" />
+  <img src="a2sv_community_portal_mobile/images/homePagefinal.png" alt="Image 2" width="45%" />
+  <img src="a2sv_community_portal_mobile/images/profilePagefinal.png" alt="Image 2" width="45%" />
+  <img src="a2sv_community_portal_mobile/images/contestPageFinal.png" alt="Image 2" width="45%" />
+  <img src="a2sv_community_portal_mobile/images/onboardingFinal.png" alt="Image 2" width="45%" />
+</p>
 
 ## Installation and Setup
 
