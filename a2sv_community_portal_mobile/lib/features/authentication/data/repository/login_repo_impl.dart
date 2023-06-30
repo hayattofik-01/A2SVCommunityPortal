@@ -31,7 +31,7 @@ class LoginRepositoryImpl implements AuthRepository {
        
         return Right(remoteData);
       } on LoginFailedException {
-        return  const Left(InputFailure('User already exists try to Login'));
+        return  const Left(InputFailure(loginFailed));
      
       } on ServerException {
         return const Left(ServerFailure(serverFaliure));
@@ -61,7 +61,7 @@ class LoginRepositoryImpl implements AuthRepository {
         localDataSource.cacheToken(remoteData);
         return Right(remoteData);
       } on LoginFailedException {
-        return const Left(InputFailure( loginFailed));
+        return const Left(InputFailure( 'User already exists try to Login'));
       } on ServerException {
         return const Left(ServerFailure(serverFaliure));
       }
