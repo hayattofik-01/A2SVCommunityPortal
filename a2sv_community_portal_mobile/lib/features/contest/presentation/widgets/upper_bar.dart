@@ -9,7 +9,7 @@ class UpperBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
+      padding: const EdgeInsets.only(top: 16, left: 16.0, right: 16.0),
       child: Row(
         children: [
           const Expanded(
