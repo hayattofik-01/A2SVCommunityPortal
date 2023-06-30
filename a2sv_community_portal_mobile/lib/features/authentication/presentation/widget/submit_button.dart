@@ -9,7 +9,6 @@ import '../../../../main_Home.dart';
 import '../bloc/login_bloc/login_bloc.dart';
 import '../bloc/login_bloc/login_state.dart';
 
-
 class SubmitButton extends StatelessWidget {
   final String title;
   final TextEditingController emailC;
@@ -26,10 +25,7 @@ class SubmitButton extends StatelessWidget {
       if (state is LoginFailure) {
         CustomSnackBar.showError(context, state.exception);
       } else if (state is LoginSuccessfull) {
-        Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => MyHomePage()),
-  );
+        context.go("/home");
       }
     }, builder: (context, state) {
       return ElevatedButton(
@@ -38,19 +34,18 @@ class SubmitButton extends StatelessWidget {
               .add(LoginPressed(email: emailC.text, password: passC.text));
         },
         child: Container(
-           decoration: BoxDecoration(
-    borderRadius: BorderRadius.circular(360.0),),
-    
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(360.0),
+          ),
           width: MediaQuery.of(context).size.width * 0.9,
           padding: EdgeInsets.symmetric(
               vertical: UIConverter.getComponentHeight(context, 20)),
           alignment: Alignment.center,
           child: state is LoginLoading
-              ? Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+              ? Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   Padding(
-                    padding:  EdgeInsets.only(right: UIConverter.getComponentWidth(context,20)),
+                    padding: EdgeInsets.only(
+                        right: UIConverter.getComponentWidth(context, 20)),
                     child: const CircularProgressIndicator(
                       valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                     ),
