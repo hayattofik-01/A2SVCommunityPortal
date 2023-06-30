@@ -1,4 +1,6 @@
+import 'package:a2sv_community_portal_mobile/features/notifications/presentation/bloc/notification_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class UpperBar extends StatelessWidget {
@@ -10,7 +12,7 @@ class UpperBar extends StatelessWidget {
       padding: const EdgeInsets.only(top: 16.0, left: 16.0, right: 16.0),
       child: Row(
         children: [
-          Expanded(
+          const Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -33,8 +35,9 @@ class UpperBar extends StatelessWidget {
           Align(
             alignment: Alignment.topRight,
             child: GestureDetector(
-              onTap: (){
+              onTap: () {
                 GoRouter.of(context).push('/contests/notifications');
+                context.read<NotificationBloc>().add(GetNotificationsEvent());
               },
               child: Stack(
                 children: [

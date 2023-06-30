@@ -1,6 +1,8 @@
 import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
+import 'package:a2sv_community_portal_mobile/features/notifications/presentation/bloc/notification_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class UpperBar extends StatelessWidget implements PreferredSizeWidget {
@@ -14,7 +16,7 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: whiteColor,
       title: Row(
         children: [
-          Expanded(
+          const Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -36,6 +38,7 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
           GestureDetector(
             onTap: () {
               GoRouter.of(context).push('/home/notifications');
+              context.read<NotificationBloc>().add(GetNotificationsEvent());
             },
             child: Stack(
               children: [

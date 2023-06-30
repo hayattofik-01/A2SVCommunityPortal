@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class UpcommingContests extends StatelessWidget {
-  UpcommingContests({super.key});
+  const UpcommingContests({super.key});
 
   @override
   Widget build(BuildContext context) {

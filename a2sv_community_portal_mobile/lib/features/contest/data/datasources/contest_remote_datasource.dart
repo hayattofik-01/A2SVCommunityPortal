@@ -5,6 +5,7 @@ import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/data/model/contest.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/domain/entities/contest.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class ContestRemoteDataSource {
   Future<List<Contest>> getUpcomingContests();
@@ -13,13 +14,15 @@ abstract class ContestRemoteDataSource {
 
 class ContestRemoteDataSourceImpl implements ContestRemoteDataSource {
   final http.Client client;
+  final SharedPreferences sharedPreferences;
   String uri = "https://a2sv-community-portal-api.onrender.com/api/Contests";
-  String token =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJlYWZlMzhkNS03NzU3LTQ4YjMtYTM5Yy1mZDI2YTBhYjkyZTQiLCJqdGkiOiI4MGM3ZWE0ZC1kYjFlLTQxZWMtOTk1Yi01Y2U3NGQwZmFkY2EiLCJlbWFpbCI6InRlbXBAZ21haWwuY29tIiwidW5pcXVlX25hbWUiOiJ0ZW1wQGdtYWlsLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlN0dWRlbnQiLCJleHAiOjE2ODk5NjU0NjgsImlzcyI6IkEyU1YgQ29tbXVuaXR5IFBvcnRhbCIsImF1ZCI6IkEyU1YgQ29tbXVuaXR5IFBvcnRhbCJ9.b8rnzkNB080ICnvLnlsCtOJ_y3sa1AifUM-I0_5mRbw';
 
-  ContestRemoteDataSourceImpl({required this.client});
+  ContestRemoteDataSourceImpl(
+      {required this.client, required this.sharedPreferences});
   @override
   Future<List<Contest>> getPastContests() async {
+    String token =
+        jsonDecode(sharedPreferences.getString(cachedToken)!)['token'];
     final response = await client.get(
       Uri.parse("$uri/recent"),
       headers: {
@@ -42,6 +45,8 @@ class ContestRemoteDataSourceImpl implements ContestRemoteDataSource {
 
   @override
   Future<List<Contest>> getUpcomingContests() async {
+    String token =
+        jsonDecode(sharedPreferences.getString(cachedToken)!)['token'];
     final response = await client.get(
       Uri.parse("$uri/upcoming"),
       headers: {

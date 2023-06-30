@@ -2,6 +2,7 @@ import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/announcement.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/pages/upcoming_and_recent_contest_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../core/utils/media_query.dart';
 import 'features/application_page/presentation/screen/home.dart';
@@ -38,21 +39,30 @@ class _MyHomePageState extends State<MyHomePage> {
         children: _widgetOptions,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        backgroundColor: whiteColor,
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_max_outlined),
+            icon: SvgPicture.asset(
+              'assets/svg/home.svg',
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.code),
+            icon: SvgPicture.asset(
+              'assets/svg/contest.svg',
+            ),
             label: 'Contest',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.announcement),
+            icon: SvgPicture.asset(
+              'assets/svg/announcement.svg',
+            ),
             label: 'Announcement',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: SvgPicture.asset(
+              'assets/svg/profile.svg',
+            ),
             label: 'Profile',
           ),
         ],

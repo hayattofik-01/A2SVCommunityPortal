@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/widgets/previous_contests.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/widgets/upcoming_contests.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class ContestPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteColor,
       body: ListView(
         children: [
           const UpperBar(),
