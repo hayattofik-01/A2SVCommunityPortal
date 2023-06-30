@@ -31,7 +31,7 @@ class LoginRepositoryImpl implements AuthRepository {
        
         return Right(remoteData);
       } on LoginFailedException {
-        return  const Left(InputFailure('User already exists try to Login'));
+        return  const Left(InputFailure(loginFailed));
      
       } on ServerException {
         return const Left(ServerFailure(serverFaliure));
