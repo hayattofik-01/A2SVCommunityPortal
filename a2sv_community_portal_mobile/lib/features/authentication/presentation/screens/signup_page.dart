@@ -104,10 +104,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
       } else if (state is SignUpSuccess) {
 
-        Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => MyHomePage()),
-  );
+          context.go("/home");
       }
     }, builder: (context, state) {
       if (state is SignUpLoading) {
