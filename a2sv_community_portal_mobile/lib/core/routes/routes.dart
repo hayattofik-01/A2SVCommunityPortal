@@ -2,6 +2,7 @@ import 'package:a2sv_community_portal_mobile/features/announcement_page/domain/e
 import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/announcement.dart';
 import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/detail.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/login_page.dart';
+import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/signup_page.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/domain/entities/contest.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/pages/contest_detail.dart';
 import 'package:a2sv_community_portal_mobile/features/contest/presentation/pages/upcoming_and_recent_contest_page.dart';
@@ -44,6 +45,12 @@ GoRouter routes() => GoRouter(
           path: '/login',
           pageBuilder: (context, state) =>
               const MaterialPage(child: LoginPage()),
+        ),
+
+        GoRoute(
+          path: '/signUp',
+          pageBuilder: (context, state) =>
+              const MaterialPage(child: SignUpPage()),
         ),
 
         GoRoute(
