@@ -28,14 +28,10 @@ class LoginRepositoryImpl implements AuthRepository {
         final remoteData = await remoteDataSource.loginUser(email, password);
         localDataSource.cacheToken(remoteData);
        // retrieve the cached token from the device's storage
-       final sharedPreferences = await SharedPreferences.getInstance();
-final cachedToken = sharedPreferences.getString('CACHED_TOKEN');
-
-// print the cached token
-print('Cached token: $cachedToken');
+       
         return Right(remoteData);
       } on LoginFailedException {
-        return  const Left(InputFailure(loginFailed));
+        return  const Left(InputFailure('User already exists try to Login'));
      
       } on ServerException {
         return const Left(ServerFailure(serverFaliure));
