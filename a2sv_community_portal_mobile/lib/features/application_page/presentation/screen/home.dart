@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
       body: BlocBuilder<ApplicationBloc, ApplicationState>(
           builder: (context, state) {
         if (state is ApplicationLoading) {
-          return const CircularProgressIndicator();
+          return Center(child: const CircularProgressIndicator());
         } else if (state is ApplicationLoaded) {
           final subSteps = state.applicationStepEntity[i].subSteps;
           final subStepCards = subSteps.map((subStep) {
