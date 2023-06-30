@@ -2,6 +2,13 @@
 
 The A2SV Community Portal Mobile App is a centralized platform designed to address the challenges faced by community members and heads of the A2SV community program. The app aims to streamline the joining process, provide clear instructions, automate application management, and alleviate scalability issues. It serves as a comprehensive tool to enhance the efficiency and effectiveness of the A2SV community program.
 
+![Splash Screen](a2sv_community_portal_mobile/images/loginpagefinal.png)
+![Login Page](a2sv_community_portal_mobile/images/splashScreenFinal.png)
+![Home screen](a2sv_community_portal_mobile/images/homePagefinal.png)
+![Onboarding screen](a2sv_community_portal_mobile/images/onboardingFinal.png)
+![Profile Page screen](a2sv_community_portal_mobile/images/profilePagefinal.png)
+![Contest Page screen](a2sv_community_portal_mobile/images/contestPageFinal.png)
+![Announcement Screen](a2sv_community_portal_mobile/images/AnnouncementPageFinal.png)
 
 ## Problem
 
@@ -48,7 +55,6 @@ We welcome contributions from the community to enhance the A2SV Community Portal
 3. Make the necessary changes and commit them.
 4. Push your changes to your forked repository.
 5. Submit a pull request, explaining the changes you have made.
-
 
 ## Contact Us
 
