@@ -23,7 +23,7 @@ class UpperBar extends StatelessWidget {
                 ),
                 SizedBox(height: 4.0), // Adds spacing between the texts
                 Text(
-                  'Joe Doe',
+                  'Joen Doe',
                   style: TextStyle(
                       fontSize: 20,
                       color: Color.fromRGBO(0, 0, 0, 1),

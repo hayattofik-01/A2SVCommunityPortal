@@ -37,7 +37,7 @@ class BioCard extends StatelessWidget {
         fontWeight: FontWeight.w600,
         color: bioTextColor);
     return ContentBox(
-      boxHeight: 245,
+      boxHeight: 300,
       child: Padding(
         padding: EdgeInsets.all(UIConverter.getComponentHeight(context, 16)),
         child: Column(children: [
@@ -98,7 +98,7 @@ class BioCard extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: UIConverter.getComponentHeight(context, 80),
+            height: UIConverter.getComponentHeight(context, 100),
             child: Column(
               children: [
                 Align(

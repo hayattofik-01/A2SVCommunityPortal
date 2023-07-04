@@ -38,13 +38,7 @@ class CustomListTile extends StatelessWidget {
           padding: const EdgeInsets.only(top: 5, bottom: 0),
           child: Html(
             data: description,
-            // description,
-            // style: const TextStyle(
-            //   color: Color.fromRGBO(74, 85, 104, 1),
-            //   fontWeight: FontWeight.w500,
-            //   fontSize: 14,
-            //   fontFamily: "Urbanist",
-            // ),
+
           ),
         ),
         trailing: Container(
@@ -58,6 +52,7 @@ class CustomListTile extends StatelessWidget {
             shape: BoxShape.circle,
           ),
         ),
+
       ),
     );
   }

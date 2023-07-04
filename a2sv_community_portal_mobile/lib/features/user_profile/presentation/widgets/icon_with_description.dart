@@ -63,7 +63,7 @@ class IconWithDescription extends StatelessWidget {
                 ),
                 if (handle != "")
                   Container(
-                    width: 120,
+                    width: 80,
                     child: Align(
                       alignment: Alignment.topLeft,
                       child: Text(

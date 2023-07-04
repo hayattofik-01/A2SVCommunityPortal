@@ -29,7 +29,7 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                   SizedBox(height: 4.0), // Use const with SizedBox constructor
                   Text(
-                    'Joe Doe',
+                    'Joen Doe',
                     style: TextStyle(
                         fontSize: 20,
                         color: userNameColor,

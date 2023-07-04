@@ -29,7 +29,7 @@ class NotificationModel extends Notification {
       title: json['title'] as String? ?? 'No title available',
       content: json['content'] as String? ?? 'No content available',
       type: json['type'] as String? ?? "No type available",
-      isRead: json['isRead'],
+    isRead: json['isRead'] == null ? false : json['isRead'] as bool,
     );
   }
 }

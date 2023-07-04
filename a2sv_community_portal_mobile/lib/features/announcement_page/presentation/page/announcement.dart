@@ -19,7 +19,7 @@ class AnnouncementPage extends StatelessWidget {
       body: ListView(
         children: [
           const UpperBar(
-            title: 'Announcemet',
+            title: 'Announcement',
           ),
           const SizedBox(
             height: 20,
@@ -40,12 +40,7 @@ class AnnouncementPage extends StatelessWidget {
                       GestureDetector(
                         onTap: () =>
                             context.push("/announcement/detail", extra: announcement),
-                        // Navigator.push(
-                        //     context,
-                        //     MaterialPageRoute(
-                        //         builder: (context) => AnnouncementDetailsPage(
-                        //             title: data.title,
-                        //             description: data.description))),
+                        
                         child: Container(
                             margin: const EdgeInsets.only(bottom: 10),
                             padding:
