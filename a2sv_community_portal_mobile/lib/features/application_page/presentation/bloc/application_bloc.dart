@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/errors/failures.dart';
 import 'package:a2sv_community_portal_mobile/core/usecases/usecase.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/domain/entities/application_step_entity.dart';
@@ -16,8 +17,15 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
     emit(ApplicationLoading());
     final result = await getStep(NoParams());
 
-    result.fold(
-        (failure) => emit(const ApplicationError(message: unknown)),
+    result.fold((failure) {
+      if (failure is ServerFailure) {
+        emit(const ApplicationError(message: serverFaliure));
+      } else if (failure is NoConnectionFailure) {
+        emit(const ApplicationError(message: noConnectionError));
+      } else {
+        emit(const ApplicationError(message: unknown));
+      }
+    },
         (applicationStepEntity) => emit(
             ApplicationLoaded(applicationStepEntity: applicationStepEntity)));
   }

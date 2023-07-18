@@ -1,7 +1,7 @@
 import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/widgets/bottom_bar.dart';
-import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/upper_bar.dart';
+import 'package:a2sv_community_portal_mobile/core/utils/widgets/upper_bar.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/bloc/application_bloc.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/custom_button.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/presentation/widgets/custom_card.dart';
