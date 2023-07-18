@@ -1,5 +1,5 @@
 import 'package:a2sv_community_portal_mobile/features/announcement_page/domain/entities/announcement.dart';
-import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/announcement.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/screen/announcement.dart';
 import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/detail.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/login_page.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/signup_page.dart';
