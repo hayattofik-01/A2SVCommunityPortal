@@ -1,9 +1,8 @@
 import 'package:a2sv_community_portal_mobile/features/application_page/data/models/application_substep_model.dart';
 import 'package:a2sv_community_portal_mobile/features/application_page/domain/entities/application_step_entity.dart';
-import 'package:equatable/equatable.dart';
 
-class ApplicationStepModel extends ApplicationStepEntity with EquatableMixin {
-  ApplicationStepModel({
+class ApplicationStepModel extends ApplicationStepEntity {
+  const ApplicationStepModel({
     required bool isCompleted,
     required String stepName,
     required List<ApplicationSubStepModel> subSteps,

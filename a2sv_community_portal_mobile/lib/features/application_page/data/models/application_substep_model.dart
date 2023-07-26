@@ -1,7 +1,6 @@
 import 'package:a2sv_community_portal_mobile/features/application_page/domain/entities/application_substep_entity.dart';
-import 'package:equatable/equatable.dart';
 
-class ApplicationSubStepModel extends ApplicationSubStepEntity with EquatableMixin  {
+class ApplicationSubStepModel extends ApplicationSubStepEntity {
   ApplicationSubStepModel({
     required bool isCompleted,
     required String subStepName,

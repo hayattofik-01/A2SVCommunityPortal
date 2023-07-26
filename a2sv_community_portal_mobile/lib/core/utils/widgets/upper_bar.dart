@@ -19,10 +19,10 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
             // margin: EdgeInsets.only(top: 16),
             Row(
           children: [
-            const Expanded(
+            Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   Text(
                     'Welcome',
                     style: TextStyle(fontSize: 14, color: whiteGreyColor),
@@ -48,7 +48,8 @@ class UpperBar extends StatelessWidget implements PreferredSizeWidget {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: greyColorForIcon, // Use const with Color constructor
+                      color:
+                          greyColorForIcon, // Use const with Color constructor
                     ),
                     padding: const EdgeInsets.all(5),
                     height: 50,
