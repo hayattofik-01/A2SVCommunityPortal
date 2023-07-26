@@ -4,6 +4,7 @@ import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../../core/utils/colors.dart';
 import '../../domain/entities/user_entity.dart';
 import '../bloc/profile_bloc.dart';
@@ -80,23 +81,28 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       iconName: "save_icon",
                       action: () {
                         if (_formkey.currentState!.validate()) {
-                          final fullName = controllers['Full Name']!.text;
-                          final country = controllers['Country']!.text;
-                          final phoneNumber = controllers['Phone Number']!.text;
-                          final email = controllers['Email']!.text;
-                          final university = controllers['University']!.text;
+                          final fullName =
+                              controllers['Full Name']!.text.trim();
+                          final country = controllers['Country']!.text.trim();
+                          final phoneNumber =
+                              controllers['Phone Number']!.text.trim();
+                          final email = controllers['Email']!.text.trim();
+                          final university =
+                              controllers['University']!.text.trim();
                           final graduationYear = int.tryParse(
-                              controllers['Graduation Year']!.text);
-                          final major = controllers['Major']!.text;
-                          final leetCode = controllers['LeetCode']!.text;
-                          final codeForces = controllers['CodeForces']!.text;
-                          final hackerRank = controllers['Hacker Rank']!.text;
-                          final gitHub = controllers['GitHub']!.text;
-                          final linkedin = controllers['Linkedin']!.text;
-                          final telegram = controllers['Telegram']!.text;
-                          final shortBio = controllers['Bio']!.text;
+                              controllers['Graduation Year']!.text.trim());
+                          final major = controllers['Major']!.text.trim();
+                          final leetCode = controllers['LeetCode']!.text.trim();
+                          final codeForces =
+                              controllers['CodeForces']!.text.trim();
+                          final hackerRank =
+                              controllers['Hacker Rank']!.text.trim();
+                          final gitHub = controllers['GitHub']!.text.trim();
+                          final linkedin = controllers['Linkedin']!.text.trim();
+                          final telegram = controllers['Telegram']!.text.trim();
+                          final shortBio = controllers['Bio']!.text.trim();
                           final favoriteLanguage =
-                              controllers['Favorite Language']!.text;
+                              controllers['Favorite Language']!.text.trim();
 
                           final user = UserEntity(
                               fullName: fullName,
@@ -127,7 +133,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         children: [
                           EditCard(
                             bio: true,
-                            boxHeight: 521,
+                            boxHeight: 52.1,
                             title: "Info",
                             fieldList: const [
                               [
@@ -146,7 +152,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             controllers: controllers,
                           ),
                           EditCard(
-                            boxHeight: 300,
+                            boxHeight: 30,
                             fieldList: const [
                               [
                                 'University',
@@ -164,12 +170,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             controllers: controllers,
                           ),
                           EditCard(
-                            boxHeight: 370,
+                            boxHeight: 37,
                             fieldList: const [
                               [
                                 'LeetCode',
                                 'leetcode_icon',
-                                Validator.validateNoSpace
+                                Validator.noValidation
                               ],
                               [
                                 'CodeForces',
@@ -179,13 +185,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               [
                                 'Hacker Rank',
                                 'hacker_rank_icon',
-                                Validator.validateNoSpace
+                                Validator.noValidation
                               ],
-                              [
-                                'GitHub',
-                                'github_icon',
-                                Validator.validateNoSpace
-                              ],
+                              ['GitHub', 'github_icon', Validator.noValidation],
                             ],
                             title: "Developer Handles",
                             controllers: controllers,
@@ -195,7 +197,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               [
                                 'Linkedin',
                                 'linkedin_icon',
-                                Validator.validateNoSpace
+                                Validator.noValidation
                               ],
                               [
                                 'Telegram',
@@ -204,7 +206,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               ]
                             ],
                             title: "Socials",
-                            boxHeight: 229,
+                            boxHeight: 22.9,
                             controllers: controllers,
                           ),
                           EditCard(
@@ -212,26 +214,26 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                 [
                                   'Favorite Language',
                                   'code_icon',
-                                  Validator.validateNoSpace
+                                  Validator.noValidation
                                 ]
                               ],
                               title: 'Favorite Language',
-                              boxHeight: 150,
+                              boxHeight: 15,
                               controllers: controllers),
                           ContentBox(
-                              boxHeight: 90,
+                              boxHeight: 11,
                               child: Padding(
-                                padding: const EdgeInsets.all(16),
+                                padding: EdgeInsets.all(1.6.h),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const Text(
+                                    Text(
                                       'Resume',
                                       style: TextStyle(
                                           color: cardTitleColor,
                                           fontFamily: 'Urbanist',
                                           fontWeight: FontWeight.w600,
-                                          fontSize: 16),
+                                          fontSize: 15.5.sp),
                                     ),
                                     Row(
                                       children: [
@@ -254,20 +256,20 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                                 });
                                               }
                                             },
-                                            child: const Text("Choose PDF",
+                                            child: Text("Choose PDF",
                                                 style: TextStyle(
                                                     fontFamily: 'Urbanist',
                                                     fontWeight: FontWeight.w500,
-                                                    fontSize: 16))),
-                                        const SizedBox(
-                                          width: 30,
+                                                    fontSize: 15.5.sp))),
+                                        SizedBox(
+                                          width: 3.h,
                                         ),
                                         Text(
                                           fileName,
-                                          style: const TextStyle(
+                                          style: TextStyle(
                                               fontFamily: 'Urbanist',
                                               fontWeight: FontWeight.w500,
-                                              fontSize: 16),
+                                              fontSize: 15.5.sp),
                                         )
                                       ],
                                     )

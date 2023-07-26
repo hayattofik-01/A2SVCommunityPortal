@@ -2,6 +2,7 @@ import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class EditField extends StatelessWidget {
   const EditField(
@@ -20,7 +21,7 @@ class EditField extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(
           0, UIConverter.getComponentHeight(context, 16), 0, 0),
       child: Container(
-          height: UIConverter.getComponentHeight(context, 55),
+          height: 5.5.h,
           decoration: BoxDecoration(
             color: inputFieldColor,
             borderRadius: BorderRadius.circular(10),
@@ -32,8 +33,8 @@ class EditField extends StatelessWidget {
                   child: SvgPicture.asset(
                     ("assets/images/$iconName.svg"),
                     color: blueBlackForAppBar,
-                    height: UIConverter.getComponentHeight(context, 20),
-                    width: UIConverter.getComponentHeight(context, 20),
+                    height:2.h,
+                    width:2.h,
                   ),
                 )),
             Expanded(

@@ -3,6 +3,7 @@ import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/content_box.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/edit_field.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class EditCard extends StatelessWidget {
   const EditCard({
@@ -32,11 +33,11 @@ class EditCard extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
                 child: Text(
                   title,
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: cardTitleColor,
                       fontFamily: 'Urbanist',
                       fontWeight: FontWeight.w600,
-                      fontSize: 16),
+                      fontSize: 15.5.sp),
                 ),
               ),
               Column(
@@ -54,7 +55,7 @@ class EditCard extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(
                       0, UIConverter.getComponentHeight(context, 16), 0, 0),
                   child: Container(
-                    height: UIConverter.getComponentHeight(context, 143),
+                    height: 14.3.h,
                     decoration: BoxDecoration(
                       color: inputFieldColor,
                       borderRadius: BorderRadius.circular(10),
@@ -68,11 +69,11 @@ class EditCard extends StatelessWidget {
                         contentPadding: EdgeInsets.all(
                             UIConverter.getComponentHeight(context, 16)),
                         hintText: "Bio",
-                        hintStyle: const TextStyle(
+                        hintStyle: TextStyle(
                             color: hintTextColor,
                             fontFamily: 'Urbanist',
                             fontWeight: FontWeight.w500,
-                            fontSize: 14),
+                            fontSize: 13.5.sp),
                         border: InputBorder.none,
                       ),
                     ),

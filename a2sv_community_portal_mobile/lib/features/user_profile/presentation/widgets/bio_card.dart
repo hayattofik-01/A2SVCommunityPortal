@@ -1,12 +1,11 @@
 import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
-import 'package:a2sv_community_portal_mobile/core/utils/constants.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/country.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/domain/entities/user_entity.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/content_box.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/profile_picture.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../../../../core/utils/media_query.dart';
 import 'package:flutter_circle_flags_svg/flutter_circle_flags_svg.dart';
 
 class BioCard extends StatelessWidget {
@@ -33,16 +32,16 @@ class BioCard extends StatelessWidget {
     final TextStyle biotextStyle = TextStyle(
         height: 1,
         fontFamily: 'Urbanist',
-        fontSize: UIConverter.getComponentHeight(context, 14),
+        fontSize: 14.sp,
         fontWeight: FontWeight.w600,
         color: bioTextColor);
     return ContentBox(
-      boxHeight: 245,
+      boxHeight: 29,
       child: Padding(
-        padding: EdgeInsets.all(UIConverter.getComponentHeight(context, 16)),
+        padding: EdgeInsets.all(1.6.h),
         child: Column(children: [
           SizedBox(
-            height: UIConverter.getComponentHeight(context, 127),
+            height: 12.7.h,
             child: Row(
               children: [
                 ProfilePicture(
@@ -50,7 +49,7 @@ class BioCard extends StatelessWidget {
                   user: user,
                 ),
                 SizedBox(
-                  width: UIConverter.getComponentWidth(context, 20),
+                  width: 5.w,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,7 +60,7 @@ class BioCard extends StatelessWidget {
                       style: TextStyle(
                           fontFamily: 'Urbanist',
                           fontWeight: FontWeight.w600,
-                          fontSize: UIConverter.getComponentHeight(context, 16),
+                          fontSize: 16.sp,
                           color: infoNameColor),
                     ),
                     Row(
@@ -87,8 +86,7 @@ class BioCard extends StatelessWidget {
                           style: TextStyle(
                               height: 1,
                               fontFamily: 'Urbanist',
-                              fontSize:
-                                  UIConverter.getComponentHeight(context, 14),
+                              fontSize: 14.sp,
                               fontWeight: FontWeight.w600,
                               color: primaryColor)),
                     )
@@ -98,7 +96,7 @@ class BioCard extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: UIConverter.getComponentHeight(context, 80),
+            height: 12.h,
             child: Column(
               children: [
                 Align(
@@ -109,8 +107,7 @@ class BioCard extends StatelessWidget {
                         style: TextStyle(
                             height: 1,
                             fontFamily: 'Urbanist',
-                            fontSize:
-                                UIConverter.getComponentHeight(context, 16),
+                            fontSize: 15.5.sp,
                             fontWeight: FontWeight.w600,
                             color: cardTitleColor)),
                   ),
@@ -121,7 +118,7 @@ class BioCard extends StatelessWidget {
                       style: TextStyle(
                           height: 1,
                           fontFamily: 'Urbanist',
-                          fontSize: UIConverter.getComponentHeight(context, 14),
+                          fontSize: 14.5.sp,
                           fontWeight: FontWeight.w500,
                           color: bioTextColor)),
                 ),

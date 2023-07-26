@@ -4,6 +4,7 @@ import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class IconWithDescription extends StatelessWidget {
@@ -57,13 +58,13 @@ class IconWithDescription extends StatelessWidget {
                     description,
                     style: TextStyle(
                         fontFamily: 'Urbanist',
-                        fontSize: UIConverter.getComponentHeight(context, 16),
+                        fontSize: 15.5.sp,
                         fontWeight: FontWeight.w600),
                   ),
                 ),
                 if (handle != "")
-                  Container(
-                    width: 120,
+                  SizedBox(
+                    width: 17.w,
                     child: Align(
                       alignment: Alignment.topLeft,
                       child: Text(
@@ -72,8 +73,7 @@ class IconWithDescription extends StatelessWidget {
                         style: TextStyle(
                             color: handleColor,
                             fontFamily: 'Poppins',
-                            fontSize:
-                                UIConverter.getComponentHeight(context, 12),
+                            fontSize: 13.sp,
                             fontWeight: FontWeight.w400),
                       ),
                     ),

@@ -1,5 +1,6 @@
 import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../core/utils/media_query.dart';
 
@@ -18,7 +19,7 @@ class ContentBox extends StatelessWidget {
             vertical: UIConverter.getComponentHeight(context, 8),
             horizontal: 16),
         child: Container(
-            height: UIConverter.getComponentHeight(context, boxHeight),
+            height: boxHeight.h,
             decoration: BoxDecoration(
               border: Border.all(
                 color: boxBorderColor,

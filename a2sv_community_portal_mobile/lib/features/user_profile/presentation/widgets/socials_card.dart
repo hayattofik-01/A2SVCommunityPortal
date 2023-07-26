@@ -2,6 +2,7 @@ import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/media_query.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/content_box.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'icon_with_description.dart';
 
 class SocialCard extends StatelessWidget {
@@ -12,7 +13,7 @@ class SocialCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContentBox(
-        boxHeight: 133,
+        boxHeight: 13,
         child: Container(
             padding:
                 EdgeInsets.all(UIConverter.getComponentHeight(context, 16)),
@@ -26,7 +27,7 @@ class SocialCard extends StatelessWidget {
                       color: cardTitleColor,
                       fontFamily: 'Urbanist',
                       fontWeight: FontWeight.w600,
-                      fontSize: UIConverter.getComponentHeight(context, 16)),
+                      fontSize: 15.5.sp),
                 ),
               ),
               Row(
@@ -41,7 +42,7 @@ class SocialCard extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: UIConverter.getComponentWidth(context, 30),
+                    width: 3.w,
                   ),
                   Expanded(
                     flex: 1,

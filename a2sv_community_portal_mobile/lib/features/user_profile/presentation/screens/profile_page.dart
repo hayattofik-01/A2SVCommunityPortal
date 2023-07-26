@@ -9,8 +9,8 @@ import 'package:go_router/go_router.dart';
 
 import '../bloc/profile_bloc.dart';
 import '../widgets/title_bar.dart';
-import 'edit_profile_page.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -105,16 +105,16 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Center(
                             child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
                           'Uploading',
-                          style:
-                              TextStyle(fontFamily: 'Urbanist', fontSize: 20),
+                          style: TextStyle(
+                              fontFamily: 'Urbanist', fontSize: 20.sp),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15,
                         ),
-                        SpinKitThreeBounce(
+                        const SpinKitThreeBounce(
                           size: 25,
                           color: Colors.black,
                         )
@@ -131,12 +131,12 @@ class _ProfilePageState extends State<ProfilePage> {
                                 .read<ProfileBloc>()
                                 .add(const GetProfileEvent());
                           },
-                          child: const Center(
+                          child: Center(
                               child: Text(
                             'Reload',
                             style: TextStyle(
                                 fontFamily: 'Urbanist',
-                                fontSize: 24,
+                                fontSize: 24.sp,
                                 color: primaryColor),
                           ))),
                     ),

@@ -1,7 +1,7 @@
 import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/widgets/content_box.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/utils/media_query.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import 'icon_with_description.dart';
 
 class DeveloperHandelCard extends StatelessWidget {
@@ -19,7 +19,7 @@ class DeveloperHandelCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContentBox(
-      boxHeight: 200,
+      boxHeight: 20,
       child: Container(
         padding: const EdgeInsets.all(16),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -31,7 +31,7 @@ class DeveloperHandelCard extends StatelessWidget {
                   color: cardTitleColor,
                   fontFamily: 'Urbanist',
                   fontWeight: FontWeight.w600,
-                  fontSize: UIConverter.getComponentHeight(context, 16)),
+                  fontSize: 15.5.sp),
             ),
           ),
           Row(
@@ -57,7 +57,7 @@ class DeveloperHandelCard extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: UIConverter.getComponentWidth(context, 30),
+                width: 3.w,
               ),
               Expanded(
                 flex: 1,
