@@ -1,3 +1,4 @@
+import 'package:a2sv_community_portal_mobile/core/usecases/usecase.dart';
 import 'package:a2sv_community_portal_mobile/features/announcement_page/domain/usecase/get_announcement.dart';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -15,7 +16,7 @@ class AnnouncementBloc extends Bloc<AnnouncementEvent, AnnouncementState> {
     on<AnnouncementEvent>((event, emit) async {
       if (event is GetAnnouncementEvent) {
         emit(AnnouncementLoading());
-        final response = await getAnnouncements();
+        final response = await getAnnouncements(NoParams());
         response.fold(
           (error) => emit(AnnouncementError(message: error.toString())),
           (announcement) =>

@@ -24,7 +24,6 @@ import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 
-import '../features/announcement_page/domain/repository/announcement_datasource.dart';
 import 'auth_injection.dart';
 
 final sl = GetIt.instance;
