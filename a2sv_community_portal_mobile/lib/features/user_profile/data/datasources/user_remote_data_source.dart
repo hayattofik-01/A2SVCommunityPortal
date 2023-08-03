@@ -16,16 +16,16 @@ abstract class UserRemoteDataSource {
 class UserRemoteDataSourceImpl implements UserRemoteDataSource {
   final http.Client client;
   final SharedPreferences sharedPreferences;
+  final http.MultipartRequest request;
   String uri = "https://a2sv-community-portal-api.onrender.com/api/Profile/me";
   UserRemoteDataSourceImpl(
-      {required this.client, required this.sharedPreferences});
+      {required this.client, required this.sharedPreferences,required this.request});
 
   @override
   Future<UserModel> editUserProfile(UserEntity user) async {
     String token =
         jsonDecode(sharedPreferences.getString(cachedToken)!)['token'];
     final userModel = user.toUserModel().toJson();
-    final request = http.MultipartRequest('POST', Uri.parse(uri));
     request.headers['Authorization'] = "Bearer $token";
 
     userModel.forEach((key, value) async {
@@ -60,7 +60,6 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
       },
     );
     if (response.statusCode == 200) {
-      print(response.body);
       return UserModel.fromJson(json.decode(response.body)['value']);
     } else {
       throw ServerException(serverFaliure);

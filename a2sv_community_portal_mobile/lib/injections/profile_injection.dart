@@ -6,10 +6,14 @@ import 'package:a2sv_community_portal_mobile/features/user_profile/domain/usecas
 import 'package:a2sv_community_portal_mobile/features/user_profile/domain/usecases/get_user.dart';
 import 'package:a2sv_community_portal_mobile/features/user_profile/presentation/bloc/profile_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:http/http.dart' as http;
 
 final sl = GetIt.instance;
 
 Future<void> profileInit() async {
+  const String uri =
+      "https://a2sv-community-portal-api.onrender.com/api/Profile/me";
+  sl.registerLazySingleton(() => http.MultipartRequest('POST', Uri.parse(uri)));
   //bloc
   sl.registerFactory(() => ProfileBloc(editUserProfile: sl(), getUser: sl()));
 
@@ -27,8 +31,8 @@ Future<void> profileInit() async {
   );
 
   //datasources
-  sl.registerLazySingleton<UserRemoteDataSource>(
-      () => UserRemoteDataSourceImpl(client: sl(),sharedPreferences: sl()));
+  sl.registerLazySingleton<UserRemoteDataSource>(() => UserRemoteDataSourceImpl(
+      client: sl(), sharedPreferences: sl(), request: sl()));
   sl.registerLazySingleton<UserLocalDataSource>(
       () => UserLocalDataSourceImpl(sharedPreferences: sl()));
 }
