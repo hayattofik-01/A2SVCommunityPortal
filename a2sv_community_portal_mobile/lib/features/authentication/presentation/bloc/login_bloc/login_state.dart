@@ -11,9 +11,9 @@ class LoginInitial extends LoginState {}
 
 class LoginLoading extends LoginState {}
 
-class LoginSuccessfull extends LoginState {
+class LoginSuccessful extends LoginState {
 
-  const LoginSuccessfull();
+  const LoginSuccessful();
 }
 
 class LoginFailure extends LoginState {

@@ -23,7 +23,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     
         (failure) => emit(LoginFailure(failure.message.toString())),
        
-        (login) => emit(const LoginSuccessfull()),
+        (login) => emit(const LoginSuccessful()),
       );
     });
   }

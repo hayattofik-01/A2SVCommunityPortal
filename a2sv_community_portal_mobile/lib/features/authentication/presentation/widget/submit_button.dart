@@ -24,7 +24,7 @@ class SubmitButton extends StatelessWidget {
     return BlocConsumer<LoginBloc, LoginState>(listener: (context, state) {
       if (state is LoginFailure) {
         CustomSnackBar.showError(context, state.exception);
-      } else if (state is LoginSuccessfull) {
+      } else if (state is LoginSuccessful) {
         context.go("/home");
       }
     }, builder: (context, state) {

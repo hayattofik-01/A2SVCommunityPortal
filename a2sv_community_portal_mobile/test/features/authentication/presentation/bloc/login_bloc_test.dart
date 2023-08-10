@@ -43,14 +43,14 @@ setUp(() {
           bloc.stream,
           emitsInOrder([
            LoginLoading(),
-            const LoginSuccessfull(),
+            const LoginSuccessful(),
             ])
         );
         verify(mockLoginUser(any));
       },
       expect: () => [
         LoginLoading(),
-        const LoginSuccessfull(),
+        const LoginSuccessful(),
        
       ],
    
