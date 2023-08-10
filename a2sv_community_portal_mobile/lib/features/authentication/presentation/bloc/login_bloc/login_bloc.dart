@@ -1,7 +1,7 @@
 
 import 'package:a2sv_community_portal_mobile/features/authentication/domain/usecases/login_user.dart';
 import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
+
 import 'package:equatable/equatable.dart';
 
 import 'login_state.dart';

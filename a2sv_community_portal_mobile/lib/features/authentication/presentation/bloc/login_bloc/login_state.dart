@@ -1,5 +1,4 @@
 
-import 'package:a2sv_community_portal_mobile/core/errors/failures.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class LoginState extends Equatable {
