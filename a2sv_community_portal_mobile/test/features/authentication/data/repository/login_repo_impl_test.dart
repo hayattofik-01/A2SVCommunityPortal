@@ -7,6 +7,7 @@ import 'package:a2sv_community_portal_mobile/features/authentication/data/dataso
 import 'package:a2sv_community_portal_mobile/features/authentication/data/model/login_model.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/data/repository/login_repo_impl.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/domain/entities/login.dart';
+import 'package:a2sv_community_portal_mobile/features/authentication/domain/entities/registration_payload.dart';
 import 'package:dartz/dartz.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -83,6 +84,23 @@ void main() {
 
       //assert
       verify(mockRemoteDataSource.loginUser(tEmail, tPassword));
+      verify(mockLocalDataSource.cacheToken(tLoginModel));
+    });
+    test('register - should cache the token locally when the remote call is successfull',
+        () async {
+          const RegistrationPayload user = RegistrationPayload(fullName: "jhon",
+     email: "j@gmail.com", phoneNumber: "1234455666", codeforces: "cfs", telegram: "tg", 
+     password: "11245675745", confirmPassword: "11245675745");
+    const LoginModel tLoginModel = LoginModel(token: '1234');
+      //arrange
+      when(mockRemoteDataSource.registerUser(user))
+          .thenAnswer((_) async => tLoginModel);
+
+      //act
+      await repository.register(user);
+
+      //assert
+      verify(mockRemoteDataSource.registerUser(user));
       verify(mockLocalDataSource.cacheToken(tLoginModel));
     });
 

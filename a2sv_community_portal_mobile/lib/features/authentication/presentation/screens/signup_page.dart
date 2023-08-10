@@ -1,11 +1,10 @@
 import 'package:a2sv_community_portal_mobile/core/utils/confirmation_validator.dart';
 import 'package:a2sv_community_portal_mobile/core/utils/validation.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/bloc/sign_up_bloc/sign_up_bloc.dart';
-import 'package:a2sv_community_portal_mobile/features/authentication/presentation/screens/login_page.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/account_question.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/password_field.dart';
 import 'package:a2sv_community_portal_mobile/features/authentication/presentation/widget/snackbar.dart';
-import 'package:a2sv_community_portal_mobile/main_Home.dart';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../core/utils/media_query.dart';

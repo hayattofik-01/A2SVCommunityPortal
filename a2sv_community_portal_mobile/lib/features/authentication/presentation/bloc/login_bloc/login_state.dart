@@ -1,5 +1,4 @@
 
-import 'package:a2sv_community_portal_mobile/core/errors/failures.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class LoginState extends Equatable {
@@ -12,9 +11,9 @@ class LoginInitial extends LoginState {}
 
 class LoginLoading extends LoginState {}
 
-class LoginSuccessfull extends LoginState {
+class LoginSuccessful extends LoginState {
 
-  const LoginSuccessfull();
+  const LoginSuccessful();
 }
 
 class LoginFailure extends LoginState {

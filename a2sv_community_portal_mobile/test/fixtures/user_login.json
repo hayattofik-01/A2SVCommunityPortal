@@ -1,3 +1,15 @@
 {
-  "token": "1234"
+  "isSuccess": true,
+  "error": null,
+  "value": {
+    "user": {
+      "id": "b9e2a0be-a4d8-4318-a7ef-72cdfcfed19b",
+      "email": "johndoe@example.com",
+      "role": "Student",
+      "fullName": "John Doe",
+      "profilePictureUrl": null
+    },
+    "token": "1234"
+  },
+  "message": null
 }
