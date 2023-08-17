@@ -3,13 +3,13 @@ import 'package:flutter/foundation.dart';
 import '../../domain/entities/announcement.dart';
 
 class AnnouncementModel extends Announcement {
+  final String title;
+  final String description;
+
   AnnouncementModel({
-    required String title,
-    required String description,
-  }) : super(
-          title: '',
-          description: '',
-        );
+    required this.title,
+    required this.description,
+  }) : super(title: '', description: '');
 
   @override
   List<Object?> get props => [title, description];
