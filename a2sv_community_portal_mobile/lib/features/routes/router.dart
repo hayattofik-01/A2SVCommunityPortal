@@ -1,4 +1,4 @@
-import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/announcement.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/screen/announcement.dart';
 import 'package:a2sv_community_portal_mobile/features/routes/routes.dart';
 import 'package:go_router/go_router.dart';
 

@@ -2,14 +2,17 @@ import 'dart:convert';
 
 import 'package:a2sv_community_portal_mobile/core/errors/failures.dart';
 import 'package:a2sv_community_portal_mobile/features/announcement_page/data/model/announcement_model.dart';
-import 'package:dartz/dartz.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/domain/entities/announcement.dart';
 import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/errors/exceptions.dart';
 import '../../../../core/utils/constants.dart';
-import '../../domain/repository/announcement_datasource.dart';
 import 'package:http/http.dart' as http;
+
+abstract class AnnouncementRemoteDataSource {
+  Future<List<Announcement>> getAnnouncements();
+}
 
 class DataSource implements AnnouncementRemoteDataSource {
   final http.Client client;
