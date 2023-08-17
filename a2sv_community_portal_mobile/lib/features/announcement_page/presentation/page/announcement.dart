@@ -1,7 +1,7 @@
 import 'package:a2sv_community_portal_mobile/core/utils/colors.dart';
 import 'package:a2sv_community_portal_mobile/features/announcement_page/domain/entities/announcement.dart';
-import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/widgets/custom_tile.dart';
-import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/widgets/detail.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/custom_tile.dart';
+import 'package:a2sv_community_portal_mobile/features/announcement_page/presentation/page/detail.dart';
 
 import 'package:a2sv_community_portal_mobile/features/notifications/presentation/widgets/uppe_bar.dart';
 import 'package:flutter/material.dart';
